@@ -17,37 +17,36 @@
 
 **Melvin**: 
 
-*Fill in*
+Completed data gathering and storing the data for heros into an excel database.
 
 **Chris**: 
 
-Designed the implementation of a Django database to hold simple datapoints such as usename and password. Currently using a local machine to verify operability.
+Designed the implementation of a Django database to hold simple datapoints such as usename and password.
 
 **Mark**: 
 
-*Fill in*
+Contacted TA and elicate feedback on project currently.
 
 **Rique**: 
 
-*Fill in*
+Created website skeleton implementing tabs, search bar, and headers.
 
 # 2. Retrospective
 
-Appreciations: Chris did a status update to keep us on schedule.
+Appreciations: Rique is picked as the most appreciated with his work on the website, working solo to develope the landing page.
 
-Successes: Chris found a back-end service Django to help with our website.
+Successes: Team met up more than once to complete and meet goals, proving that the team is flexible.
 
-Failures: Mark was sick this week so our homepage developement was slowed down for this week.
+Failures: This week was marred with midterms, so while we adapted to finish goals, other obligations slowed progress.
 
-Barries: Tools, Databases, APIs - they cost money
+Barries: Database architecture and Midterms
 
-What we should try next time: Meeting up at least more than once a week. More communication while working our tasks. We NEED to start working on Deliverable 3. 
+What we should try next time: Meet more often this week to achieve some more progress because there are still midterms this week.
 
 ## 3. Next Steps
 
 Tasks (GOALS)
-- Team meetings for this Thursday (2/27) and Sunday (3/2)
-- Mark and Rique are continuing to work on homepage, specifically Hero Indexes
-- Make a working demo (Mark + Rique) for Homepage (working links)
-- Organizing data into an Excell or .csv file (Melvin)
-- Having a backend for the website, specificaly retrieving user data (local host/ Django) (Chris)
+- Have an operational backend by Friday (3/7)
+- Presentation (3/5)
+- Make a working demo (Melvin + Rique) for Homepage (working links)
+- Port over collected data for the website to use (3/5)
