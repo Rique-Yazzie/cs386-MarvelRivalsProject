@@ -10,6 +10,15 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Requirements**
 
+### Requirement:
+
+- As a user, I want to be able to keep up to date with the latest patch for Marvel Rivals.
+
+  * Issue: [#51](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/51)
+  * Pull Request: [#36](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/36)
+    * Implemented by: Melvin Agram
+    * Approved by: Rique Yazzie
+
 **Tests**
 
 - Mark and Rique
@@ -44,7 +53,15 @@ Our project is released under the MIT License. We chose it because it is highly 
 
 **Readme File**
 
-- Melvin
+[Code of Conduct](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/CONTRIBUTING.md)
+
+[Contributing](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/CONTRIBUTING.md)
+
+[LICENSE](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/LICENSE)
+
+[README](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/README.md)
+
+- Melvin Agram did this section
 
 **UX Design**
 
