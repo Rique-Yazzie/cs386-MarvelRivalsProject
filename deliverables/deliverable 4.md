@@ -16,13 +16,29 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Technology**
 
-- Melvin
+Django
+
+Django is our high-level Python web framework that serves as the backbone of CounterPick.gg. We leverage Django for robust backend development, managing dynamic content, data integrity, and security across the platform. A key feature is its built-in user authentication system, which simplifies the implementation of secure account creation, login, and profile management. This makes Django an ideal choice for both handling our core logic and ensuring that user data is safeguarded.
+
+HTML
+
+HTML (HyperText Markup Language) structures the content on CounterPick.gg. It ensures that all critical game information—such as hero details, patch notes, and team compositions—is clearly presented and easily navigable. HTML’s universal compatibility and simplicity are essential for building a responsive, accessible layout that meets our user interface goals.
+
+JavaScript
+
+JavaScript enhances interactivity on the platform, enabling dynamic updates and real-time user feedback. It powers features like the Comp Meta tool and interactive search functionalities, ensuring that players experience a seamless, engaging interface as they explore hero statistics, update team compositions, or access community insights.
+
+
+- Melvin Agram did this section 
+
 
 **Deployment**
 
 - Chris
 
 **Licensing**
+
+Our project is released under the MIT License. We chose it because it is highly permissive, allowing anyone to use, modify, and distribute the code with minimal restrictions. Its simple, clear terms promote community contributions and innovation while ensuring proper attribution through the retention of the original copyright notice.
 
 - Melvin
 
