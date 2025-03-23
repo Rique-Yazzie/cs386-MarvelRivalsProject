@@ -1,0 +1,17 @@
+//Django settings changed from default
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'counterpick_db',
+        'USER': 'counterpick_root',
+        'PASSWORD': '-9hx876)>Vlv',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+DEBUG = False
