@@ -1,0 +1,7 @@
+CREATE DATABASE counterpick_db;
+CREATE USER counterpick_root WITH PASSWORD '-9hx876)>Vlv';
+ALTER ROLE counterpick_root SET client_encoding TO 'utf8';
+ALTER ROLE counterpick_root SET default_transaction_isolation TO 'read committed';
+ALTER ROLE counterpick_root SET timezone TO 'UTC-7';
+GRANT ALL PRIVILEGES ON DATABASE counterpick_db TO counterpick_root;
+\q
