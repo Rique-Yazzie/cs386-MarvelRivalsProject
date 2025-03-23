@@ -40,9 +40,11 @@ Requirement:
        * Implemented by: Rique Yazzie
        * Approved by: Melvin Agram
 
+Every member worked on this section.
+
 **Tests**
 
-- Mark and Rique
+- Mark Johnson and Rique Yazzie did this section
 
 **Technology**
 
@@ -64,13 +66,13 @@ JavaScript enhances interactivity on the platform, enabling dynamic updates and 
 
 **Deployment**
 
-- Chris
+- Chris Son did this section
 
 **Licensing**
 
 Our project is released under the MIT License. We chose it because it is highly permissive, allowing anyone to use, modify, and distribute the code with minimal restrictions. Its simple, clear terms promote community contributions and innovation while ensuring proper attribution through the retention of the original copyright notice.
 
-- Melvin
+- Melvin Agram did this section
 
 **Readme File**
 
@@ -86,7 +88,7 @@ Our project is released under the MIT License. We chose it because it is highly 
 
 **UX Design**
 
-- Rique
+- Rique Yazzie did this section
 
 **Lessons Learned**
 
@@ -96,8 +98,8 @@ We improved our skills with merging, cloning, approving pull requests, and posti
 a simple skeleton of the system and we are happy with the progress we have made, we are far from finished- but we do think we have a correct schedule
 and we all are looking forward to the next release which will add further implementation and expanded UX Design.  
 
-- Mark
+- Mark Johnson did this section
 
 **Demo**
 
-- Rique 
+- Rique Yazzie did this section
