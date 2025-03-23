@@ -19,11 +19,25 @@ Requirement:
     * Implemented by: Melvin Agram
     * Approved by: Rique Yazzie
 
- - As a veteran player, I want to be able to see what team "comps" are "meta" or currently viable in competitive e-sports
+ - As a veteran player, I want to be able to see what team "comps" are "meta" or currently viable in competitive e-sports.
 
    * Issue: [#57](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/57)
    * Pull Request: [#55](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/55)
        * Implemented by: Mark Johnson
+       * Approved by: Melvin Agram
+
+ - As a player, I want to be able to make an account and customize my profile and team comps.
+
+   * Issue: [#58](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/58)
+   * Pull Request: [#56](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/56)
+       * Implemented by: Chris Son
+       * Approved by: Melvin Agram
+
+- As a player, I want to be able view each Hero's abilities and what they do.
+
+   * Issue: [#26](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/26)
+   * Pull Request: [#37](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/37)
+       * Implemented by: Rique Yazzie
        * Approved by: Melvin Agram
 
 **Tests**
