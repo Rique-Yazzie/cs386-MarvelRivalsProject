@@ -10,14 +10,21 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Requirements**
 
-### Requirement:
+Requirement:
 
-- As a user, I want to be able to keep up to date with the latest patch for Marvel Rivals.
+- As a new player, I want to view current patch notes for my favorite character.
 
   * Issue: [#51](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/51)
   * Pull Request: [#36](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/36)
     * Implemented by: Melvin Agram
     * Approved by: Rique Yazzie
+
+ - As a veteran player, I want to be able to see what team "comps" are "meta" or currently viable in competitive e-sports
+
+   * Issue: [#57](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/57)
+   * Pull Request: [#55](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/55)
+       * Implemented by: Mark Johnson
+       * Approved by: Melvin Agram
 
 **Tests**
 
