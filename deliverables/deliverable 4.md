@@ -92,7 +92,7 @@ Our project is released under the MIT License. We chose it because it is highly 
 
 **Lessons Learned**
 
-In retrospective, our team learned about using langauges like Javascript, HTML, and Jango. A problem we encountered was our skills using Github.
+In retrospective, our team learned about using langauges like Javascript, HTML, and Django. A problem we encountered was our skills using Github.
 we had to refresh our core memories and skills on how to use tools like the Git bash, additonally we are still understanding how to get our backend development to work using Jango. 
 We improved our skills with merging, cloning, approving pull requests, and posting issues. Our first release is
 a simple skeleton of the system and we are happy with the progress we have made, we are far from finished- but we do think we have a correct schedule
