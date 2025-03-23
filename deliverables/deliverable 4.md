@@ -64,7 +64,9 @@ JavaScript enhances interactivity on the platform, enabling dynamic updates and 
 
 **Deployment**
 
-- Chris
+- We are using a local server provided by Mark as a backend for our project. This local server is going to be an ubuntu server, managed remotely. This server will be configured to use python3, Django, PostgreSQL, Gunicorn, and NGINX. As a backup solution the team is looking at AWS and Digital Ocean to provide a quick and easy solution to provide a backend that will be a quick backup just in case the local server fails.
+
+- IP address: 104.168.169.139
 
 **Licensing**
 
