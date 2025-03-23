@@ -19,6 +19,13 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
     * Implemented by: Melvin Agram
     * Approved by: Rique Yazzie
 
+ - As a veteran player, I want to be able to see what team "comps" are "meta" or currently viable in competitive e-sports
+
+   * Issue: [#57](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/57)
+   * Pull Request: [#55](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/55)
+       * Implemented by: Mark Johnson
+       * Approved by: Melvin Agram
+
 **Tests**
 
 - Mark and Rique
