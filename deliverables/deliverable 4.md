@@ -10,9 +10,9 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Requirements**
 
-### Requirement:
+Requirement:
 
-- As a user, I want to be able to keep up to date with the latest patch for Marvel Rivals.
+- As a new player, I want to view current patch notes for my favorite character.
 
   * Issue: [#51](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/51)
   * Pull Request: [#36](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/36)
