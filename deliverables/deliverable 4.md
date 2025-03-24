@@ -107,6 +107,9 @@ displaying which heroes work best together.
 
 ![image](https://github.com/user-attachments/assets/7aa3c83e-7734-4e63-9601-6d702062d2db)
 
+The Patch Notes page will display all current and previous patch notes for all heroes, as well as display thier images that are still clickable and can take you to the
+Character Index.
+
 
 - Rique Yazzie did this section
 
