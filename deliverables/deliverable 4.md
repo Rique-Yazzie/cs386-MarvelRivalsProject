@@ -6,7 +6,7 @@ CounterPick.gg is a dedicated learning platform designed to simplify the complex
 
 https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
-- Melvin Agram did this section 
+Melvin Agram did this section 
 
 **Requirements**
 
@@ -39,12 +39,12 @@ Requirement:
    * Pull Request: [#37](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/37)
        * Implemented by: Rique Yazzie
        * Approved by: Melvin Agram
-       * 
-- Every Member worked this section 
+    
+ Every Member worked this section 
 
 **Tests**
 
-- Mark Johnson and Rique Yazzie did this section
+Mark Johnson and Rique Yazzie did this section
 
 **Technology**
 
@@ -60,9 +60,7 @@ JavaScript
 
 JavaScript enhances interactivity on the platform, enabling dynamic updates and real-time user feedback. It powers features like the Comp Meta tool and interactive search functionalities, ensuring that players experience a seamless, engaging interface as they explore hero statistics, update team compositions, or access community insights.
 
-
-- Melvin Agram did this section 
-
+Melvin Agram did this section 
 
 **Deployment**
 
@@ -70,7 +68,7 @@ JavaScript enhances interactivity on the platform, enabling dynamic updates and 
 
 - IP address: 104.168.169.139
 
-- Chris Son did this section
+Chris Son did this section
   
 **Licensing**
 
@@ -88,11 +86,11 @@ Our project is released under the MIT License. We chose it because it is highly 
 
 [README](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/README.md)
 
-- Melvin Agram did this section
+Melvin Agram did this section
 
 **UX Design**
 
-- Rique Yazzie did this section
+Rique Yazzie did this section
 
 **Lessons Learned**
 
@@ -102,10 +100,10 @@ We improved our skills with merging, cloning, approving pull requests, and posti
 a simple skeleton of the system and we are happy with the progress we have made, we are far from finished- but we do think we have a correct schedule
 and we all are looking forward to the next release which will add further implementation and expanded UX Design.  
 
-- Mark Johnson did this section
+Mark Johnson did this section
 
 **Demo**
 
 [![Watch the video](https://img.youtube.com/vi/rOnErix08-c/0.jpg)](https://www.youtube.com/watch?v=rOnErix08-c)
 
-- Rique Yazzie did this section
+Rique Yazzie did this section
