@@ -10,6 +10,36 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Requirements**
 
+Requirement:
+
+- As a new player, I want to view current patch notes for my favorite character.
+
+  * Issue: [#51](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/51)
+  * Pull Request: [#36](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/36)
+    * Implemented by: Melvin Agram
+    * Approved by: Rique Yazzie
+
+ - As a veteran player, I want to be able to see what team "comps" are "meta" or currently viable in competitive e-sports.
+
+   * Issue: [#57](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/57)
+   * Pull Request: [#55](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/55)
+       * Implemented by: Mark Johnson
+       * Approved by: Melvin Agram
+
+ - As a player, I want to be able to make an account and customize my profile and team comps.
+
+   * Issue: [#58](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/58)
+   * Pull Request: [#56](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/56)
+       * Implemented by: Chris Son
+       * Approved by: Melvin Agram
+
+- As a player, I want to be able view each Hero's abilities and what they do.
+
+   * Issue: [#26](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/26)
+   * Pull Request: [#37](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/37)
+       * Implemented by: Rique Yazzie
+       * Approved by: Melvin Agram
+
 **Tests**
 
 - Mark and Rique
@@ -34,7 +64,9 @@ JavaScript enhances interactivity on the platform, enabling dynamic updates and 
 
 **Deployment**
 
-- Chris
+- We are using a local server provided by Mark as a backend for our project. This local server is going to be an ubuntu server, managed remotely. This server will be configured to use python3, Django, PostgreSQL, Gunicorn, and NGINX. As a backup solution the team is looking at AWS and Digital Ocean to provide a quick and easy solution to provide a backend that will be a quick backup just in case the local server fails.
+
+- IP address: 104.168.169.139
 
 **Licensing**
 
@@ -44,13 +76,27 @@ Our project is released under the MIT License. We chose it because it is highly 
 
 **Readme File**
 
-- Melvin
+[Code of Conduct](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/CONTRIBUTING.md)
+
+[Contributing](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/CONTRIBUTING.md)
+
+[LICENSE](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/LICENSE)
+
+[README](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/README.md)
+
+- Melvin Agram did this section
 
 **UX Design**
 
 - Rique
 
 **Lessons Learned**
+
+In retrospective, our team learned about using langauges like Javascript, HTML, and Django. A problem we encountered was our skills using Github.
+we had to refresh our core memories and skills on how to use tools like the Git bash, additonally we are still understanding how to get our backend development to work using Jango. 
+We improved our skills with merging, cloning, approving pull requests, and posting issues. Our first release is
+a simple skeleton of the system and we are happy with the progress we have made, we are far from finished- but we do think we have a correct schedule
+and we all are looking forward to the next release which will add further implementation and expanded UX Design.  
 
 - Mark
 

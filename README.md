@@ -10,7 +10,9 @@ CounterPick.gg offers an intuitive and organized experience for new and veteran 
 
 ### Dependencies
 
-- **Python 3.8+** (recommended)
+- **HTML**
+- **Javascript**
+
 - **Django** – for backend development and user authentication
 - **pip** – for package management
 - Operating System: Windows, macOS, or Linux

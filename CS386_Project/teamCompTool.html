@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Comps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .role-section {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 1000px;
+        }
+        .role-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            justify-content: center;
+        }
+        .hero {
+            width: 120px;
+            height: 120px;
+            background-color: gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .hero:hover {
+            transform: scale(1.1);
+        }
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+        #reset-btn {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="marvel-font">Team Comps</h1>
+        
+        <div class="role-section">
+            <h2 class="role-title">Vanguards</h2>
+            <div class="hero-grid" id="vanguard-grid"></div>
+        </div>
+        
+        <div class="role-section">
+            <h2 class="role-title">Strategists</h2>
+            <div class="hero-grid" id="strategist-grid"></div>
+        </div>
+        
+        <div class="role-section">
+            <h2 class="role-title">Duelists</h2>
+            <div class="hero-grid" id="duelist-grid"></div>
+        </div>
+
+        <div id="results" class="results">
+            <h2>Selected Hero:</h2>
+            <div id="selected-hero"></div>
+            <h2>Recommended Team Comps:</h2>
+            <div id="team-synergy"></div>
+            <button id="reset-btn">Reset Selection</button>
+        </div>
+    </div>
+
+    <script>
+        const vanguards = ["Captain America", "Doctor Strange", "Groot", "Hulk", "Magneto", "Peni Parker", "The Thing", "Thor", "Venom"];
+        const strategists = ["Adam Warlock", "Cloak & Dagger", "Invisible Woman", "Jeff The Land Shark", "Loki", "Luna Snow", "Mantis", "Rocket Raccoon"];
+        const duelists = ["Black Panther", "Black Widow", "Hawkeye", "Hela", "Human Torch", "Iron Fist", "Iron Man", "Magik", "Mister Fantastic", "Moon Knight", "Namor", "Psylocke", "Scarlet Witch", "Spider-Man", "Squirrel Girl", "Star-Lord", "Storm", "The Punisher", "Winter Soldier", "Wolverine"];
+
+        function createHeroGrid(role, containerId) {
+            const container = document.getElementById(containerId);
+            role.forEach(hero => {
+                const heroDiv = document.createElement("div");
+                heroDiv.classList.add("hero");
+                heroDiv.innerText = hero;
+                heroDiv.onclick = () => selectHero(hero);
+                container.appendChild(heroDiv);
+            });
+        }
+
+        function selectHero(hero) {
+            document.getElementById("selected-hero").innerText = hero;
+            document.getElementById("team-synergy").innerText = "(Show synergies here)";
+        }
+
+        document.getElementById("reset-btn").addEventListener("click", () => {
+            document.getElementById("selected-hero").innerText = "";
+            document.getElementById("team-synergy").innerText = "";
+        });
+
+        createHeroGrid(vanguards, "vanguard-grid");
+        createHeroGrid(strategists, "strategist-grid");
+        createHeroGrid(duelists, "duelist-grid");
+    </script>
+</body>
+</html>
