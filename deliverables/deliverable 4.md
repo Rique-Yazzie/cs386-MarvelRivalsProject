@@ -6,7 +6,7 @@ CounterPick.gg is a dedicated learning platform designed to simplify the complex
 
 https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
-- Melvin Agram did this section 
+Melvin Agram did this section 
 
 **Requirements**
 
@@ -39,8 +39,11 @@ Requirement:
    * Pull Request: [#37](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/37)
        * Implemented by: Rique Yazzie
        * Approved by: Melvin Agram
+    
+ Every Member worked this section 
 
 **Tests**
+
 
 Test Framework: jest
 
@@ -53,7 +56,8 @@ Test Execution flow
 2. Calls the First test function
 3. calls the cleanup function
 4. reset process
-- Mark and Rique
+- Mark Johnson and Rique Yazzie did this section
+
 
 **Technology**
 
@@ -69,9 +73,7 @@ JavaScript
 
 JavaScript enhances interactivity on the platform, enabling dynamic updates and real-time user feedback. It powers features like the Comp Meta tool and interactive search functionalities, ensuring that players experience a seamless, engaging interface as they explore hero statistics, update team compositions, or access community insights.
 
-
-- Melvin Agram did this section 
-
+Melvin Agram did this section 
 
 **Deployment**
 
@@ -79,11 +81,13 @@ JavaScript enhances interactivity on the platform, enabling dynamic updates and 
 
 - IP address: 104.168.169.139
 
+Chris Son did this section
+  
 **Licensing**
 
 Our project is released under the MIT License. We chose it because it is highly permissive, allowing anyone to use, modify, and distribute the code with minimal restrictions. Its simple, clear terms promote community contributions and innovation while ensuring proper attribution through the retention of the original copyright notice.
 
-- Melvin
+- Melvin Agram did this section
 
 **Readme File**
 
@@ -95,9 +99,10 @@ Our project is released under the MIT License. We chose it because it is highly 
 
 [README](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/README.md)
 
-- Melvin Agram did this section
+Melvin Agram did this section
 
 **UX Design**
+
 
 ![Screenshot 2025-03-23 194249](https://github.com/user-attachments/assets/16a435b1-1bad-4d85-8746-6a2776faed39)
 
@@ -124,6 +129,7 @@ Character Index.
 
 - Rique Yazzie did this section
 
+
 **Lessons Learned**
 
 In retrospective, our team learned about using langauges like Javascript, HTML, and Django. A problem we encountered was our skills using Github.
@@ -132,8 +138,12 @@ We improved our skills with merging, cloning, approving pull requests, and posti
 a simple skeleton of the system and we are happy with the progress we have made, we are far from finished- but we do think we have a correct schedule
 and we all are looking forward to the next release which will add further implementation and expanded UX Design.  
 
-- Mark
+Mark Johnson did this section
 
 **Demo**
 
-- Rique Yazzie did this section
+
+[![Watch the video](https://img.youtube.com/vi/rOnErix08-c/0.jpg)](https://www.youtube.com/watch?v=rOnErix08-c)
+
+Rique Yazzie did this section
+
