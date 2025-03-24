@@ -42,6 +42,17 @@ Requirement:
 
 **Tests**
 
+Test Framework: jest
+
+Example Test Case: Thiis test case specifically checks that the searchFunction is called when the user presses the Enter key inside the search input
+Github automated test file: CS386_Project/tests
+Class file link: CS386_Project/app.js
+
+Test Execution flow
+1. Calls the setup function
+2. Calls the First test function
+3. calls the cleanup function
+4. reset process
 - Mark and Rique
 
 **Technology**
