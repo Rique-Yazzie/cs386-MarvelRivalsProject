@@ -89,7 +89,20 @@ Our project is released under the MIT License. We chose it because it is highly 
 **UX Design**
 
 ![Screenshot 2025-03-23 194249](https://github.com/user-attachments/assets/16a435b1-1bad-4d85-8746-6a2776faed39)
+
 Our homepage, consists of pictures displaying every hero in marvel rivals. You can use the links at the top to navigate throughout the entire website.
+
+
+![Screenshot 2025-03-23 195127](https://github.com/user-attachments/assets/54c3230c-37a8-4fdd-9bcd-43440c8b788e)
+
+Clicking on a hero brings up a popup window which displays a brief description of the hero selected, if you want to see more about the hero you can select the "More
+about this hero" link which takes you to the Character Index tab for that specific hero.
+
+
+![Screenshot 2025-03-23 202434](https://github.com/user-attachments/assets/3e289d2f-f1fb-449a-a9da-b2e603bc7a18)
+
+This is our Team Comps page, where users will be able to click on a hero and inside the bottom box youll be able to view different teamp compositions for that certain hero
+displaying which heroes work best together.
 
 
 - Rique Yazzie did this section
