@@ -88,7 +88,10 @@ Our project is released under the MIT License. We chose it because it is highly 
 
 **UX Design**
 
-- Rique
+![Screenshot 2025-03-23 194249](https://github.com/user-attachments/assets/16a435b1-1bad-4d85-8746-6a2776faed39)
+
+
+- Rique Yazzie did this section
 
 **Lessons Learned**
 
