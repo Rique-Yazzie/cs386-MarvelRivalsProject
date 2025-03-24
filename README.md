@@ -52,5 +52,5 @@ Mark Johnson
     * Initial release with MVP features: Landing Page, Hero Index, Tier List, and Comp Meta tool.
 
  ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/README.md) file for details.
 
