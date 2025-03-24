@@ -44,7 +44,20 @@ Requirement:
 
 **Tests**
 
-Mark Johnson and Rique Yazzie did this section
+
+Test Framework: jest
+
+Example Test Case: Thiis test case specifically checks that the searchFunction is called when the user presses the Enter key inside the search input
+Github automated test file: [CS386_Project/tests](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/tree/Riques-Branch/CS386_Project/tests)
+Class file link: [CS386_Project/app.js](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Riques-Branch/CS386_Project/app.js)
+
+Test Execution flow
+1. Calls the setup function
+2. Calls the First test function
+3. calls the cleanup function
+4. reset process
+- Mark Johnson and Rique Yazzie did this section
+
 
 **Technology**
 
@@ -90,7 +103,32 @@ Melvin Agram did this section
 
 **UX Design**
 
-Rique Yazzie did this section
+
+![Screenshot 2025-03-23 194249](https://github.com/user-attachments/assets/16a435b1-1bad-4d85-8746-6a2776faed39)
+
+Our homepage, consists of pictures displaying every hero in marvel rivals. You can use the links at the top to navigate throughout the entire website.
+
+
+![Screenshot 2025-03-23 195127](https://github.com/user-attachments/assets/54c3230c-37a8-4fdd-9bcd-43440c8b788e)
+
+Clicking on a hero brings up a popup window which displays a brief description of the hero selected, if you want to see more about the hero you can select the "More
+about this hero" link which takes you to the Character Index tab for that specific hero.
+
+
+![Screenshot 2025-03-23 202434](https://github.com/user-attachments/assets/3e289d2f-f1fb-449a-a9da-b2e603bc7a18)
+
+This is our Team Comps page, where users will be able to click on a hero and inside the bottom box youll be able to view different team compositions for that certain hero
+displaying which heroes work best together.
+
+
+![image](https://github.com/user-attachments/assets/7aa3c83e-7734-4e63-9601-6d702062d2db)
+
+The Patch Notes page will display all current and previous patch notes for all heroes, as well as display thier images that are still clickable and can take you to the
+Character Index.
+
+
+- Rique Yazzie did this section
+
 
 **Lessons Learned**
 
@@ -104,6 +142,8 @@ Mark Johnson did this section
 
 **Demo**
 
+
 [![Watch the video](https://img.youtube.com/vi/rOnErix08-c/0.jpg)](https://www.youtube.com/watch?v=rOnErix08-c)
 
 Rique Yazzie did this section
+
