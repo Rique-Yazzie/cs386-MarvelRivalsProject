@@ -12,6 +12,7 @@ CounterPick.gg offers an intuitive and organized experience for new and veteran 
 
 - **HTML**
 - **Javascript**
+
 - **Django** – for backend development and user authentication
 - **pip** – for package management
 - Operating System: Windows, macOS, or Linux
@@ -52,3 +53,4 @@ Mark Johnson
 
  ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
