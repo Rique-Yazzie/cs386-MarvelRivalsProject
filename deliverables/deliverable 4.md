@@ -105,6 +105,9 @@ This is our Team Comps page, where users will be able to click on a hero and ins
 displaying which heroes work best together.
 
 
+![image](https://github.com/user-attachments/assets/7aa3c83e-7734-4e63-9601-6d702062d2db)
+
+
 - Rique Yazzie did this section
 
 **Lessons Learned**
