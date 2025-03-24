@@ -101,7 +101,7 @@ about this hero" link which takes you to the Character Index tab for that specif
 
 ![Screenshot 2025-03-23 202434](https://github.com/user-attachments/assets/3e289d2f-f1fb-449a-a9da-b2e603bc7a18)
 
-This is our Team Comps page, where users will be able to click on a hero and inside the bottom box youll be able to view different teamp compositions for that certain hero
+This is our Team Comps page, where users will be able to click on a hero and inside the bottom box youll be able to view different team compositions for that certain hero
 displaying which heroes work best together.
 
 
