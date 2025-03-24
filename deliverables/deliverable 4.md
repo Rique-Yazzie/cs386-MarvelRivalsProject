@@ -89,6 +89,7 @@ Our project is released under the MIT License. We chose it because it is highly 
 **UX Design**
 
 ![Screenshot 2025-03-23 194249](https://github.com/user-attachments/assets/16a435b1-1bad-4d85-8746-6a2776faed39)
+Our homepage, consists of pictures displaying every hero in marvel rivals. You can use the links at the top to navigate throughout the entire website.
 
 
 - Rique Yazzie did this section
@@ -105,4 +106,4 @@ and we all are looking forward to the next release which will add further implem
 
 **Demo**
 
-- Rique 
+- Rique Yazzie did this section
