@@ -11,9 +11,13 @@
 ![Team Composition Sequence Diagram](https://github.com/user-attachments/assets/030caea0-fe30-4c9b-9833-21096cc74efc)
 
 Title: Compose Team
+
 Actor: Coach
+
 Description: Allows a coach to create and save a team composition using available heroes
+
 Pre-conditions: 
+
 - Coach has verified email
 - Coach is logged into the system
 
