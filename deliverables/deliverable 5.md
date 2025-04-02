@@ -10,9 +10,7 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Class Diagrams**
 
-**Sequence Diagrams**
-
-![Team Composition Sequence Diagram](https://github.com/user-attachments/assets/030caea0-fe30-4c9b-9833-21096cc74efc)
+**Sequence Diagram**
 
 Title: Compose Team
 
@@ -51,6 +49,7 @@ Business Rules:
 - Coach must have verified email to create teams
 - Teams must follow valid composition rules
 
+![Team Composition Sequence Diagram](https://github.com/user-attachments/assets/030caea0-fe30-4c9b-9833-21096cc74efc)
 
 **Design Patterns**
 
