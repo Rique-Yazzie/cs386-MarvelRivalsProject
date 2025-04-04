@@ -55,5 +55,19 @@ Business Rules:
 
 **Design Patterns**
 
+- Hero Dictionary
+
+![Screenshot 2025-04-04 154541](https://github.com/user-attachments/assets/9f631fad-c5cc-409c-9b28-7616726395c1)
+
+- displayHeroes Function
+
+![Screenshot 2025-04-04 154926](https://github.com/user-attachments/assets/050f9f0f-eeac-45c5-a1f5-d5ed11ff3a10)
+
+
+
 **Design Principles**
+- The Hero Dictionary UML Diagram follows the Open/Closed Principle, because we have a main hero class with subclasses Strategists, Duelists, and Vanguard. This design allows for extended functionality of adding new heroes to their respective subclasses without needing to modify any existing code.
+- The Hero Dictionary UML Diagram also follows the Liskov Substitution Principle, because our subclasses are derived directly from the hero class, so replacing instances of hero with its subtypes will not alter the code. The difference the subclasses provides is the displaying of specific info for a specific subclass.
+- The displayHeroes Funciton UML Diagram follows the Single Responsibility Principle, the class createImageCard is responsible for creating the image card for every hero and handling the popup functionality when you click it. The subclass of openImagePopup is responsible for displaying the heroes full details when the image is clicked. This separates the image creation and displaying hero info into two classes.
+
 
