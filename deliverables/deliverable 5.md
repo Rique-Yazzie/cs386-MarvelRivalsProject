@@ -10,6 +10,8 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Class Diagrams**
 
+![UML Class Diagram](https://github.com/user-attachments/files/19610559/counterpick.UML.class.pdf)
+
 **Sequence Diagram**
 
 Title: Compose Team
