@@ -10,7 +10,7 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Class Diagrams**
 
-![UML Class Diagram](https://github.com/user-attachments/files/19610559/counterpick.UML.class.pdf)
+![UML Class Diagram](https://github.com/user-attachments/assets/4211f478-c49d-4218-ae13-58d2bdabdc39)
 
 **Sequence Diagram**
 
