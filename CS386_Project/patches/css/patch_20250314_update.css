@@ -1,0 +1,76 @@
+@import 'patch_common.css';
+
+/* Specific styles for March 14 update */
+.twitch-content {
+    margin: 1rem 0;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the image container */
+}
+
+.twitch-image-container {
+    display: inline-block; /* Wrap around the image content */
+    border: 2px solid var(--marvel-yellow);
+    background-color: var(--marvel-black);
+}
+
+.twitch-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Hero changes section */
+.hero-changes {
+    background-color: rgba(255, 184, 0, 0.05);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--marvel-yellow);
+}
+
+.hero-changes h3 {
+    color: var(--marvel-yellow);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+/* Patch intro styling */
+.patch-intro {
+    margin-bottom: 2rem;
+}
+
+.patch-intro p {
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Patch banner specific sizing */
+.patch-banner {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Section header specific to Twitch drops */
+section h2 {
+    margin-bottom: 1.5rem;
+}
+
+/* List styling specific to Twitch drops */
+.twitch-content ul {
+    text-align: left;
+    max-width: 800px;
+    margin: 1rem auto;
+}
+
+.twitch-content ul li {
+    font-size: 1rem;
+    line-height: 1.5;
+} 

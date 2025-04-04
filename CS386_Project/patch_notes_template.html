@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patch Notes - Template</title>
+
+    <!-- Essential External Resources -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="patch_notes_template.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="../mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="../marvel_rivals_logo.png" alt="Logo" height="32">
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="../characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
+                <li><a href="../tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+                <li><a href="../teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+                <li><a href="../patchNotes.html" class="nav-link px-2 text-white active">Patch Notes</a></li>
+            </ul>
+
+            <!-- Search Bar -->
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search Patches..." aria-label="Search">
+            </form>
+
+            <!-- Auth Buttons -->
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn sign-up-color">Sign-up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <!-- Patch Header -->
+        <div class="patch-header">
+            <img src="patch_banner.jpg" alt="Patch Banner" class="img-fluid mb-4 patch-banner">
+            <h1 class="marvel-font">Patch Notes - Version [VERSION]</h1>
+            <p class="text-muted">[DATE]</p>
+        </div>
+
+        <!-- Patch Content -->
+        <div class="patch-content">
+            <!-- Introduction -->
+            <div class="patch-intro mb-5">
+                <p>Greetings, Rivals!</p>
+                <p>[INTRO TEXT]</p>
+            </div>
+
+            <!-- Content Sections -->
+            <section class="mb-5">
+                <h2>[SECTION TITLE]</h2>
+                <ul>
+                    <li>[CONTENT]</li>
+                </ul>
+            </section>
+
+            <!-- Hero Changes Template -->
+            <section class="mb-5">
+                <h2>Hero Fixes</h2>
+                <div class="hero-changes">
+                    <h3>[HERO NAME]</h3>
+                    <ul>
+                        <li>[CHANGE DESCRIPTION]</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <div class="patch-footer">
+                <p>[CLOSING MESSAGE]</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
