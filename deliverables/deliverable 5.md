@@ -55,13 +55,14 @@ Business Rules:
 
 **Design Patterns**
 
+- Hero Dictionary
+
 ![Screenshot 2025-04-04 154541](https://github.com/user-attachments/assets/9f631fad-c5cc-409c-9b28-7616726395c1)
 
-Hero Dictionary
+-displayHeroes Function
 
 ![Screenshot 2025-04-04 154926](https://github.com/user-attachments/assets/050f9f0f-eeac-45c5-a1f5-d5ed11ff3a10)
 
-displayHeroes Function
 
 
 **Design Principles**
