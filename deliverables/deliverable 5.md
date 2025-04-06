@@ -18,7 +18,8 @@ The system is designed using a layered architecture to separate concerns and imp
 
 **Class Diagrams**
 
-![UML Class Diagram](https://github.com/user-attachments/assets/4211f478-c49d-4218-ae13-58d2bdabdc39)
+![Counterpick UML class](https://github.com/user-attachments/assets/9c23bdba-206b-4d9f-817a-bfbd5e363a3b)
+
 
 **Sequence Diagram**
 
