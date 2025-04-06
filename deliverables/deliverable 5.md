@@ -59,7 +59,7 @@ Business Rules:
 - Coach must have verified email to create teams
 - Teams must follow valid composition rules
 
-![Team Composition Sequence Diagram](https://github.com/user-attachments/assets/030caea0-fe30-4c9b-9833-21096cc74efc)
+![Sequence Diagram](https://github.com/user-attachments/assets/9437f568-60ec-4d64-aede-d5d2b71824e9)
 
 **Design Patterns**
 
