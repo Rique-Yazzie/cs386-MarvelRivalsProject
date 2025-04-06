@@ -20,7 +20,7 @@
 Started some implementation on the Heroes Index.
 
 **Chris**: 
-
+Tried to make the backend unusable but was unable to.
 
 
 **Mark**: 
@@ -37,7 +37,7 @@ Appreciations:
 
 Successes:
 
-Failures: 
+Failures: Unable to create a backend solution for account storage and comments.
 
 Barries: Running into bumps with a database, expirementing with unfamiliar technology. 
 
@@ -48,5 +48,5 @@ What we should try next time: Again, we will try to meet more than once this wee
 Tasks (GOALS)
 - Melvin will continue working on the patch notes page/Heroes Index.
 - Rique will 
-- Chris will 
+- Chris will instead of trying to implement a Django backend, start a local storage solution for accounts.
 - Mark will 
