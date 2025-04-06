@@ -20,7 +20,7 @@
 Started some implementation on the Heroes Index.
 
 **Chris**: 
-
+Tried to make the backend unusable but was unable to.
 
 
 **Mark**: 
