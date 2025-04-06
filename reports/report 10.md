@@ -7,7 +7,7 @@
 
 **Location:** Discord
 
-**Present participants:** (Chris Son, Mark Johnson, Rique Yazzie)
+**Present participants:** (Melvin Agram, Chris Son, Mark Johnson, Rique Yazzie)
 
 **Missing participants:** None
 
