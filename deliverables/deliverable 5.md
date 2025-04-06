@@ -10,7 +10,7 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 Our architecture for CounterPick.gg includes our UI/Presentation, API, Features, and a database. The user interracts with our API to create an account and make comments, the user is also the primary target to interact with our UI. Our database powers our features by providing data such as images and text files. Within our data are we have shown in a layered format in this UML how each function operates or what each portion contains.
 
-![CS386_deliverable5_UML](https://github.com/user-attachments/assets/bc5b8719-2e53-4520-ac13-c5414f70a3b1)
+![CS386_deliverable5_updated](https://github.com/user-attachments/assets/beb19a7a-d9e3-4286-b993-2d99ac3f9605)
 
 Rationale:
 
