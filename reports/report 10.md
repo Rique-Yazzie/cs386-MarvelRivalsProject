@@ -25,19 +25,19 @@ Started some implementation on the Heroes Index.
 
 **Mark**: 
 
-
+Continued working on Team Comps page.
 
 **Rique**: 
 
-
+Continued working on Home page.
 
 # 2. Retrospective
 
-Appreciations: 
+Appreciations: Rique and Melvin made big advancements on the pages for the websites.
 
-Successes:
+Successes: We all worked on the Deliverable early and got feedback to improve our work. 
 
-Failures: 
+Failures: Unable to figure out technologies might switch to Digital Oceans. 
 
 Barries: Running into bumps with a database, expirementing with unfamiliar technology. 
 
@@ -47,6 +47,6 @@ What we should try next time: Again, we will try to meet more than once this wee
 
 Tasks (GOALS)
 - Melvin will continue working on the patch notes page/Heroes Index.
-- Rique will 
-- Chris will 
-- Mark will 
+- Rique will continue working on the Home page.
+- Chris will continue working on a way to create a backend system.
+- Mark will continue working on the Team Comp page.
