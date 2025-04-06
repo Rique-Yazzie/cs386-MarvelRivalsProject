@@ -8,9 +8,18 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Architecture**
 
+Our architecture for CounterPick.gg includes our UI/Presentation, API, Features, and a database. The user interracts with our API to create an account and make comments, the user is also the primary target to interact with our UI. Our database powers our features by providing data such as images and text files. Within our data are we have shown in a layered format in this UML how each function operates or what each portion contains.
+
+![CS386_deliverable5_updated](https://github.com/user-attachments/assets/beb19a7a-d9e3-4286-b993-2d99ac3f9605)
+
+Rationale:
+
+The system is designed using a layered architecture to separate concerns and improve maintainability. The UI handles user interaction and delegates prcoessing to the Features layer, which then accesses data through our database module. An API layer is used to handle interactions with the user seperate from the features layers. This structure makes the system easier to scale, test, and maintain.
+
 **Class Diagrams**
 
-![UML Class Diagram](https://github.com/user-attachments/assets/4211f478-c49d-4218-ae13-58d2bdabdc39)
+![Counterpick UML class](https://github.com/user-attachments/assets/9c23bdba-206b-4d9f-817a-bfbd5e363a3b)
+
 
 **Sequence Diagram**
 
@@ -55,5 +64,19 @@ Business Rules:
 
 **Design Patterns**
 
+- Hero Dictionary
+
+![Screenshot 2025-04-04 154541](https://github.com/user-attachments/assets/9f631fad-c5cc-409c-9b28-7616726395c1)
+
+- displayHeroes Function
+
+![Screenshot 2025-04-04 154926](https://github.com/user-attachments/assets/050f9f0f-eeac-45c5-a1f5-d5ed11ff3a10)
+
+
+
 **Design Principles**
+- The Hero Dictionary UML Diagram follows the Open/Closed Principle, because we have a main hero class with subclasses Strategists, Duelists, and Vanguard. This design allows for extended functionality of adding new heroes to their respective subclasses without needing to modify any existing code.
+- The Hero Dictionary UML Diagram also follows the Liskov Substitution Principle, because our subclasses are derived directly from the hero class, so replacing instances of hero with its subtypes will not alter the code. The difference the subclasses provides is the displaying of specific info for a specific subclass.
+- The displayHeroes Funciton UML Diagram follows the Single Responsibility Principle, the class createImageCard is responsible for creating the image card for every hero and handling the popup functionality when you click it. The subclass of openImagePopup is responsible for displaying the heroes full details when the image is clicked. This separates the image creation and displaying hero info into two classes.
+
 

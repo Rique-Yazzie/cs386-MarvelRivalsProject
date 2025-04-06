@@ -39,6 +39,7 @@ Successes: We all worked on the Deliverable early and got feedback to improve ou
 
 Failures: Unable to figure out technologies might switch to Digital Oceans. 
 
+
 Barries: Running into bumps with a database, expirementing with unfamiliar technology. 
 
 What we should try next time: Again, we will try to meet more than once this week to communicate and get progress on the website.
