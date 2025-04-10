@@ -24,4 +24,8 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Code Quality**
 
+In retrospective, our team learned about using langauges like Javascript, HTML, and PostGRE SQL on Azure. A problem we encountered was our skills using Github. We had to refresh our core memories and skills on how to use tools like the Git bash, additonally we are still understanding how to get our backend development to work using PostGre SQL on Azure. We had to switch over from Django to PostGre as Django was far too difficult to setup within a timely manner.
+We improved our skills with merging, cloning, approving pull requests, and posting issues. Our second release is
+a improved skeleton of the system and we are happy with the progress we have made, we are far from finished- but we do think we have a correct schedule and we all are looking forward to the next release which will add further implementation and expanded UX Design. 
+
 **Lessons Learned**
