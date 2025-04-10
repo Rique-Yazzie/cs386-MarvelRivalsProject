@@ -8,9 +8,18 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Architecture**
 
+Our architecture for CounterPick.gg includes our UI/Presentation, API, Features, and a database. The user interracts with our API to create an account and make comments, the user is also the primary target to interact with our UI. Our database powers our features by providing data such as images and text files. Within our data are we have shown in a layered format in this UML how each function operates or what each portion contains.
+
+![CS386_deliverable5_updated](https://github.com/user-attachments/assets/beb19a7a-d9e3-4286-b993-2d99ac3f9605)
+
+Rationale:
+
+The system is designed using a layered architecture to separate concerns and improve maintainability. The UI handles user interaction and delegates prcoessing to the Features layer, which then accesses data through our database module. An API layer is used to handle interactions with the user seperate from the features layers. This structure makes the system easier to scale, test, and maintain.
+
 **Class Diagrams**
 
-![UML Class Diagram](https://github.com/user-attachments/assets/4211f478-c49d-4218-ae13-58d2bdabdc39)
+![Counterpick UML class](https://github.com/user-attachments/assets/9c23bdba-206b-4d9f-817a-bfbd5e363a3b)
+
 
 **Sequence Diagram**
 
@@ -51,7 +60,7 @@ Business Rules:
 - Coach must have verified email to create teams
 - Teams must follow valid composition rules
 
-![Team Composition Sequence Diagram](https://github.com/user-attachments/assets/030caea0-fe30-4c9b-9833-21096cc74efc)
+![Sequence Diagram](https://github.com/user-attachments/assets/9437f568-60ec-4d64-aede-d5d2b71824e9)
 
 **Design Patterns**
 
