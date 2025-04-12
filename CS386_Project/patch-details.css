@@ -1,0 +1,28 @@
+/* Bundle and Twitch Drops image styling */
+.bundle-content, .twitch-content {
+    margin: 1rem 0;
+    text-align: center; /* Center the image */
+}
+
+.bundle-image, .twitch-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto 1rem auto; /* Center the image and add bottom margin */
+    border: 2px solid var(--marvel-yellow);
+    object-fit: contain; /* Maintain aspect ratio */
+    display: block; /* Remove any extra space below image */
+}
+
+/* Adjust content width for better fit */
+.patch-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* Ensure list items align properly after images */
+.bundle-content ul, .twitch-content ul {
+    margin-top: 1rem;
+    text-align: left; /* Reset text alignment for lists */
+} 
