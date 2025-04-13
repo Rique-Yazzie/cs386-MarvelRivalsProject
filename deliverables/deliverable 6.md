@@ -19,7 +19,18 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
   ![Screenshot 2025-04-08 145140](https://github.com/user-attachments/assets/7faf210e-c129-455a-956f-008dc0c7a564)
 
 **Test**
+Test Framework: Jest 
+Example Test Case: This test case specifically checks that the changeImage function is called when the user clicks on one of the icons
+Github automated test file: CS386_Project/tests Class file link: CS386_Project/app.js
 
+Test Execution flow:
+
+1. Calls the setup function
+2. Calls the test function
+3. Calls the cleanup function
+4. Reset Process
+
+   
 **Demo**
 
 **Code Quality**
