@@ -18,6 +18,15 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
   ![Screenshot 2025-04-08 145140](https://github.com/user-attachments/assets/7faf210e-c129-455a-956f-008dc0c7a564)
 
+  - As a user, I wawnt to be able to make an account and be able to comment on posts
+
+    * Issue: [#58](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/58)
+    * Pull Request: [#56](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/56)
+     * Implemented by: Christopher Son
+     * Approved by: Melvin Agram
+    * ![image](https://github.com/user-attachments/assets/20cab845-3560-42e2-919b-8e74e86cfda1)
+
+
 **Test**
 
 **Demo**
@@ -29,3 +38,7 @@ We improved our skills with merging, cloning, approving pull requests, and posti
 a improved skeleton of the system and we are happy with the progress we have made, we are far from finished- but we do think we have a correct schedule and we all are looking forward to the next release which will add further implementation and expanded UX Design. 
 
 **Lessons Learned**
+
+Looking at the successes for this release, we see that the team excelled in identifying and implementing a style to the webapp. By being able to do this, the development of the webapp has been going smoothly from a frontend point of view. The team has also been able to divy out parts of the webapp to promote faster web page developement with little to no hiccups. Lastly in regard to styling, the team made extensive use of CSS to streamline development. The team has encountered a staggering issue of developing the backend due to major roadblocks. This highlights the inadequacy of knowledge and expertise of backend technologies which is proving to be quite problematic. This issue is causing the more social and user features of the webapp to be delayed. The technology pertaining to this problem includes ubuntu, postgre, and flask + django. In the future we will need to learn to pivot from roadblocks faster by identifying the issue and responding accordingly via group meetings.  
+
+Chris Son did this section
