@@ -32,7 +32,7 @@ Test Execution flow:
 3. Calls the cleanup function
 4. Reset Process
 
-   CS386_Project/tests
+
 **Demo**
 
 **Code Quality**
