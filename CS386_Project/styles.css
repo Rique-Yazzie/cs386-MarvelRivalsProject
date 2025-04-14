@@ -90,3 +90,117 @@ body {
     top: 10px;
     right: 20px;
 }
+
+
+/* for scrolling news */
+.scroll-carousel {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+  
+.scroll-carousel a {
+scroll-snap-align: start;
+transition: transform 0.3s ease;
+}
+
+.scroll-carousel a:hover {
+transform: scale(1.05);
+}
+  
+.custom-img {
+  border: none;
+  border-radius: 8px; /* optional: keep the soft corners */
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.patch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(255, 184, 0, 0.2);
+}
+
+.news-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 6px;
+}
+
+.news-img:hover {
+transform: translateY(-5px);
+box-shadow: 0 4px 20px rgba(255, 184, 0, 0.4);
+}
+
+/* for transparent image title */
+.overlay-container {
+    position: relative;
+    width: 100%;
+    max-height: 600px;  /* Increase height to prevent image cropping */
+    overflow: hidden;  /* Hide any overflow */
+    padding-top: 20px;
+}
+
+
+.overlay-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: brightness(50%);
+}
+
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    padding: 1rem 2rem;
+    max-width: 90%;  /* Prevent the text box from stretching too wide */
+}
+
+/* idk what to call this yet */
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .displayed-image {
+    width: 600px; /* or any fixed size you want */
+    height: 350px;
+    object-fit: cover;  /* or use 'contain' if you want the whole image visible */
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  
+/* Icons overlayed on the image */
+.icon-bar {
+position: absolute;
+bottom: 15px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 20px;
+background-color: rgba(0, 0, 0, 0.3); /* optional: slight blur background */
+padding: 10px 20px;
+border-radius: 20px;
+}
+
+.icon {
+width: 40px;
+height: 40px;
+opacity: 0.6;
+transition: opacity 0.3s ease;
+cursor: pointer;
+}
+
+.icon:hover {
+opacity: 1;
+}
