@@ -36,6 +36,9 @@ Example Test Case: This test case specifically checks that the changeImage funct
 Github automated test file: [CS386_Project/tests](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/tree/Riques-Branch/CS386_Project/tests) 
 Class file link: [CS386_Project/app.js](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Riques-Branch/CS386_Project/app.js)
 
+![image](https://github.com/user-attachments/assets/b7aeb6d8-f676-48f2-b84b-687c298d5ab1)
+
+
 Test Execution flow:
 
 1. Calls the setup function
