@@ -27,6 +27,17 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
      * Approved by: Melvin Agram
     * ![image](https://github.com/user-attachments/assets/20cab845-3560-42e2-919b-8e74e86cfda1)
 
+- As a user, I want to be able to see a simple user friendly UI to navigate what I want
+
+  * Issue: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/112
+  * Pull Request: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/111
+     * Implemented by: Rique Yazzie
+     * Approved by: Mark Johnson
+   
+ ![Screenshot 2025-04-13 173418](https://github.com/user-attachments/assets/7cc48222-8eeb-4c88-8d2f-58edb2613464)
+
+ ![Screenshot 2025-04-13 173425](https://github.com/user-attachments/assets/37e2559a-df03-41b2-b0bb-44baf31416f6)
+
 
 **Test**
 
@@ -35,6 +46,9 @@ Test Framework: Jest
 Example Test Case: This test case specifically checks that the changeImage function is called when the user clicks on one of the icons
 Github automated test file: [CS386_Project/tests](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/tree/Riques-Branch/CS386_Project/tests) 
 Class file link: [CS386_Project/app.js](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Riques-Branch/CS386_Project/app.js)
+
+![image](https://github.com/user-attachments/assets/b7aeb6d8-f676-48f2-b84b-687c298d5ab1)
+
 
 Test Execution flow:
 
