@@ -30,7 +30,7 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 - As a user, I want to be able to see a simple user friendly UI to navigate what I want
 
   * Issue: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/112
-  * Pull Request: Riques-Branch
+  * Pull Request: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/111
      * Implemented by: Rique Yazzie
      * Approved by: Mark Johnson
    
