@@ -60,6 +60,8 @@ Test Execution flow:
 
 **Demo**
 
+https://github.com/user-attachments/assets/b85351c6-d0a4-4a8c-b4e6-af9b2678c4e8
+
 **Code Quality**
 
 In retrospective, our team learned about using langauges like Javascript, HTML, and PostGRE SQL on Azure. A problem we encountered was our skills using Github. We had to refresh our core memories and skills on how to use tools like the Git bash, additonally we are still understanding how to get our backend development to work using PostGre SQL on Azure. We had to switch over from Django to PostGre as Django was far too difficult to setup within a timely manner.
