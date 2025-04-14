@@ -71,6 +71,8 @@ Test Execution flow:
 
 **Demo**
 
+https://github.com/user-attachments/assets/b85351c6-d0a4-4a8c-b4e6-af9b2678c4e8
+
 **Code Quality**
 
 In retrospective, our team learned about using langauges like Javascript, HTML, and PostGRE SQL on Azure. A problem we encountered was our skills using Github. We had to refresh our core memories and skills on how to use tools like the Git bash, additonally we are still understanding how to get our backend development to work using PostGre SQL on Azure. We had to switch over from Django to PostGre as Django was far too difficult to setup within a timely manner.
@@ -81,4 +83,3 @@ a improved skeleton of the system and we are happy with the progress we have mad
 
 Looking at the successes for this release, we see that the team excelled in identifying and implementing a style to the webapp. By being able to do this, the development of the webapp has been going smoothly from a frontend point of view. The team has also been able to divy out parts of the webapp to promote faster web page developement with little to no hiccups. Lastly in regard to styling, the team made extensive use of CSS to streamline development. The team has encountered a staggering issue of developing the backend due to major roadblocks. This highlights the inadequacy of knowledge and expertise of backend technologies which is proving to be quite problematic. This issue is causing the more social and user features of the webapp to be delayed. The technology pertaining to this problem includes ubuntu, postgre, and flask + django. In the future we will need to learn to pivot from roadblocks faster by identifying the issue and responding accordingly via group meetings.  
 
-Chris Son did this section
