@@ -8,6 +8,17 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Requirements**
 
+- As a team coach, I want to see what heroes have synergies, I want an easy way to see options
+
+  * Issue: [#118](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/118)
+  * Pull Request: [#119](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/pull/119)
+     * Implemented by: Mark Johnson
+     * Approved by: Rique Yazzie
+       
+  ![image](https://github.com/user-attachments/assets/ed665f5d-f65a-44ff-8f06-32a2be2010cb)
+
+  ![image](https://github.com/user-attachments/assets/bcff8004-b6d4-4f02-b151-cbe4c27aad38)
+
 - As a new player, I want to view all of the Heroes, their abilities, and teamups 
 
   * Issue: [#26](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/issues/26)
