@@ -33,7 +33,7 @@ https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
   * Pull Request: Riques-Branch
      * Implemented by: Rique Yazzie
      * Approved by: Mark Johnson
-     * 
+   
  ![Screenshot 2025-04-13 173418](https://github.com/user-attachments/assets/7cc48222-8eeb-4c88-8d2f-58edb2613464)
 
  ![Screenshot 2025-04-13 173425](https://github.com/user-attachments/assets/37e2559a-df03-41b2-b0bb-44baf31416f6)
