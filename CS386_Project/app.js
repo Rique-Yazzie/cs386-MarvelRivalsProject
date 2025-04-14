@@ -746,3 +746,10 @@ function closePopup() {
     document.getElementById("hero-popup").style.display = "none";
 }
 
+
+function changeImage(imageSrc, title, linkHref) {
+    document.getElementById('main-image').src = imageSrc;
+    document.getElementById('image-title').textContent = title;
+    document.getElementById('image-link').href = linkHref;
+}
+  

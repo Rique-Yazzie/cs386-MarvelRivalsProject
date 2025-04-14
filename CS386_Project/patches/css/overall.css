@@ -10,6 +10,10 @@
     margin-bottom: 3rem;
 }
 
+.patch-header h1 {
+    color: var(--marvel-white);
+    margin-top: 1rem;
+}
 .patch-banner {
     width: 100%;
     max-width: 100%;
@@ -63,6 +67,14 @@ section h4 {
     margin-top: 1.2rem;
 }
 
+/* Content container sizing */
+.patch-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffffff;
+}
+
 /* List styling */
 .patch-content ul {
     list-style-type: none;
@@ -77,7 +89,7 @@ section h4 {
 
 .patch-content ul li::before {
     content: "•";
-    color: var(--marvel-white);
+    color: var(--marvel-yellow);
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -86,6 +98,25 @@ section h4 {
 /* Navigation styling */
 .nav li::before {
     content: none;
+}
+
+/* Bundle content specific styling */
+.bundle-content {
+    margin: 1rem 0;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.bundle-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 1rem auto;
+    border: 2px solid var(--marvel-yellow);
+    object-fit: cover;
+    display: block;
 }
 
 /* Twitch content styling */
@@ -99,16 +130,16 @@ section h4 {
 
 .twitch-image-container {
     width: 100%;
-    max-width: 100%;
-    margin: 0 auto 1rem auto;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .twitch-image {
     width: 100%;
     max-width: 100%;
     height: auto;
-    margin: 0 auto;
-    border: 2px solid var(--marvel-yellow);
+    margin: 0 auto 1rem auto;
+    border: 2px solid var(--marvel-yellow); /* Matches your bundle image style */
     object-fit: cover;
     display: block;
 }
@@ -127,7 +158,16 @@ section h4 {
     text-transform: uppercase;
 }
 
+.hero-changes p {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* Stat changes styling */
 .hero-changes ul li {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
     color: #ffffff;
 }
 
