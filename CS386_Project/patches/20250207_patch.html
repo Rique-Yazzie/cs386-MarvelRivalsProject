@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patch Notes - Marvel Rivals</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="css/overall.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="../mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="../CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="../characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
+                <li><a href="../tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+                <li><a href="../teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+                <li><a href="../news.html" class="nav-link px-2 text-white active">News</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search Patches..." aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn sign-up-color">Sign-up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <!-- Patch Header -->
+        <div class="patch-header">
+            <img src="../patch_notes_images/patch_notes_20250207.jpg" alt="Patch 20250207 Banner" class="img-fluid mb-4 patch-banner">
+            <h1 class="marvel-font">Marvel Rivals Version 20250207 Patch Notes</h1>
+            <p class="text-muted">February 6, 2025</p>
+        </div>
+
+        <!-- Patch Content -->
+        <div class="patch-content">
+            <div class="patch-intro mb-5">
+                <p>Greetings, Rivals!</p>
+                <p>We're thrilled to announce that the upcoming patch drops on February 6, 2025, at 09:00:00 (UTC+0)! This update will also be applied without server downtime—so you can dive right back into your epic battles as soon as the update is live!</p>
+                <p>Here's a look at what's coming in this patch:</p>
+            </div>
+
+            <section class="mb-5">
+                <h2>All-New Costumes</h2>
+                <div class="content-section">
+                    <div class="costume-showcase mb-4">
+                        <h4>Luna Snow - Mirae 2099</h4>
+                        <p class="text-muted">(Limited-time store release: 2025/02/07 02:00:00 UTC+0)</p>
+                        <div class="costume-image-container">
+                            <img src="../patches/20250207_luna_skin.jpg" alt="Luna Snow Mirae 2099 Costume" class="img-fluid rounded costume-image">
+                            <style>
+                                .costume-image-container {
+                                    max-width: 800px;
+                                    margin: 20px auto;
+                                }
+                                .costume-image {
+                                    width: 100%;
+                                    height: auto;
+                                    border-radius: 10px;
+                                    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                                }
+                            </style>
+                        </div>
+                    </div>
+                    <div class="costume-showcase">
+                        <h4>Captain America - Avengers: Infinity War</h4>
+                        <p class="text-muted">(Limited-time store release: 2025/02/07 02:00:00 UTC+0)</p>
+                        <div class="costume-image-container">
+                            <img src="../patches/20250207_cap_skin.jpg" alt="Captain America Infinity War Costume" class="img-fluid rounded costume-image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2>Bug Fixes</h2>
+                
+                <h3>All Platforms</h3>
+                <div class="content-section">
+                    <h4>General</h4>
+                    <ul>
+                        <li>Adjusted age rating labels.</li>
+                        <li>Fixed an issue with the Epic Launcher restarting after 5 minutes of inactivity, which caused random anti-cheat notifications.</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h4>Maps and Gameplay</h4>
+                    <ul>
+                        <li>Resolved multiple instances where players could get stuck in unique terrain.</li>
+                        <li>Fixed an occasional synchronization issue with some doors in Hydra Charteris Base: Frozen Airfield.</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h4>Hero Bug Fixes</h4>
+                    <ul>
+                        <li>Venom's Wild Swing: Fixed an issue where Venom Swing could occasionally fail to end properly. Now, he'll always land with style.</li>
+                        <li>Venom's Ultimate Devour: Resolved a problem where pressing Devour as soon he lands after unleashing Feast of the Abyss would sometimes deal no damage or knockback. Venom's hunger will now be fully satisfied!</li>
+                        <li>Mister Fantastic's Bulletproof Rubber: Addressed a bug where his Reflexive Rubber ability could sometimes fail to end correctly. He's back to being as fantastic as ever!</li>
+                        <li>Storm's Tempestuous Control: Fixed an issue where Storm's Ultimate Ability could lead to unintended positions if she unleashes it just as she passes through Doctor Strange's portal. She'll now control the storm without getting lost!</li>
+                        <li>Storm's Recovery Rumble: Resolved a bug where Storm's Ultimate Ability could end abnormally if trapped by recovering destructible structures. She's ready to unleash her powers—no more interruptions in the eye of the storm!</li>
+                        <li>Moon Knight's Handy Prompt: Corrected the issue where the ground visual cue for Moon Knight's Ultimate Ability would prematurely disappear—no more being caught unaware about incoming talons.</li>
+                        <li>Wolverine's Fastball Bewilderment: Fixed occasional synchronization issues in the Fastball Special Team-Up Ability where on Wolverine's side, he would appear as being held by the Hulk, but others would see Wolverine still in his original place. Now, everyone's in sync to play ball.</li>
+                        <li>Magneto's Ironic Iron Issue: Resolved an occasional problem where Iron Man's Ultimate Ability would still take effect even after being absorbed by Magneto's Ultimate Ability. Magneto's magnetic prowess now has it fully contained!</li>
+                        <li>Jeff the Land Shark's Spitting Shenanigans: Fixed an issue where if Jeff the Land Shark spit out others just as his Ultimate Ability was about to end, it would be interrupted and automatically spit them out when the ultimate ended, causing it to look like the animation played twice. He'll now eject everyone in one smooth motion!</li>
+                        <li>Banner's Revival Wardrobe: Addressed a costume issue that occasionally occurred with Banner after being revived by Rocket Raccoon's beacon. He's looking sharp and ready to hulk out!</li>
+                        <li>Loki's Reload: Fixed a rare issue where Loki's Mystical Missiles would not refill after reloading during unstable network conditions. He's back to being the trickster with a full arsenal!</li>
+                        <li>Loki's Transformation Trouble: Resolved a rare occurrence where Loki's Ultimate Ability transformation would end immediately after activation in unstable network conditions. His mischief will now last as intended!</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="patch-footer">
+                <p>Stay tuned for even more thrilling content on the horizon—keep your eyes peeled for our official announcements!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

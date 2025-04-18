@@ -281,6 +281,21 @@ const duelists = {
             }
         }
     },
+    "MisterFantastic": {
+        Hero: "Mister Fantastic",
+        Role: "Vanguard",
+        Q: "Brainiac Bouce",
+        LClick: "Stretch Punch",
+        LShift: "Reflexive Rubber",
+        E: "Flexible Elongation",
+        F: "",
+        V: "",
+        Space: "",
+        RClick: "Distended Grip",
+        TeamUpsPassives: "Elastic Strength/Wedded Harmony",
+        Image: "./CharacterImages/mister_fantastic.png",
+        Description: "Reed Richards believes that true strength comes from remaining flexible, both mentally and physically. Mister Fantastic's elastic body, which can twist and stretch into any form with ease, is almost as impressive as his brilliant mind."
+    },
     "MoonKnight": {
         Hero: "Moon Knight",
         Role: "Duelist",
@@ -540,21 +555,6 @@ const vanguards = {
         TeamUpsPassives: "Magnetic Descent/ METALLIC FUSION",
         Image: "./CharacterImages/magneto.png",
         Description: "The Master of Magnetism bends even the strongest metal to his whims, shielding his allies and striking at his foes. Whether he calls himself Max Eisenhardt, Erik Lehnsherr, or simply Magneto, the hardships this warrior has endured have made him as unbreakable as the steel he brandishes."
-    },
-    "MisterFantastic": {
-        Hero: "Mister Fantastic",
-        Role: "Vanguard",
-        Q: "Brainiac Bouce",
-        LClick: "Stretch Punch",
-        LShift: "Reflexive Rubber",
-        E: "Flexible Elongation",
-        F: "",
-        V: "",
-        Space: "",
-        RClick: "Distended Grip",
-        TeamUpsPassives: "Elastic Strength/Wedded Harmony",
-        Image: "./CharacterImages/mister_fantastic.png",
-        Description: "Reed Richards believes that true strength comes from remaining flexible, both mentally and physically. Mister Fantastic's elastic body, which can twist and stretch into any form with ease, is almost as impressive as his brilliant mind."
     },
     "PeniParker": {
         Hero: "Peni Parker",
