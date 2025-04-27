@@ -1,4 +1,4 @@
-# Deliverable 6:
+# Deliverable 7:
 
 **Introduction**
 
@@ -7,6 +7,26 @@ CounterPick.gg is a dedicated learning platform designed to simplify the complex
 https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject
 
 **Verfication**
+
+For changeImage.test.js:
+
+- Test Framework: Jest 
+
+- Example Test Case: This test case specifically checks that the changeImage function is called when the user clicks on one of the icons
+- Github automated test file: [CS386_Project/tests](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/tree/Riques-Branch/CS386_Project/tests) 
+- Class file link: [CS386_Project/app.js](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Riques-Branch/CS386_Project/app.js)
+
+Image for all tests is in one picture on the bottom of this section
+
+For search.test.js
+
+- Test Framework: jest
+
+- Example Test Case: This test case specifically checks that the searchFunction is called when the user presses the Enter key inside the search input
+- Github automated test file: [CS386_Project/tests](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/tree/Riques-Branch/CS386_Project/tests)
+- Class file link: [CS386_Project/app.js](https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Riques-Branch/CS386_Project/app.js)
+
+Image for all tests is in one picture on the bottom of this section
 
 For openCharacterDetails.test.js:
 
