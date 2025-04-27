@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance Patch Notes - Marvel Rivals</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="css/overall.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="../mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="../CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="../characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
+                <li><a href="../tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+                <li><a href="../teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+                <li><a href="../news.html" class="nav-link px-2 text-white active">News</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search Patches..." aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn sign-up-color">Sign-up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <!-- Patch Header -->
+        <div class="patch-header">
+            <img src="../patch_notes_images/hero_balance_adjustments_20250110.jpg" alt="Balance Patch 20250110 Banner" class="img-fluid mb-4 patch-banner">
+            <h1 class="marvel-font">Marvel Rivals Version 20250110 Balance Post – Season 1 Begins!</h1>
+            <p class="text-muted">January 9, 2025</p>
+        </div>
+
+        <!-- Patch Content -->
+        <div class="patch-content">
+            <div class="patch-intro mb-5">
+                <p>Hello, Rivals!</p>
+                <p>As Season 0 draws to a close, our analysis of battle data has revealed significant shifts in team compositions within regular matches, showcasing a vibrant diversity of lineups.</p>
+                <p>However, as the skill level escalates, compositions centered around double shields and ranged have displayed considerable prowess. Despite this, players have continuously honed and experimented with new compositions and strategies, further enriching the battlefield. For example, a potent combination featuring Psylocke and Star-Lord has brought unparalleled map control through high mobility and formidable mid-range damage, while pairings like Namor and Winter Soldier emphasized defensive counterattacks, fortifying the rear lines and seizing opportunities for combat advantage. Whether formations revolved around Hulk's might or Adam Warlock's team-up abilities or a selection of heroes tailored for specific scenarios, it became clear that players are delving deeper into the world of Marvel Rivals.</p>
+                <p>Hence, in the first half of Season 1, we are set to make balance adjustments to certain heroes, enabling a broader roster to partake in more intricate gameplay, ensuring a richer, more engaging, and diverse gaming experience for all.</p>
+                <p>At the same time, regarding Season Bonuses and Team-Ups, we'd like to clarify that given the brief duration of Season 0 and everyone's recent acclimatization to Marvel Rivals, we will not make extensive changes to or adjust Team-Up abilities in Season 1. Instead, we will make minor adjustments to the existing Team-Up values. Fear not, for we are planning exciting redesigns and adjustments to Team-Up abilities in Season 2!</p>
+                <p>Below, we will provide a detailed introduction to the balance adjustments in the first half of Season 1! Suit up, rivals, and prepare to ignite the battle!</p>
+            </div>
+
+            <section class="mb-5">
+                <h2>VANGUARD</h2>
+
+                <div class="hero-changes">
+                    <h3>Captain America</h3>
+                    <p>Steve will receive some enhanced survivability, allowing more frequent entering and exiting of the combat.</p>
+                    <ul>
+                        <li>Reduce the delay time for shield restoration after releasing Living Legend from 3s to 2s.</li>
+                        <li>Reduce Liberty Rush cooldown from 12s to 10s.</li>
+                        <li>Increase base health from 650 to 675.</li>
+                        <li>Reduce the energy cost for releasing Freedom Charge (ultimate ability) from 3400 to 3100; Reduce the additional health provided per second to self after releasing it from 110 to 100.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Doctor Strange</h3>
+                    <p>We'll be reducing the threat range and increasing the defense window of the Sorcerer Supreme.</p>
+                    <ul>
+                        <li>Add damage falloff to Maelstrom of Madness and Gamma Maelstrom. Starting at 5 meters and reducing to 70% at 8 meters.</li>
+                        <li>Slightly decrease the shield value recovery rate after releasing Shield of the Seraphim from 80/s to 70/s.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Thor</h3>
+                    <p>The God of Thunder could use some slightly increased survivability and improved the success rate to his ultimate ability.</p>
+                    <ul>
+                        <li>Increase base health from 500 to 525.</li>
+                        <li>Added immunity to control effects during God of Thunder (ultimate ability).</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Hulk</h3>
+                    <p>Dr. Banner has been dominant, but some decreased sustained combat capability upon entering the battlefield will bring him more in line with other Vanguards.</p>
+                    <ul>
+                        <li>Reduce the Indestructible Guard gamma shield value for Hero Hulk from 250 to 200.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Venom</h3>
+                    <p>With increased survivability and the threat of his ultimate ability, the symbiote menace will strike fear into the backlines of all enemy teams.</p>
+                    <ul>
+                        <li>Increase the Symbiotic Resilience bonus health ratio gained per lost health point from 1 to 1.2.</li>
+                        <li>Increase the base damage of Feast of the Abyss (ultimate ability) from 40 to 50.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2>DUELIST</h2>
+
+                <div class="hero-changes">
+                    <h3>Black Panther</h3>
+                    <p>We're slightly decreasing T'Challa's combat survivability.</p>
+                    <ul>
+                        <li>Reduce the additional health provided to self after refreshing Vibranium Marks with Spirit Rend from 40 to 30, and the upper limit of additional health provided from 120 to 75.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Black Widow</h3>
+                    <p>Natasha was very much in need of optimization when evaluating the release experience of her abilities as well as a slightly increase to the threat of her ultimate ability.</p>
+                    <ul>
+                        <li>Increase the range of the first effect of Edge Dancer from a 3-meter radius to a 5-meter radius.</li>
+                        <li>Reduce the time required for Fleet Foot to recover from 0 stamina to full from 12s to 4s.</li>
+                        <li>Reduce the time required for Electro-Plasma Explosion (ultimate ability) to reach maximum power from 1s to 0.6s.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Hawkeye</h3>
+                    <p>We'll be decreasing the medium-long range damage capability, reducing the threatening combat radius, and slightly improving the close combat resistance for the avenging archer.</p>
+                    <ul>
+                        <li>Slightly reduce the spread angle between every two Blast Arrows.</li>
+                        <li>Reduce the triggering distance of passive ability Archer's Focus from 60 meters to 40 meters. Reduce the maximum additional damage of the passive from 80 to 70.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Hela</h3>
+                    <p>The Goddess of Death has been a menace and we'll slightly decreasing her combat strength.</p>
+                    <ul>
+                        <li>Reduce base health from 275 to 250.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Magik</h3>
+                    <p>The Queen of Limbo needed an Increase to her threat after unleashing her ultimate ability.</p>
+                    <ul>
+                        <li>Increase Umbral Incursion damage in Darkchild form from 115 to 135.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Moon Knight</h3>
+                    <p>The Hand of Khonshu will receive a slight increase to the threat of his ultimate ability.</p>
+                    <ul>
+                        <li>Increase the number of talons generated by Hand of Khonshu (ultimate ability) from 10 to 14.</li>
+                        <li>Increase the explosion radius of each talon from 4 meters to 5 meters.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Namor</h3>
+                    <p>We're optimizing the throwing feel of Namor's eggs!</p>
+                    <ul>
+                        <li>Adjust the throwing feel of Monstro Spawn and Frozen Spawn. Now, Namor can more accurately throw them to the desired location.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Psylocke</h3>
+                    <p>We'll be providing more options for other heroes to counter the demon slayer's ultimate.</p>
+                    <ul>
+                        <li>Now Dance of the Butterfly (ultimate ability) will check for barriers (including Magneto's Metal Bulwark, Hulk's Indestructible Guard, etc.).</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>The Punisher</h3>
+                    <p>We're slightly increasing the damage capability of Frank's weapons.</p>
+                    <ul>
+                        <li>Slightly reduce the spread of Deliverance and Adjudication.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Scarlet Witch</h3>
+                    <p>We're Increasing Wanda's combat strength when she's facing Duelists or Strategists.</p>
+                    <ul>
+                        <li>Increase Chaos Control's fixed damage from 50/s to 60/s.</li>
+                        <li>Reduce the percentage damage per second from 5% to 3%.</li>
+                        <li>Increase Chthonian Burst's projectile damage from 30 to 35.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Storm</h3>
+                    <p>The Weather Witch needed an overall increase to her damage capability; We're also optimizing the feel of her left-click projectile and the release experience of her ultimate ability.</p>
+                    <ul>
+                        <li>Increase Wind Blade projectile speed from 100m/s to 150m/s and left-click damage from 50 to 55.</li>
+                        <li>Increase Bolt Rush damage from 70 to 80.</li>
+                        <li>After releasing Omega Hurricane (ultimate ability), the bonus health provided for herself will be increased from 350 to 450. Moreover, following its conclusion, the extra health will no longer vanish instantly but will instead diminish at a rate of 100 per second.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Squirrel Girl</h3>
+                    <p>We're increasing the threat of Doreen and her furry friends in their ultimate ability.</p>
+                    <ul>
+                        <li>Addition of a new effect to the Unbeatable Squirrel Tsunami (ultimate ability): the squirrels will rush towards the nearest enemy after bouncing instead of bouncing randomly.</li>
+                        <li>Reduce the squirrel tsunami health from 600 to 300.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Winter Soldier</h3>
+                    <p>We'll be adjusting Bucky by decreasing his long-range combat strength and increasing his survivability in medium-close range combat.</p>
+                    <ul>
+                        <li>Increase the bonus health provided by Bionic Hook and Tainted Voltage from 30 to 40.</li>
+                        <li>Increase Roterstern's projectile damage from 70 to 75.</li>
+                        <li>Reduce the area damage from 70 to 65 and reduce damage decay from 65% at 40 meters to 60%.</li>
+                        <li>Increase base health from 250 to 275.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Wolverine</h3>
+                    <p>Logan will receive an increase to basic combat strength, but a slight decrease to the additional survivability after activating Undying Animal.</p>
+                    <ul>
+                        <li>Increase base health from 300 to 350.</li>
+                        <li>Reduce the damage reduction ratio provided by Undying Animal from 50% to 40%.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2>STRATEGIST</h2>
+
+                <div class="hero-changes">
+                    <h3>Cloak & Dagger</h3>
+                    <p>Ty and Tandy will receive an increase to their healing capability as well as an expansion to the coverage area of their ultimate ability.</p>
+                    <ul>
+                        <li>Reduce Dagger Storm cooldown from 15s to 12s.</li>
+                        <li>Increase the number of dashes in Eternal Bond (ultimate ability) from 3 to 4.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Jeff the Land Shark</h3>
+                    <p>We'll be adjusting the range for his ultimate ability so it now better fits the warning marker. In addition, we'll also be increasing his healing capability.</p>
+                    <ul>
+                        <li>Adjust It's Jeff! (ultimate ability) range from a 10m sphere to a 10m radius, 5m high cylindrical spell field.</li>
+                        <li>Increase the healing of Joyful Splash from 140/s to 150/s.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Luna Snow</h3>
+                    <p>While we've enjoyed her dropping the bass, we've made adjustments to Luna's ultimate ability to prevent players from abusing its healing capabilities.</p>
+                    <ul>
+                        <li>Increase the interval for switching between healing and damage in Fate of Both Worlds from 0.1s to 0.5s.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Mantis</h3>
+                    <p>We'll be making Mantis a bit less fleet-footed, reducing her roaming support capability.</p>
+                    <ul>
+                        <li>Reduce Nature's Favor (passive) movement boost from 2.5m/s to 1.5m/s.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Rocket Raccoon</h3>
+                    <p>Rocket could use an enhancement to his healing capability.</p>
+                    <ul>
+                        <li>Increase the healing of Repair Mode from 60 per/s to 70 per/s.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2>TEAM-UP ABILITIES</h2>
+
+                <div class="hero-changes">
+                    <h3>Hawkeye – Black Widow</h3>
+                    <p>To further tone down Hawkeye's oppression, we'll be reducing his seasonal buff.</p>
+                    <ul>
+                        <li>Reduce Hawkeye's season bonus from 20% to 15%.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Hela – Thor – Loki</h3>
+                    <p>Much like Hawkeye, Hela's overwhelming power will be receiving a slight reduction.</p>
+                    <ul>
+                        <li>Reduce Hela's season bonus from 20% to 15%.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Luna Snow- Namor</h3>
+                    <p>We'll be increasing the threat of Namor's Frozen Spawn.</p>
+                    <ul>
+                        <li>Increase Frozen Spawn damage from 25 to 27.</li>
+                        <li>Increase Frozen Spawn slowing effect applied to hit enemies from 25% to 30%.</li>
+                        <li>Increase berserk state Frozen Spawn damage from 16 to 18.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Rocket Raccoon – The Punisher – Winter Soldier</h3>
+                    <p>One of Rocket's best tools will be available more often!</p>
+                    <ul>
+                        <li>Reduce the cooldown of Ammo Invention from 45s to 40s.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Scarlet Witch - Magneto</h3>
+                    <p>A bit underwhelming, the damage capability of this father-daughter Team-Up ability will be enhanced.</p>
+                    <ul>
+                        <li>Increase Metallic Fusion projectile damage from 55 to 60.</li>
+                        <li>Increase Metallic Fusion spell field damage from 30 to 35.</li>
+                    </ul>
+                </div>
+
+                <div class="hero-changes">
+                    <h3>Thor – Storm – Captain America</h3>
+                    <p>We'll be enhancing the damage capability of Storm's side of this Team-Up ability.</p>
+                    <ul>
+                        <li>Reduce the cooldown of Charged Gale from 20s to 15s.</li>
+                        <li>Increase the damage of Charged Gale from 50 to 55.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html> 
