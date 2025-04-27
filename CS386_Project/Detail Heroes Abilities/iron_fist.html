@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Marvel Rivals - Iron Fist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../characterindex.css">
+    <style>
+        :root {
+            --primary-color: #FFB800;
+            --secondary-color: rgba(160, 22, 22, 0.927);
+            --dark-bg: rgba(0, 0, 0, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background: #1a1a1a;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .character-details-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .character-header {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            background: var(--dark-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-image {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .character-image:hover {
+            transform: scale(1.02);
+        }
+
+        .character-info {
+            flex: 1;
+        }
+
+        .character-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-role {
+            font-size: 1.8rem;
+            color: #888;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .character-description {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .details-section {
+            background: var(--dark-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .ability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .ability-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .ability-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ability-icon {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px;
+        }
+
+        .ability-title {
+            flex: 1;
+        }
+
+        .ability-key {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .ability-type {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-stats {
+            margin-top: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .stats-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .base-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+
+        .stat-label {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        .stat-value {
+            text-align: right;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .ability-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: #222;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background-color: #ffd700;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .character-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .character-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .ability-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="../mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="../CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="../characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
+                <li><a href="../tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+                <li><a href="../teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+                <li><a href="../news.html" class="nav-link px-2 text-white">News</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn sign-up-color">Sign-up</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-button" onclick="window.history.back()">← Back</button>
+    
+    <div class="character-details-container">
+        <div class="character-header">
+            <img class="character-image" src="../CharacterImages/iron-fist-headbig.png" alt="Iron Fist">
+            <div class="character-info">
+                <h1 class="character-name">Iron Fist</h1>
+                <div class="character-role">Duelist</div>
+                <p class="character-description">Danny Rand, the Immortal Iron Fist, wields the power of Shou-Lao the Undying. Trained in the mystical city of K'un-Lun, he combines martial arts mastery with the power of Chi to deliver devastating strikes and maintain perfect balance in combat.</p>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Stats</h2>
+            <div class="stats-container">
+                <div class="base-stats">
+                    <div class="stat-row">
+                        <div class="stat-label">Health</div>
+                        <div class="stat-value">300</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Movement Speed</div>
+                        <div class="stat-value">6 m/s</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Attack Type</div>
+                        <div class="stat-value">Melee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Abilities</h2>
+            <div class="ability-grid">
+                <!-- Jeet Kune Do -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Iron_Fist_Jeet_Kune_Do_icon.jpg" alt="Jeet Kune Do">
+                        <div class="ability-title">
+                            <div class="ability-key">Left Click</div>
+                            <div class="ability-name">Jeet Kune Do</div>
+                            <div class="ability-type">Type: Weapon</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">30 (first 4 hits), 50 (5th hit)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Distance</span>
+                            <span class="stat-value">3m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Attack Interval</span>
+                            <span class="stat-value">0.45s (first 4), 0.67s (5th)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Pull-in Distance</span>
+                            <span class="stat-value">6m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Dragon's Defense Cooldown Reduction</span>
+                            <span class="stat-value">1.5s per hit</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Strike the targeted enemy with Jeet Kune Do, reducing the cooldown of Block and Strike with every hit.</div>
+                </div>
+
+                <!-- Yat Jee Chung Kuen -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Iron_Fist_Yat_Jee_Chung_Kuen_icon.jpg" alt="Yat Jee Chung Kuen">
+                        <div class="ability-title">
+                            <div class="ability-key">Left Click</div>
+                            <div class="ability-name">Yat Jee Chung Kuen</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">5s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Pull-in Distance</span>
+                            <span class="stat-value">11m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Dashing Speed (No Target)</span>
+                            <span class="stat-value">12 m/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Dashing Distance (No Target)</span>
+                            <span class="stat-value">3m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Range</span>
+                            <span class="stat-value">3m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">9 + 2.1% Max Health per strike</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Attack Speed</span>
+                            <span class="stat-value">7 strikes per second</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Dash forward to pursue the targeted enemy and unleash a flurry of attacks.</div>
+                </div>
+
+                <!-- Living Chi -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Iron_Fist_Living_Chi_icon.jpg" alt="Living Chi">
+                        <div class="ability-title">
+                            <div class="ability-key">Q</div>
+                            <div class="ability-name">Living Chi</div>
+                            <div class="ability-type">Type: Ultimate</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">12s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Range Boost</span>
+                            <span class="stat-value">100%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Damage Boost</span>
+                            <span class="stat-value">30%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Movement Boost</span>
+                            <span class="stat-value">20%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown Reduction</span>
+                            <span class="stat-value">-80%</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Become living Chi to boost his speed, damage, and attack range, delivering stronger punches while reducing the cooldown of Dragon's Defense.</div>
+                </div>
+
+                <!-- K'un-Lun Kick -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Iron_Fist_Kun_Lun_Kick_icon.jpg" alt="K'un-Lun Kick">
+                        <div class="ability-title">
+                            <div class="ability-key">SHIFT</div>
+                            <div class="ability-name">K'un-Lun Kick</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Dashing Speed</span>
+                            <span class="stat-value">40 m/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Distance</span>
+                            <span class="stat-value">12m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">First Kick Damage</span>
+                            <span class="stat-value">30</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Second Kick Damage</span>
+                            <span class="stat-value">35-70 (scales with target health)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">10s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Dash forward, delivering a flying kick when hitting an enemy or reaching full range, dealing damage to nearby enemies. Damage increases with lower enemy health.</div>
+                </div>
+
+                <!-- Harmony Recovery -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Iron_Fist_Harmony_Recovery_icon.jpg" alt="Harmony Recovery">
+                        <div class="ability-title">
+                            <div class="ability-key">E</div>
+                            <div class="ability-name">Harmony Recovery</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">3s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Healing per Second</span>
+                            <span class="stat-value">100</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Healing Conversion</span>
+                            <span class="stat-value">100%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">12s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Cross legs and channel Chi, slowly gaining Bonus Health.</div>
+                </div>
+
+                <!-- Crane Leap -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Iron_Fist_Crane_Leap_icon.jpg" alt="Crane Leap">
+                        <div class="ability-title">
+                            <div class="ability-key">Space</div>
+                            <div class="ability-name">Crane Leap</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Charges</span>
+                            <span class="stat-value">3</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Charge Recharge Time</span>
+                            <span class="stat-value">1s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Perform up to three consecutive jumps while airborne.</div>
+                </div>
+
+                <!-- Dragon's Defense -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Iron_Fist_Dragons_Defense_icon.jpg" alt="Dragon's Defense">
+                        <div class="ability-title">
+                            <div class="ability-key">Right Click</div>
+                            <div class="ability-name">Dragon's Defense</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Block Time</span>
+                            <span class="stat-value">1s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Damage Reduction</span>
+                            <span class="stat-value">30%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Bonus Health Conversion</span>
+                            <span class="stat-value">1.5x</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Max Health Conversion</span>
+                            <span class="stat-value">200</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">15s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Assume a defensive stance with a boost of Chi to block incoming attacks and gain Damage Reduction, then strike back with Yat Jee Chung Kuen.</div>
+                </div>
+
+                <!-- Wall Runner -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Iron_Fist_Wall_Runner_icon.jpg" alt="Wall Runner">
+                        <div class="ability-title">
+                            <div class="ability-key">Space</div>
+                            <div class="ability-name">Wall Runner</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Wall-Crawling Speed</span>
+                            <span class="stat-value">9 m/s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Run horizontally along the walls.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Passives</h2>
+            <div class="ability-card">
+                <div class="ability-header">
+                    <img class="ability-icon" src="../Detail Heroes Abilities/Iron_Fist_Chi_Absorption_icon.jpg" alt="Chi Absorption">
+                    <div class="ability-title">
+                        <div class="ability-name">Chi Absorption</div>
+                        <div class="ability-type">Type: Passive</div>
+                    </div>
+                </div>
+                <div class="ability-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">Bonus Health</span>
+                        <span class="stat-value">50</span>
+                    </div>
+                </div>
+                <div class="ability-description">Assists in taking down enemies allow him to absorb their Chi and gain Bonus Health.</div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Team-Ups</h2>
+            <div class="ability-card">
+                <div class="ability-header">
+                    <img class="ability-icon" src="../Detail Heroes Abilities/Iron_Fist_Dragons_Chill_icon.jpg" alt="Dragon's Chill">
+                    <div class="ability-title">
+                        <div class="ability-name">Dragon's Chill</div>
+                        <div class="ability-type">Type: Team-up Passive</div>
+                    </div>
+                </div>
+                <div class="ability-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">Team-Up Bonus</span>
+                        <span class="stat-value">15% Damage Boost</span>
+                    </div>
+                </div>
+                <div class="ability-description">Iron Fist channels the Chi of Shou-Lao into Luna Snow, transforming her ice power into a Chi-infused frosty ring that radiates from her. This ring can knock back enemies with chilling damage and applies a slowing effect, while simultaneously healing her allies.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
