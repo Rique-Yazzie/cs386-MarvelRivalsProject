@@ -12,8 +12,8 @@ For changeImage.test.js:
 
 - Test Framework: Jest 
 
-- Example Test Case: This test case specifically checks that the changeImage function is called when the user clicks on one of the icons
-- Github automated test file: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/tree/Riques-Branch/tests
+- Example Test Case: This test case specifically checks that the changeImage function is called when the user clicks on one of the icons.
+- Github automated test file: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Riques-Branch/tests/changeImage.test.js
 - Class file link: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Riques-Branch/CS386_Project/app.js
 
 Image for all tests is in one picture on the bottom of this section
@@ -22,8 +22,8 @@ For search.test.js
 
 - Test Framework: jest
 
-- Example Test Case: This test case specifically checks that the searchFunction is called when the user presses the Enter key inside the search input
-- Github automated test file: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/tree/Riques-Branch/tests
+- Example Test Case: This test case specifically checks that the searchFunction is called when the user presses the Enter key inside the search input.
+- Github automated test file: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Riques-Branch/tests/search.test.js
 - Class file link: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Riques-Branch/CS386_Project/app.js
 
 Image for all tests is in one picture on the bottom of this section
