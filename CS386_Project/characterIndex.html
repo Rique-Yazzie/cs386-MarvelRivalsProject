@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Marvel Rivals - Character Index</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="characterindex.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="heroes.js"></script>
+    <style>
+        /* Hero Popup Styles */
+        .hero-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .popup-content {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 2rem;
+            width: 80%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+
+        .popup-hero-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .popup-hero-image:hover {
+            transform: scale(1.05);
+        }
+
+        .popup-hero-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        .popup-hero-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: #FFB800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-hero-role {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            color: #fff;
+            background-color: rgba(255, 184, 0, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .popup-hero-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .forms-section {
+            order: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .abilities-section {
+            order: 2;
+        }
+
+        .passives-section {
+            order: 3;
+        }
+
+        .teamups-section {
+            order: 4;
+        }
+
+        .abilities-section, .passives-section, .teamups-section, .forms-section {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .abilities-section h3, .passives-section h3, .teamups-section h3, .forms-section h3 {
+            color: #FFB800;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #FFB800;
+            padding-bottom: 0.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        #popup-hero-abilities {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        #popup-hero-abilities li, .passive-item, .teamup-item {
+            background: rgba(255, 184, 0, 0.1);
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            color: #fff;
+            transition: transform 0.2s ease;
+            border-left: 3px solid #FFB800;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        #popup-hero-abilities li:hover, .passive-item:hover, .teamup-item:hover {
+            transform: translateX(5px);
+            background: rgba(255, 184, 0, 0.2);
+        }
+
+        #popup-hero-abilities li:last-child, .passive-item:last-child, .teamup-item:last-child {
+            margin-bottom: 0;
+        }
+
+        #popup-hero-abilities li strong {
+            color: #FFB800;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-right: 0.5rem;
+        }
+
+        .passive-item, .teamup-item {
+            background: rgba(255, 184, 0, 0.1);
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.95rem;
+            border-left: 3px solid #FFB800;
+        }
+
+        .passive-item:last-child, .teamup-item:last-child {
+            margin-bottom: 0;
+        }
+
+        #popup-hero-passives, #popup-hero-teamups {
+            color: #fff;
+            line-height: 1.6;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .form-buttons button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: 2px solid transparent;
+        }
+
+        .form-buttons button:hover {
+            background-color: #FFB800;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 184, 0, 0.3);
+        }
+
+        .form-buttons button.active {
+            background-color: #FFB800;
+            border-color: #fff;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #FFB800;
+            transform: rotate(90deg);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            background-color: #333;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .stat-label {
+            color: #FFB800;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .popup-content {
+                grid-template-columns: 1fr;
+                width: 95%;
+                padding: 1rem;
+            }
+
+            .popup-hero-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="./mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img src="./CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
+          </a>
+  
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="./characterIndex.html" class="nav-link px-2 text-white active">Heroes</a></li>
+            <li><a href="./tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+            <li><a href="./teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+            <li><a href="./news.html" class="nav-link px-2 text-white">News</a></li>
+          </ul>
+  
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+          </form>
+  
+          <div class="text-end">
+            <button type="button" class="btn btn-outline-light me-2">Login</button>
+            <button type="button" class="btn sign-up-color">Sign-up</button>
+          </div>
+        </div>
+    </div>
+
+    <div class="hero-section bg-dark">
+        <div class="container py-5">
+            <div class="text-center">
+                <h1 class="marvel-font hero-title">HEROES</h1>
+                <p class="lead text-secondary mb-5">Browse all playable characters in Marvel Rivals</p>
+            </div>
+        </div>
+        </div>
+        
+    <div class="hero-container">
+        <!-- Strategists Section -->
+        <div class="role-section">
+            <h2 class="role-title">Strategists</h2>
+            <div class="hero-grid" id="strategists-container"></div>
+        </div>
+        
+        <!-- Duelists Section -->
+        <div class="role-section">
+            <h2 class="role-title">Duelists</h2>
+            <div class="hero-grid" id="duelists-container"></div>
+        </div>
+        
+        <!-- Vanguards Section -->
+        <div class="role-section">
+            <h2 class="role-title">Vanguards</h2>
+            <div class="hero-grid" id="vanguards-container"></div>
+        </div>
+    </div>
+
+    <!-- Hero Popup -->
+    <div id="hero-popup" class="hero-popup">
+        <button class="close-btn" onclick="closePopup()">&times;</button>
+        <div class="popup-content">
+            <div>
+                <img id="popup-hero-image" class="popup-hero-image" src="" alt="Hero Image">
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Health</div>
+                        <div class="stat-value" id="popup-hero-health">250</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Movement Speed</div>
+                        <div class="stat-value" id="popup-hero-mobility">6 m/s</div>
+                    </div>
+                </div>
+                <button class="more-details-btn" onclick="openCharacterDetails()">More Details</button>
+            </div>
+            <div class="popup-hero-info">
+                <h2 id="popup-hero-name"></h2>
+                <div id="popup-hero-role"></div>
+                <p id="popup-hero-description"></p>
+                
+                <div id="popup-hero-forms" class="forms-section">
+                    <h3>Forms</h3>
+                    <div class="form-buttons"></div>
+                </div>
+
+                <div class="abilities-section">
+                    <h3>Abilities</h3>
+                    <ul id="popup-hero-abilities"></ul>
+                </div>
+                
+                <div class="passives-section">
+                    <h3>Passives</h3>
+                    <div id="popup-hero-passives"></div>
+                </div>
+                
+                <div class="teamups-section">
+                    <h3>Team-Ups</h3>
+                    <div id="popup-hero-teamups"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to create hero cards
+        function createHeroCard(hero) {
+            const card = document.createElement('div');
+            card.className = 'hero-card m-2';
+            card.style.cursor = 'pointer';
+            
+            // Store the hero data in a data attribute
+            card.setAttribute('data-hero', JSON.stringify(hero));
+            card.onclick = () => {
+                const heroData = JSON.parse(card.getAttribute('data-hero'));
+                openImagePopup(heroData);
+            };
+            
+            const img = document.createElement('img');
+            img.src = hero.Image;
+            img.alt = hero.Hero;
+            img.className = 'hero-image';
+            
+            const name = document.createElement('p');
+            name.className = 'text-center mt-2';
+            name.textContent = hero.Hero;
+            
+            card.appendChild(img);
+            card.appendChild(name);
+            return card;
+        }
+
+        // Function to populate hero containers
+        function populateHeroContainers() {
+            const strategistsContainer = document.getElementById('strategists-container');
+            const duelistsContainer = document.getElementById('duelists-container');
+            const vanguardsContainer = document.getElementById('vanguards-container');
+
+            // Clear existing content
+            strategistsContainer.innerHTML = '';
+            duelistsContainer.innerHTML = '';
+            vanguardsContainer.innerHTML = '';
+
+            // Add strategists
+            Object.values(strategists).forEach(hero => {
+                strategistsContainer.appendChild(createHeroCard(hero));
+            });
+
+            // Add duelists
+            Object.values(duelists).forEach(hero => {
+                duelistsContainer.appendChild(createHeroCard(hero));
+            });
+
+            // Add vanguards
+            Object.values(vanguards).forEach(hero => {
+                vanguardsContainer.appendChild(createHeroCard(hero));
+            });
+        }
+
+        // Function to format teamup text
+        function formatTeamupText(text) {
+            return text.replace(/([A-Z]):\s/g, '<strong>$1:</strong> ');
+        }
+
+        // Function to open the hero popup
+        function openImagePopup(hero) {
+            // Store the current hero for the More Details button
+            window.currentHero = hero;
+
+            const popup = document.getElementById('hero-popup');
+            const popupImage = document.getElementById('popup-hero-image');
+            const popupName = document.getElementById('popup-hero-name');
+            const popupRole = document.getElementById('popup-hero-role');
+            const popupDescription = document.getElementById('popup-hero-description');
+            const popupAbilities = document.getElementById('popup-hero-abilities');
+            const popupPassives = document.getElementById('popup-hero-passives');
+            const popupTeamups = document.getElementById('popup-hero-teamups');
+            const popupForms = document.getElementById('popup-hero-forms');
+            const formButtons = popupForms.querySelector('.form-buttons');
+            const popupHealth = document.getElementById('popup-hero-health');
+            const popupMobility = document.getElementById('popup-hero-mobility');
+
+            // Clear existing content
+            popupAbilities.innerHTML = '';
+            popupPassives.innerHTML = '';
+            popupTeamups.innerHTML = '';
+            formButtons.innerHTML = '';
+
+            // Special handling for heroes with forms
+            if (hero.Forms) {
+                const firstFormName = Object.keys(hero.Forms)[0];
+                const firstFormData = hero.Forms[firstFormName];
+                
+                // Set image and basic info from first form
+                popupImage.src = firstFormData.Image;
+                popupName.textContent = hero.Hero;
+                popupRole.textContent = hero.Role;
+                popupDescription.textContent = firstFormData.Description;
+                
+                // Set stats from first form
+                popupHealth.textContent = firstFormData.Health || hero.Health || '250';
+                popupMobility.textContent = firstFormData.MovementSpeed || hero.MovementSpeed || '6 m/s';
+
+                // Populate abilities from first form
+                const abilities = [
+                    { key: 'Q', name: firstFormData.Q },
+                    { key: 'LClick', name: firstFormData.LClick },
+                    { key: 'LShift', name: firstFormData.LShift },
+                    { key: 'E', name: firstFormData.E },
+                    { key: 'F', name: firstFormData.F },
+                    { key: 'V', name: firstFormData.V },
+                    { key: 'Space', name: firstFormData.Space },
+                    { key: 'RClick', name: firstFormData.RClick }
+                ];
+
+                abilities.forEach(ability => {
+                    if (ability.name) {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<strong>${ability.key}:</strong> ${ability.name}`;
+                        popupAbilities.appendChild(li);
+                    }
+                });
+
+                // Populate passives from first form
+                if (firstFormData.Passives && firstFormData.Passives !== '') {
+                    const passivesList = firstFormData.Passives.split('\n').filter(p => p.trim() !== '');
+                    passivesList.forEach(passive => {
+                        const div = document.createElement('div');
+                        div.className = 'passive-item';
+                        div.textContent = passive.trim();
+                        popupPassives.appendChild(div);
+                    });
+                } else {
+                    popupPassives.innerHTML = '<div class="passive-item">No passives available</div>';
+                }
+
+                // Populate team-ups from first form
+                if (firstFormData.TeamUps && firstFormData.TeamUps !== '') {
+                    const teamupsList = firstFormData.TeamUps.split('\n').filter(t => t.trim() !== '');
+                    teamupsList.forEach(teamup => {
+                        const div = document.createElement('div');
+                        div.className = 'teamup-item';
+                        div.innerHTML = formatTeamupText(teamup.trim());
+                        popupTeamups.appendChild(div);
+                    });
+                } else {
+                    popupTeamups.innerHTML = '<div class="teamup-item">No team-ups available</div>';
+                }
+
+                // Create form buttons
+                popupForms.style.display = 'block';
+                Object.entries(hero.Forms).forEach(([formName, formData]) => {
+                    const button = document.createElement('button');
+                    button.textContent = formName;
+                    button.onclick = () => {
+                        formButtons.querySelectorAll('button').forEach(btn => 
+                            btn.classList.remove('active')
+                        );
+                        button.classList.add('active');
+                        updatePopupContent(hero, formName, formData);
+                    };
+                    formButtons.appendChild(button);
+                });
+                formButtons.firstChild?.classList.add('active');
+            } else {
+                // Regular hero without forms
+                const heroNameForImage = hero.Hero.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                popupImage.src = `./CharacterImages/${heroNameForImage}-headbig.png`;
+                popupName.textContent = hero.Hero;
+                popupRole.textContent = hero.Role;
+                popupDescription.textContent = hero.Description;
+
+                // Set hero stats
+                popupHealth.textContent = hero.Health || '250';
+                popupMobility.textContent = hero.MovementSpeed || '6 m/s';
+
+                // Populate abilities
+                const abilities = [
+                    { key: 'Q', name: hero.Q },
+                    { key: 'LClick', name: hero.LClick },
+                    { key: 'LShift', name: hero.LShift },
+                    { key: 'E', name: hero.E },
+                    { key: 'F', name: hero.F },
+                    { key: 'V', name: hero.V },
+                    { key: 'Space', name: hero.Space },
+                    { key: 'RClick', name: hero.RClick }
+                ];
+
+                abilities.forEach(ability => {
+                    if (ability.name) {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<strong>${ability.key}:</strong> ${ability.name}`;
+                        popupAbilities.appendChild(li);
+                    }
+                });
+
+                // Populate passives
+                if (hero.Passives && hero.Passives !== '') {
+                    const passivesList = hero.Passives.split('\n').filter(p => p.trim() !== '');
+                    passivesList.forEach(passive => {
+                        const div = document.createElement('div');
+                        div.className = 'passive-item';
+                        div.textContent = passive.trim();
+                        popupPassives.appendChild(div);
+                    });
+                } else {
+                    popupPassives.innerHTML = '<div class="passive-item">No passives available</div>';
+                }
+
+                // Populate team-ups
+                if (hero.TeamUps && hero.TeamUps !== '') {
+                    const teamupsList = hero.TeamUps.split('\n').filter(t => t.trim() !== '');
+                    teamupsList.forEach(teamup => {
+                        const div = document.createElement('div');
+                        div.className = 'teamup-item';
+                        div.innerHTML = formatTeamupText(teamup.trim());
+                        popupTeamups.appendChild(div);
+                    });
+                } else {
+                    popupTeamups.innerHTML = '<div class="teamup-item">No team-ups available</div>';
+                }
+
+                // Hide forms section for regular heroes
+                popupForms.style.display = 'none';
+            }
+
+            popup.style.display = 'flex';
+        }
+
+        // Function to update popup content for a specific form
+        function updatePopupContent(hero, formName, formData) {
+            const popupImage = document.getElementById('popup-hero-image');
+            const popupName = document.getElementById('popup-hero-name');
+            const popupDescription = document.getElementById('popup-hero-description');
+            const popupAbilities = document.getElementById('popup-hero-abilities');
+            const popupPassives = document.getElementById('popup-hero-passives');
+            const popupTeamups = document.getElementById('popup-hero-teamups');
+            const popupHealth = document.getElementById('popup-hero-health');
+            const popupMobility = document.getElementById('popup-hero-mobility');
+
+            // Update popup content
+            if (formData.Image) {
+                popupImage.src = formData.Image;
+            } else {
+                // Fallback image path construction
+                const heroNameForImage = hero.Hero.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                const formNameForImage = formName.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                // Try both formats (with dash and with underscore)
+                popupImage.src = `./CharacterImages/${formNameForImage}-headbig.png`;
+                popupImage.onerror = () => {
+                    popupImage.src = `./CharacterImages/${formNameForImage.replace(/-/g, '_')}-headbig.png`;
+                };
+            }
+            
+            popupName.textContent = `${hero.Hero} (${formName})`;
+            popupDescription.textContent = formData.Description;
+
+            // Update health and movement speed from form data
+            popupHealth.textContent = formData.Health || hero.Health || '250';
+            popupMobility.textContent = formData.MovementSpeed || hero.MovementSpeed || '6 m/s';
+
+            // Clear and populate abilities
+            popupAbilities.innerHTML = '';
+            const abilities = [
+                { key: 'Q', name: formData.Q },
+                { key: 'LClick', name: formData.LClick },
+                { key: 'LShift', name: formData.LShift },
+                { key: 'E', name: formData.E },
+                { key: 'F', name: formData.F },
+                { key: 'V', name: formData.V },
+                { key: 'Space', name: formData.Space },
+                { key: 'RClick', name: formData.RClick }
+            ];
+
+            abilities.forEach(ability => {
+                if (ability.name) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${ability.key}:</strong> ${ability.name}`;
+                    popupAbilities.appendChild(li);
+                }
+            });
+
+            // Update passives
+            popupPassives.innerHTML = '';
+            if (formData.Passives) {
+                const div = document.createElement('div');
+                div.className = 'passive-item';
+                div.textContent = formData.Passives;
+                popupPassives.appendChild(div);
+            } else {
+                popupPassives.innerHTML = '<div class="passive-item">No passives available</div>';
+            }
+
+            // Update team-ups
+            popupTeamups.innerHTML = '';
+            if (formData.TeamUps) {
+                const div = document.createElement('div');
+                div.className = 'teamup-item';
+                div.innerHTML = formatTeamupText(formData.TeamUps);
+                popupTeamups.appendChild(div);
+            } else {
+                popupTeamups.innerHTML = '<div class="teamup-item">No team-ups available</div>';
+            }
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            const popup = document.getElementById('hero-popup');
+            popup.style.display = 'none';
+        }
+
+        // Function to open character details page
+        function openCharacterDetails() {
+            const currentHero = window.currentHero;
+            console.log('Opening details for hero:', currentHero);
+            if (!currentHero) {
+                console.log('No current hero found');
+                return;
+            }
+
+            // Convert hero name to filename format (lowercase with underscores)
+            const fileName = currentHero.Hero.toLowerCase()
+                .replace(/[&]/g, 'and')  // Replace & with 'and'
+                .replace(/[^a-z0-9]/g, '_') // Replace any non-alphanumeric chars with underscore
+                .replace(/_+/g, '_')     // Replace multiple underscores with single underscore
+                .replace(/^_|_$/g, '')   // Remove leading/trailing underscores
+                + '.html';
+            
+            console.log('Navigating to:', `Detail Heroes Abilities/${fileName}`);
+            // Navigate to the individual hero details page
+            window.location.href = `Detail Heroes Abilities/${fileName}`;
+        }
+
+        // Initialize when the page loads
+        document.addEventListener('DOMContentLoaded', populateHeroContainers);
+    </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>
+        CounterPick
+    </title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    
+
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="./mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img src="../CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
+          </a>
+  
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="./characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
+            <li><a href="./tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+            <li><a href="./teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+
+            <li><a href="./news.html" class="nav-link px-2 text-white">News</a></li>
+
+            
+
+          </ul>
+  
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+          </form>
+  
+          <div class="text-end">
+            <button type="button" class="btn btn-outline-light me-2">Login</button>
+            <button type="button" class="btn sign-up-color">Sign-up</button>
+          </div>
+        </div>
+      </div>
+    
+    <!-- Hero Banner -->
+    <div class="hero-header-container">
+      <div class="hero-header-bg"></div>
+      <div class="hero-header-content">
+        <h1 class="hero-header-title">Welcome to CounterPick.gg</h1>
+        <div class="hero-header-underline"></div>
+        <p class="hero-header-subtitle">Your go-to for the latest team comps, tier lists, and patch notes!</p>
+      </div>
+    </div>
+
+    <!-- Featured News Section -->
+    <div class="container mt-4">
+        <div class="section-header-container-dark"><h2 class="text-white marvel-font mb-4">Featured News</h2></div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="featured-news-card">
+                    <img src="./patches/20250425_bighead.jpg" alt="Giant-Size Brain Blast Mode" class="featured-img">
+                    <div class="featured-content">
+                        <h3>New Mode: Giant-Size Brain Blast</h3>
+                        <p>Experience the all-new Giant-Size Brain Blast mode! Compete on unique leaderboards and unlock colossal rewards. Available during special time windows starting April 25th.</p>
+                        <a href="./patches/20250425_patch.html" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="news-sidebar">
+                    <h4>Quick Updates</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="./patches/20250415_patch.html">Costume Color Customization</a></li>
+                        <li><a href="./patches/20250411_patch.html">Emma Frost joins the battle!</a></li>
+                        <li><a href="./patches/20250411_balance.html">Season 2 Balance Changes</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest Patches Section -->
+    <div class="container mt-4">
+        <div class="section-header-container-dark"><h2 class="text-white marvel-font mb-4">Latest Patches</h2></div>
+        <div class="patch-carousel scroll-carousel" id="patch-carousel" style="display: flex; overflow-x: auto; gap: 24px; padding-bottom: 16px; cursor: grab;">
+          <!-- Patch cards will be injected here by JS -->
+        </div>
+    </div>
+
+    <!-- Hero Vertical Carousel and Spotlight Section -->
+    <div class="container mt-5" id="hero-vertical-carousel-section">
+      <div class="hero-carousel-spotlight-wrapper d-flex" style="gap: 32px; align-items: stretch;">
+        <div id="hero-spotlight-card" style="flex: 1 1 0%; min-width: 0;"></div>
+        <div class="hero-vertical-carousel d-flex flex-column align-items-center" id="hero-vertical-carousel" style="width: 90px; min-width: 70px; max-width: 110px; overflow-y: auto; height: 340px; background: #181818; border-radius: 14px; box-shadow: 0 2px 12px #0004; padding: 12px 0;"></div>
+      </div>
+    </div>
+
+    <!-- Meta Tier List Preview -->
+    <div class="container mt-4">
+        <div class="section-header-container-dark"><h2 class="text-white marvel-font mb-4">Current Meta Tier List</h2></div>
+        <div class="tier-list-preview">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>S-Tier</h4>
+                    <ul class="list-unstyled">
+                        <li>Spider-Man</li>
+                        <li>Iron Man</li>
+                        <li>Hulk</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>A-Tier</h4>
+                    <ul class="list-unstyled">
+                        <li>Doctor Strange</li>
+                        <li>Black Panther</li>
+                        <li>Storm</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>B-Tier</h4>
+                    <ul class="list-unstyled">
+                        <li>Rocket Raccoon</li>
+                        <li>Groot</li>
+                        <li>Mantis</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>C-Tier</h4>
+                    <ul class="list-unstyled">
+                        <li>Star-Lord</li>
+                        <li>Gamora</li>
+                        <li>Drax</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="./tierList.html" class="btn btn-primary">View Full Tier List</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Team Compositions -->
+    <div class="container mt-4">
+        <div class="section-header-container-dark"><h2 class="text-white marvel-font mb-4">Popular Team Compositions</h2></div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="team-comp-card">
+                    <h4>Meta Team 1</h4>
+                    <ul class="list-unstyled">
+                        <li>Spider-Man (Duelist)</li>
+                        <li>Doctor Strange (Strategist)</li>
+                        <li>Hulk (Vanguard)</li>
+                    </ul>
+                    <p>Win Rate: 58.3%</p>
+                    <a href="./teamComps.html#meta1" class="btn btn-sm btn-primary">View Strategy</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="team-comp-card">
+                    <h4>Meta Team 2</h4>
+                    <ul class="list-unstyled">
+                        <li>Iron Man (Duelist)</li>
+                        <li>Black Panther (Vanguard)</li>
+                        <li>Storm (Strategist)</li>
+                    </ul>
+                    <p>Win Rate: 56.7%</p>
+                    <a href="./teamComps.html#meta2" class="btn btn-sm btn-primary">View Strategy</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="team-comp-card">
+                    <h4>Meta Team 3</h4>
+                    <ul class="list-unstyled">
+                        <li>Rocket Raccoon (Strategist)</li>
+                        <li>Groot (Vanguard)</li>
+                        <li>Mantis (Support)</li>
+                    </ul>
+                    <p>Win Rate: 55.1%</p>
+                    <a href="./teamComps.html#meta3" class="btn btn-sm btn-primary">View Strategy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header-container"><h2 id="image-title" class="text-center marvel-font">Season 2: Hellfire Gala</h2></div>
+    <div class="image-container" style="position: relative; width: 100vw; max-width: none; margin: 0 auto;">
+      <img src="./CharacterImages/Season_2_Hellfire_Gala.jpg" alt="Season 2 Hellfire Gala" class="displayed-image" style="width: 100vw; height: auto; max-width: none; border-radius: 0; display: block;">
+      <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(26,26,26,0.85); color: #fff; padding: 2rem 1.5rem; font-size: 1.2rem; font-family: 'Bebas Neue', sans-serif;">
+        Once a year, this sovereign Mutant island opens its gates, welcoming both friend and rival alike to shape a brighter future. Now stranded in the year 2099 by a raging temporal storm, the fate of Krakoa hangs in the balance, its ecosystem suffering from dangerous chronal energy. Can a night of glittering festivities bring unity over fine dining and dazzling conversation? Who among the attendees possesses ulterior motives or solely seeks to party? And who is the uninvited guest? Dress your best, step through the gates, and join us for an unforgettable evening of elegance, intrigue, and power.
+      </div>
+    </div>
+
+    <!-- Where all heroes will be put -->
+    <!-- <div id="heroes-container"></div> -->
+
+    <!-- invisible pop up window -->
+    <div id="hero-popup" class="hero-popup">
+      <div class="popup-content">
+          <button class="close-btn" onclick="closePopup()">x</button>
+          <h2 id="hero-name"></h2>
+          <img id="hero-image" src="" alt="Hero Image" class="hero-icon">
+          <p id="hero-description"></p>
+          <div id="hero-link"></div>
+      </div>
+    </div>
+
+    
+    <script src="app.js"></script>
+
+    
+</body>
+</html>

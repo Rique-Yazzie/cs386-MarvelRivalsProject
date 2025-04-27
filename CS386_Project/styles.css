@@ -1,0 +1,1128 @@
+body {
+    background-color: rgba(0, 0, 0, 0.879);
+    color: white; 
+    padding-bottom: 60px;
+    scrollbar-color: #333 #181818;
+    scrollbar-width: thin;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.sign-up-color {
+    background-color: rgba(160, 22, 22, 0.927);
+    color: white;
+}
+
+.marvel-font {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: white;
+}
+
+/*does nothing yet, be sure to change*/
+.characters {
+    /*used to just be block, which only causes the red block to occupy one entire line*/
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+
+
+.hero-image {
+    width: 220px !important;
+    height: auto !important;
+    max-height: 320px;
+    object-fit: contain;
+    display: block;
+    margin: 10px auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0002;
+    background: #181818;
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+/* Style for the hidden popup */
+.hero-popup {
+    /* Hidden by default */
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Popup content */
+.popup-content {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+
+}
+
+/* Hero image style inside the popup */
+.hero-icon {
+    max-width: 80%;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Close button */
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+
+/* for scrolling news */
+.scroll-carousel {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+  
+.scroll-carousel a {
+scroll-snap-align: start;
+transition: transform 0.3s ease;
+}
+
+.scroll-carousel a:hover {
+transform: scale(1.05);
+}
+  
+.custom-img {
+  border: none;
+  border-radius: 8px; /* optional: keep the soft corners */
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.patch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(255, 184, 0, 0.2);
+}
+
+.news-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 6px;
+}
+
+.news-img:hover {
+transform: translateY(-5px);
+box-shadow: 0 4px 20px rgba(255, 184, 0, 0.4);
+}
+
+/* for transparent image title */
+.overlay-container {
+    position: relative;
+    width: 100%;
+    max-height: 600px;  /* Increase height to prevent image cropping */
+    overflow: hidden;  /* Hide any overflow */
+    padding-top: 20px;
+}
+
+
+.overlay-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: brightness(50%);
+}
+
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    padding: 1rem 2rem;
+    max-width: 90%;  /* Prevent the text box from stretching too wide */
+}
+
+/* idk what to call this yet */
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .displayed-image {
+    width: 600px; /* or any fixed size you want */
+    height: 350px;
+    object-fit: cover;  /* or use 'contain' if you want the whole image visible */
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  
+/* Icons overlayed on the image */
+.icon-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background-color: #333;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    background-color: #444;
+}
+
+/* Featured News Section */
+.featured-news-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+}
+
+.featured-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.featured-content {
+    padding: 20px;
+    color: white;
+}
+
+.featured-content h3 {
+    margin-bottom: 10px;
+}
+
+.news-sidebar {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    border: 1px solid #333;
+}
+
+.news-sidebar h4 {
+    margin-bottom: 15px;
+    color: #ffd700;
+}
+
+.news-sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.news-sidebar a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.news-sidebar a:hover {
+    color: #ffd700;
+}
+
+/* Patch Cards */
+.patch-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid #333;
+}
+
+.patch-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.patch-content {
+    padding: 15px;
+    color: white;
+}
+
+.patch-content h4 {
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+/* Hero Spotlight */
+.hero-spotlight {
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid #333;
+}
+
+.spotlight-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.spotlight-content {
+    padding: 20px;
+    color: white;
+}
+
+.spotlight-content h3 {
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+/* Tier List Preview */
+.tier-list-preview {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    border: 1px solid #333;
+}
+
+.tier-list-preview h4 {
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+.tier-list-preview ul li {
+    margin-bottom: 8px;
+}
+
+/* Team Composition Cards */
+.team-comp-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+    color: white;
+    border: 1px solid #333;
+}
+
+.team-comp-card h4 {
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+.team-comp-card ul li {
+    margin-bottom: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .featured-img {
+        height: 200px;
+    }
+    
+    .spotlight-img {
+        height: 200px;
+    }
+    
+    .patch-img {
+        height: 150px;
+    }
+}
+
+.section-header-container {
+    background: linear-gradient(90deg, #ffd700 0%, #fffbe0 100%);
+    padding: 18px 32px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-left: 8px solid #ffd700;
+}
+
+.section-header-container h2 {
+    margin: 0;
+    color: #222;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 8px #fff6;
+}
+
+.btn-primary {
+    background-color: #ffd700;
+    border-color: #ffd700;
+    color: #222;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #ffe066;
+    border-color: #ffe066;
+    color: #222;
+}
+
+.btn-outline-light {
+    color: #222;
+    border-color: #fff;
+    background: #fff;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.btn-outline-light:hover, .btn-outline-light:focus {
+    background-color: #f8f9fa;
+    color: #222;
+    border-color: #fff;
+}
+
+.section-header-container-dark {
+    background: #111;
+    padding: 18px 32px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-left: 8px solid #ffd700;
+}
+
+.section-header-container-dark h2 {
+    margin: 0;
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 8px #000a;
+}
+
+/* Custom dark scrollbar for all scrollable elements */
+.scroll-carousel, ::-webkit-scrollbar {
+    background: #181818;
+}
+
+.scroll-carousel::-webkit-scrollbar {
+    height: 12px;
+    background: #181818;
+    border-radius: 8px;
+}
+.scroll-carousel::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 8px;
+    border: 2px solid #181818;
+}
+.scroll-carousel::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* General scrollbar for the whole site */
+::-webkit-scrollbar {
+    width: 12px;
+    background: #181818;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Firefox */
+.scroll-carousel {
+    scrollbar-color: #333 #181818;
+    scrollbar-width: thin;
+}
+body {
+    scrollbar-color: #333 #181818;
+    scrollbar-width: thin;
+}
+
+/* Hero Grid Styles */
+.hero-grid-container {
+  padding: 2rem 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.hero-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: auto !important;
+  aspect-ratio: unset !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 240px;
+}
+
+.hero-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding: 1.5rem 1rem;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.hero-card:hover .hero-overlay {
+  transform: translateY(0);
+}
+
+.hero-overlay h3 {
+  margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  color: #ffd700;
+}
+
+.hero-overlay p {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .hero-overlay h3 {
+    font-size: 1.2rem;
+  }
+  
+  .hero-overlay p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Hero Feature Section (Marvel Rivals style) */
+.hero-feature-section {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  background: linear-gradient(90deg, #f7e0a3 0%, #fffbe0 100%);
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: 540px;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+
+.hero-feature-art {
+  position: relative;
+  flex: 1 1 45%;
+  min-width: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background: none;
+  z-index: 1;
+}
+
+.hero-feature-bg-icon {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('./CharacterImages/adam-warlock-headbig.png') no-repeat center center;
+  background-size: 90% auto;
+  opacity: 0.12;
+  filter: blur(2.5px) brightness(1.1);
+  z-index: 0;
+}
+
+.hero-feature-art::after {
+  content: '';
+  position: absolute;
+  top: 0; right: -1px; bottom: 0; left: 60%;
+  background: linear-gradient(to right, rgba(247,224,163,0.0) 0%, rgba(255,251,224,0.85) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.hero-feature-img {
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  margin-right: -40px;
+  margin-bottom: 0;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.25)) drop-shadow(0 0 32px #ffe06688);
+}
+
+.hero-feature-info {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  background: none;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-role {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  color: #bfa13a;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.hero-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  color: #222;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.hero-desc-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+@media (max-width: 1200px) {
+  .hero-feature-art.double-art {
+    min-width: 320px;
+    min-height: 480px;
+    width: 48vw;
+    max-width: 600px;
+  }
+  .hero-feature-section {
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-feature-section {
+    flex-direction: column;
+    min-height: 0;
+  }
+  .hero-feature-art.double-art {
+    width: 100%;
+    min-width: 0;
+    min-height: 320px;
+    max-width: none;
+    height: 320px;
+  }
+  .hero-feature-info {
+    padding: 2rem 1.5rem 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-feature-art.double-art {
+    min-height: 200px;
+    height: 200px;
+  }
+  .hero-feature-info {
+    padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+  }
+  .hero-name {
+    font-size: 2.1rem;
+  }
+}
+
+.hero-feature-bg-icon.wolverine-bg {
+  background: url('./CharacterImages/wolverine_art_2.png') no-repeat center center;
+  background-size: 110% auto;
+  opacity: 0.10;
+  filter: blur(2.5px) brightness(1.1);
+  z-index: 0;
+}
+
+.hero-role-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+
+.hero-role-icon {
+  font-size: 2rem;
+  color: #222;
+  vertical-align: middle;
+  margin-right: 0.2rem;
+}
+
+.hero-role {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  color: #bfa13a;
+  letter-spacing: 2px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.hero-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  color: #222;
+  letter-spacing: 3px;
+  margin-bottom: 0.2rem;
+  line-height: 1.05;
+  font-weight: 900;
+  text-shadow: 1px 2px 8px #fff6;
+}
+
+.hero-desc-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #fff;
+  display: inline-block;
+  padding: 0.1em 0.7em;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px #0001;
+  border-left: 4px solid #ffd700;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  color: #333;
+  margin-bottom: 2.2rem;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.btn-featured {
+  background: linear-gradient(90deg, #ffd700 0%, #ffe066 100%);
+  color: #222;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6em 2.2em;
+  box-shadow: 0 4px 16px #ffd70044;
+  margin-bottom: 1.5rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  letter-spacing: 1px;
+  text-shadow: 1px 2px 8px #fff6;
+}
+.btn-featured:hover, .btn-featured:focus {
+  background: #ffe066;
+  color: #111;
+  box-shadow: 0 6px 24px #ffd70088;
+}
+
+.hero-chibi-img {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 2.5rem;
+  width: 110px;
+  height: auto;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+@media (max-width: 992px) {
+  .hero-feature-section {
+    flex-direction: column;
+    min-height: 0;
+  }
+  .hero-feature-art {
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 260px;
+    padding-top: 2rem;
+  }
+  .hero-feature-img {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .hero-chibi-img {
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 80px;
+  }
+  .hero-name {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-feature-section {
+    flex-direction: column;
+    border-radius: 10px;
+  }
+  .hero-feature-art {
+    min-height: 180px;
+    padding-top: 1rem;
+  }
+  .hero-feature-img {
+    max-width: 180px;
+    margin: 0 auto;
+  }
+  .hero-chibi-img {
+    right: 0.7rem;
+    bottom: 0.7rem;
+    width: 60px;
+  }
+  .hero-name {
+    font-size: 1.7rem;
+  }
+}
+
+.hero-feature-art.double-art {
+  position: relative;
+  width: 18vw;
+  min-width: 120px;
+  min-height: 180px;
+  max-width: 220px;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: none;
+  z-index: 1;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.hero-feature-art.double-art .hero-feature-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 180%;
+  height: 180%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hero-feature-art.double-art .overlay-art {
+  z-index: 1;
+  opacity: 0.28;
+  filter: blur(2.5px) brightness(1.04);
+}
+
+.hero-feature-art.double-art .base-art {
+  z-index: 2;
+  opacity: 1;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.25));
+}
+
+@media (max-width: 1200px) {
+  .hero-feature-art.double-art {
+    min-width: 80px;
+    min-height: 100px;
+    width: 28vw;
+    max-width: 120px;
+  }
+  .hero-feature-art.double-art .hero-feature-img {
+    width: 220%;
+    height: 220%;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-feature-section {
+    flex-direction: column;
+    min-height: 0;
+  }
+  .hero-feature-art.double-art {
+    width: 100%;
+    min-width: 0;
+    min-height: 80px;
+    max-width: none;
+    height: 80px;
+  }
+  .hero-feature-art.double-art .hero-feature-img {
+    width: 180%;
+    height: 180%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-feature-art.double-art {
+    min-height: 60px;
+    height: 60px;
+  }
+  .hero-feature-art.double-art .hero-feature-img {
+    width: 180%;
+    height: 180%;
+  }
+}
+
+/* Wolverine Hero Section Customization */
+.hero-feature-section.wolverine-section {
+  position: relative;
+  min-height: 420px;
+}
+
+.hero-feature-section.wolverine-section .hero-feature-art.double-art {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 400px;
+  max-width: 40vw;
+  min-width: 280px;
+  height: 400px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  background: none;
+  pointer-events: none;
+}
+
+.hero-feature-section.wolverine-section .hero-feature-art.double-art .hero-feature-img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+}
+
+.hero-feature-section.wolverine-section .hero-feature-info {
+  padding-left: 420px;
+  z-index: 3;
+}
+
+.hero-feature-section.wolverine-section .btn-featured {
+  font-size: 1.1rem;
+  padding: 0.3em 1.2em;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .hero-feature-section.wolverine-section .hero-feature-art.double-art {
+    position: static;
+    width: 100%;
+    height: 220px;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .hero-feature-section.wolverine-section .hero-feature-info {
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+}
+
+/* Hero Vertical Carousel Styles */
+.hero-vertical-carousel {
+  width: 90px;
+  min-width: 70px;
+  max-width: 110px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 340px;
+  background: #181818;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #0004;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #ffd700 #181818;
+}
+.hero-vertical-carousel::-webkit-scrollbar {
+  width: 8px;
+  background: #181818;
+  border-radius: 8px;
+}
+.hero-vertical-carousel::-webkit-scrollbar-thumb {
+  background: #ffd700;
+  border-radius: 8px;
+}
+.hero-carousel-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px #0002;
+  background: #222;
+}
+.hero-carousel-icon.selected {
+  border: 2.5px solid #ffd700;
+  box-shadow: 0 0 0 4px #ffd70033;
+  background: #333;
+}
+.hero-carousel-icon:hover {
+  border: 2.5px solid #ffe066;
+  background: #292929;
+}
+
+@media (max-width: 900px) {
+  .hero-carousel-spotlight-wrapper {
+    flex-direction: column-reverse !important;
+    gap: 18px !important;
+  }
+  .hero-vertical-carousel {
+    flex-direction: row !important;
+    width: 100%;
+    height: 70px;
+    min-width: 0;
+    max-width: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 8px;
+    gap: 8px;
+  }
+  .hero-carousel-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.hero-header-container {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0 0 18px 18px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 32px #000a;
+}
+
+.hero-header-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: url('https://www.vice.com/wp-content/uploads/sites/2/2024/12/Marvel-Rivals-Impressions-Piece-Featured-Image.jpg?resize=1536,789') center center/cover no-repeat;
+  filter: brightness(0.45) blur(0.5px);
+  z-index: 1;
+  transition: transform 1.5s cubic-bezier(.19,1,.22,1);
+}
+.hero-header-container:hover .hero-header-bg {
+  transform: scale(1.04);
+}
+
+.hero-header-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-header-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 4px 16px #000a, 0 2px 0 #ffd700;
+  position: relative;
+}
+
+.hero-header-underline {
+  width: 80px;
+  height: 6px;
+  background: linear-gradient(90deg, #ffd700 60%, #fffbe0 100%);
+  margin: 0 auto 1.2rem auto;
+  border-radius: 3px;
+}
+
+.hero-header-subtitle {
+  font-size: 1.35rem;
+  font-family: 'Roboto', sans-serif;
+  color: #fffbe0;
+  text-shadow: 1px 2px 8px #000a;
+  margin-bottom: 0;
+}
