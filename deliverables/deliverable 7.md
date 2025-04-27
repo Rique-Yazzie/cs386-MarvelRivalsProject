@@ -44,6 +44,8 @@ For updatePopupContent.test.js:
 - Github Automated test file: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Riques-Branch/tests/updatePopupContent.test.js
 - Class file link: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/CS386_Project/heroes.js
 
+
+
 ![image](https://github.com/user-attachments/assets/eb2e995d-f002-4152-8065-dd79c008ddf9)
 
 
