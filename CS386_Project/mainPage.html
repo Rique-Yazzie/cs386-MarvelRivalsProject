@@ -31,7 +31,7 @@
             <li><a href="./tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
             <li><a href="./teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
 
-            <li><a href="./patchNotes.html" class="nav-link px-2 text-white">Patch Notes</a></li>
+            <li><a href="./news.html" class="nav-link px-2 text-white">News</a></li>
 
             
 
@@ -48,46 +48,154 @@
         </div>
       </div>
     
-      <div class="overlay-container marvel-font">
-        <img src="https://www.vice.com/wp-content/uploads/sites/2/2024/12/Marvel-Rivals-Impressions-Piece-Featured-Image.jpg?resize=1536,789" alt="Background" class="overlay-image">
-        <div class="overlay-text overlay-container">
-            <h2>Welcome to CounterPick.gg</h2>
-            <p>Your go-to for the latest team comps, tier lists, and patch notes!</p>
-        </div>
-    </div>
-    
-    
-    <div class="container mt-4">
-      <h2 class="text-white marvel-font">Latest News</h2>
-      <div class="scroll-carousel d-flex overflow-auto py-3">
-        <a href="./patches/20250327.html" class="me-3 flex-shrink-0">
-          <img src="./patch_notes_images/patch_notes_20250327.jpg" alt="Hero 1" class="img-fluid news-img" style="width: 250px; height: 140px; object-fit: cover;">
-        </a>
-        <a href="./patches/20250314_patch.html" class="me-3 flex-shrink-0">
-          <img src="./patch_notes_images/patch_notes_20250314.jpg" alt="Hero 2" class="img-fluid news-img" style="width: 250px; height: 140px; object-fit: cover;">
-        </a>
-        <a href="./patches/20250314_balance.html" class="me-3 flex-shrink-0">
-          <img src="./patch_notes_images/hero_balance_adjustments_20250314.jpg" alt="Hero 3" class="img-fluid news-img" style="width: 250px; height: 140px; object-fit: cover;">
-        </a>
-        <a href="./patches/20250307_patch.html" class="me-3 flex-shrink-0">
-          <img src="./patch_notes_images/patch_notes_20250307.jpg" alt="Hero 2" class="img-fluid news-img" style="width: 250px; height: 140px; object-fit: cover;">
-        </a>
-        
-        <!-- Add more patch notes here -->
+    <!-- Hero Banner -->
+    <div class="hero-header-container">
+      <div class="hero-header-bg"></div>
+      <div class="hero-header-content">
+        <h1 class="hero-header-title">Welcome to CounterPick.gg</h1>
+        <div class="hero-header-underline"></div>
+        <p class="hero-header-subtitle">Your go-to for the latest team comps, tier lists, and patch notes!</p>
       </div>
     </div>
 
-    <h2 id="image-title" class="text-center marvel-font">Learn more about your favorite heroes</h2>
-    
-    <div class="image-container">
-      <a id="image-link" href="./CharacterPages/characterIndex.html"></a>
-      <img id="main-image" src="https://comicbook.com/wp-content/uploads/sites/4/2024/08/49c2b5ae-0e7d-47bb-b619-63be17c9578b.jpg" alt="Displayed Image" class="displayed-image">
-      <div class="icon-bar">
-          <img src="" alt="Strategists" class="icon" onclick="changeImage('./CharacterImages/strategist-image.jpg', 'Strategist', './CharacterPages/strategist.html')">
-          <img src="" alt="Icon 2" class="icon" onclick="changeImage('./CharacterImages/vanguards-image.jpg', 'Vanguards', './CharacterPages/strategist.html')">
-          <img src="" alt="Icon 3" class="icon" onclick="changeImage('./CharacterImages/duelists-image.jpg', 'Duelists', './CharacterPages/strategist.html')">
+    <!-- Featured News Section -->
+    <div class="container mt-4">
+        <div class="section-header-container-dark"><h2 class="text-white marvel-font mb-4">Featured News</h2></div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="featured-news-card">
+                    <img src="./patches/20250425_bighead.jpg" alt="Giant-Size Brain Blast Mode" class="featured-img">
+                    <div class="featured-content">
+                        <h3>New Mode: Giant-Size Brain Blast</h3>
+                        <p>Experience the all-new Giant-Size Brain Blast mode! Compete on unique leaderboards and unlock colossal rewards. Available during special time windows starting April 25th.</p>
+                        <a href="./patches/20250425_patch.html" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="news-sidebar">
+                    <h4>Quick Updates</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="./patches/20250415_patch.html">Costume Color Customization</a></li>
+                        <li><a href="./patches/20250411_patch.html">Emma Frost joins the battle!</a></li>
+                        <li><a href="./patches/20250411_balance.html">Season 2 Balance Changes</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest Patches Section -->
+    <div class="container mt-4">
+        <div class="section-header-container-dark"><h2 class="text-white marvel-font mb-4">Latest Patches</h2></div>
+        <div class="patch-carousel scroll-carousel" id="patch-carousel" style="display: flex; overflow-x: auto; gap: 24px; padding-bottom: 16px; cursor: grab;">
+          <!-- Patch cards will be injected here by JS -->
+        </div>
+    </div>
+
+    <!-- Hero Vertical Carousel and Spotlight Section -->
+    <div class="container mt-5" id="hero-vertical-carousel-section">
+      <div class="hero-carousel-spotlight-wrapper d-flex" style="gap: 32px; align-items: stretch;">
+        <div id="hero-spotlight-card" style="flex: 1 1 0%; min-width: 0;"></div>
+        <div class="hero-vertical-carousel d-flex flex-column align-items-center" id="hero-vertical-carousel" style="width: 90px; min-width: 70px; max-width: 110px; overflow-y: auto; height: 340px; background: #181818; border-radius: 14px; box-shadow: 0 2px 12px #0004; padding: 12px 0;"></div>
       </div>
-  </div>
+    </div>
+
+    <!-- Meta Tier List Preview -->
+    <div class="container mt-4">
+        <div class="section-header-container-dark"><h2 class="text-white marvel-font mb-4">Current Meta Tier List</h2></div>
+        <div class="tier-list-preview">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>S-Tier</h4>
+                    <ul class="list-unstyled">
+                        <li>Spider-Man</li>
+                        <li>Iron Man</li>
+                        <li>Hulk</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>A-Tier</h4>
+                    <ul class="list-unstyled">
+                        <li>Doctor Strange</li>
+                        <li>Black Panther</li>
+                        <li>Storm</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>B-Tier</h4>
+                    <ul class="list-unstyled">
+                        <li>Rocket Raccoon</li>
+                        <li>Groot</li>
+                        <li>Mantis</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>C-Tier</h4>
+                    <ul class="list-unstyled">
+                        <li>Star-Lord</li>
+                        <li>Gamora</li>
+                        <li>Drax</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="./tierList.html" class="btn btn-primary">View Full Tier List</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Team Compositions -->
+    <div class="container mt-4">
+        <div class="section-header-container-dark"><h2 class="text-white marvel-font mb-4">Popular Team Compositions</h2></div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="team-comp-card">
+                    <h4>Meta Team 1</h4>
+                    <ul class="list-unstyled">
+                        <li>Spider-Man (Duelist)</li>
+                        <li>Doctor Strange (Strategist)</li>
+                        <li>Hulk (Vanguard)</li>
+                    </ul>
+                    <p>Win Rate: 58.3%</p>
+                    <a href="./teamComps.html#meta1" class="btn btn-sm btn-primary">View Strategy</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="team-comp-card">
+                    <h4>Meta Team 2</h4>
+                    <ul class="list-unstyled">
+                        <li>Iron Man (Duelist)</li>
+                        <li>Black Panther (Vanguard)</li>
+                        <li>Storm (Strategist)</li>
+                    </ul>
+                    <p>Win Rate: 56.7%</p>
+                    <a href="./teamComps.html#meta2" class="btn btn-sm btn-primary">View Strategy</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="team-comp-card">
+                    <h4>Meta Team 3</h4>
+                    <ul class="list-unstyled">
+                        <li>Rocket Raccoon (Strategist)</li>
+                        <li>Groot (Vanguard)</li>
+                        <li>Mantis (Support)</li>
+                    </ul>
+                    <p>Win Rate: 55.1%</p>
+                    <a href="./teamComps.html#meta3" class="btn btn-sm btn-primary">View Strategy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-header-container"><h2 id="image-title" class="text-center marvel-font">Season 2: Hellfire Gala</h2></div>
+    <div class="image-container" style="position: relative; width: 100vw; max-width: none; margin: 0 auto;">
+      <img src="./CharacterImages/Season_2_Hellfire_Gala.jpg" alt="Season 2 Hellfire Gala" class="displayed-image" style="width: 100vw; height: auto; max-width: none; border-radius: 0; display: block;">
+      <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(26,26,26,0.85); color: #fff; padding: 2rem 1.5rem; font-size: 1.2rem; font-family: 'Bebas Neue', sans-serif;">
+        Once a year, this sovereign Mutant island opens its gates, welcoming both friend and rival alike to shape a brighter future. Now stranded in the year 2099 by a raging temporal storm, the fate of Krakoa hangs in the balance, its ecosystem suffering from dangerous chronal energy. Can a night of glittering festivities bring unity over fine dining and dazzling conversation? Who among the attendees possesses ulterior motives or solely seeks to party? And who is the uninvited guest? Dress your best, step through the gates, and join us for an unforgettable evening of elegance, intrigue, and power.
+      </div>
+    </div>
+
     <!-- Where all heroes will be put -->
     <!-- <div id="heroes-container"></div> -->
 

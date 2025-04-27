@@ -1,0 +1,167 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+
+/* Common styles shared across all announcement pages */
+:root {
+    --marvel-yellow: #FFB800;
+    --marvel-black: #1A1A1A;
+    --marvel-gray: #333333;
+    --marvel-red: rgba(160, 22, 22, 0.927);
+}
+
+/* Announcement Header Styling */
+.patch-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.patch-header img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.patch-banner {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Typography */
+.marvel-font {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(255, 184, 0, 0.3);
+}
+
+.text-muted {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: #a0a0a0 !important;
+}
+
+/* Announcement Content Base Styling */
+.patch-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: var(--marvel-black);
+    border: 2px solid var(--marvel-yellow);
+    position: relative;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+/* Section Headers */
+.patch-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--marvel-yellow);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 1.5rem 0 1rem;
+}
+
+.patch-content h3, .patch-content h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin: 1rem 0 0.75rem;
+}
+
+/* List Styling */
+.patch-content ul {
+    margin: 0 0 1rem 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.patch-content ul li {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.patch-content ul li::before {
+    content: "•";
+    color: var(--marvel-yellow);
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+}
+
+/* Section Spacing */
+.mb-5 {
+    margin-bottom: 1.5rem;
+}
+
+/* Diagonal line effect */
+.patch-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 48%, var(--marvel-yellow) 48%, var(--marvel-yellow) 50%, transparent 50%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .patch-header, 
+    .patch-content,
+    .bundle-content,
+    .twitch-content {
+        padding: 0 1rem;
+    }
+
+    .patch-content {
+        padding: 1rem;
+    }
+
+    .marvel-font {
+        font-size: 2rem;
+    }
+
+    .patch-content h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Content width control */
+.container {
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+/* Footer styling */
+.patch-footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 184, 0, 0.3);
+}
+
+.patch-footer p {
+    color: #888888;
+    font-style: italic;
+} 
