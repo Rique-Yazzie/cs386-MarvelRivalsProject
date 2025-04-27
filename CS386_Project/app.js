@@ -100,7 +100,7 @@ const strategists = {
         V: "",
         Space: "",
         RClick: "Healing Flower",
-        TeamUpsPassives: "Nature’s Favor/ Nature's Soul",
+        TeamUpsPassives: "Nature's Favor/ Nature's Soul",
         Image: "./CharacterImages/mantis.png",
         Description: "Mantis uses her impressive mental abilities and her penchant for plant control to anchor any team she fights alongside. Her powers tap into a limitless flow of life energy, gently nourishing everything she touches."
     },
@@ -468,7 +468,7 @@ const vanguard = {
         RClick: "Gamma Burst",
         TeamUpsPassives: "Gamma Boost/ Gamma Fast Ball",
         Image: "./CharacterImages/hero_hulk.png",
-        Description: ""
+        Description: "The mighty Hulk leaps into battle with unstoppable force! As a Vanguard, Hero Hulk uses his indestructible strength and powerful leaps to shield allies and smash through enemy lines. His rage is his greatest weapon, making him a true frontline powerhouse."
     },
     "MonsterHulk": {
         Hero: "Monster Hulk",
@@ -606,9 +606,6 @@ const vanguard = {
         Description: "Using his symbiote-enhanced body as the perfect living weapon, Eddie Brock and his alien ally stand ever-ready to unleash vicious attacks upon anyone he deems an enemy. Those ensnared by Venom's tentacles have no choice but to surrender to this insatiable predator."
     }
 }
-
-
-
 
 // Wait until the document is fully loaded
 $(document).ready(function() {
@@ -752,4 +749,441 @@ function changeImage(imageSrc, title, linkHref) {
     document.getElementById('image-title').textContent = title;
     document.getElementById('image-link').href = linkHref;
 }
+
+// Patch Carousel: Load PATCH NOTES from newsData and enable drag-to-scroll
+function renderPatchCarousel() {
+  const patchCarousel = document.getElementById('patch-carousel');
+  if (!patchCarousel) return;
+  // Filter PATCH NOTES only, most recent first
+  const patches = newsData.filter(item => item.type === 'PATCH NOTES').slice(0, 10);
+  patchCarousel.innerHTML = patches.map(patch => `
+    <div class="patch-card" style="min-width: 320px; max-width: 340px; flex: 0 0 auto;">
+      <img src="${patch.image}" alt="${patch.title}" class="patch-img">
+      <div class="patch-content">
+        <h4>${patch.title}</h4>
+        <p class="patch-date">${patch.date}</p>
+        <p class="patch-description">${patch.description}</p>
+        <a href="${patch.url}" class="btn btn-sm btn-primary">View Details</a>
+      </div>
+    </div>
+  `).join('');
+
+  // Drag-to-scroll functionality
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  patchCarousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    patchCarousel.classList.add('active');
+    startX = e.pageX - patchCarousel.offsetLeft;
+    scrollLeft = patchCarousel.scrollLeft;
+  });
+  patchCarousel.addEventListener('mouseleave', () => {
+    isDown = false;
+    patchCarousel.classList.remove('active');
+  });
+  patchCarousel.addEventListener('mouseup', () => {
+    isDown = false;
+    patchCarousel.classList.remove('active');
+  });
+  patchCarousel.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - patchCarousel.offsetLeft;
+    const walk = (x - startX) * 1.5; // scroll-fast
+    patchCarousel.scrollLeft = scrollLeft - walk;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderPatchCarousel();
+});
+
+// --- PATCH NEWS DATA (copied from news.js for main page carousel) ---
+const newsData = [
+    {
+        version: "20250425",
+        date: "April 24, 2025",
+        url: "patches/20250425_patch.html",
+        image: "patch_notes_images/patch_notes_20250425.jpg",
+        title: "Giant-Size Brain Blast & Hero Balance Update",
+        description: "New limited-time mode: Giant-Size Brain Blast! Major hero balance changes for Emma Frost, Hulk, Iron Fist, Psylocke, Star-Lord, Squirrel Girl, and Invisible Woman. UI and map fixes included.",
+        type: "PATCH NOTES"
+    },
+    {
+        version: "20250425_balance",
+        date: "April 24, 2025",
+        url: "patches/20250425_balance.html",
+        image: "patch_notes_images/balance_20250425.jpg",
+        title: "Hero Balance Adjustments",
+        description: "Detailed hero balance changes for Emma Frost, Hulk, Iron Fist, Psylocke, Star-Lord, Squirrel Girl, and Invisible Woman.",
+        type: "BALANCE CHANGES"
+    },
+    {
+        version: "20250415",
+        date: "April 17, 2025",
+        url: "patches/20250415_patch.html",
+        image: "patch_notes_images/patch_notes_20250415.jpg",
+        title: "Costume Color Customization & Store Update",
+        description: "Customize your hero's costume colors! New store bundles and emotes added. Minor hero adjustments.",
+        type: "PATCH NOTES"
+    },
+    {
+        version: "20250415_balance",
+        date: "April 17, 2025",
+        url: "patches/20250415_balance.html",
+        image: "patch_notes_images/balance_20250415.jpg",
+        title: "Hero Balance Adjustments",
+        description: "Balance changes for Black Panther, Storm, and Doctor Strange.",
+        type: "BALANCE CHANGES"
+    },
+    {
+        version: "20250411",
+        date: "April 8, 2025",
+        url: "./patches/20250411_patch.html",
+        image: "./patch_notes_images/patch_notes_20250411.jpg",
+        title: "Emma Frost Joins & Season 2 Balance Changes",
+        description: "Emma Frost is now playable! Season 2 brings balance changes to multiple heroes and new event content.",
+        type: "PATCH NOTES"
+    },
+    {
+        version: "20250411_balance",
+        date: "April 8, 2025",
+        url: "./patches/20250411_balance.html",
+        image: "./patch_notes_images/balance_20250411.jpg",
+        title: "Season 2 Hero Balance Adjustments",
+        description: "Detailed balance changes for Rocket Raccoon, Groot, and Mantis.",
+        type: "BALANCE CHANGES"
+    },
+    {
+        version: "20250327",
+        date: "March 27, 2025",
+        url: "./patches/20250327.html",
+        image: "./patch_notes_images/patch_notes_20250327.jpg",
+        title: "Spring Event & Hero Adjustments",
+        description: "Spring event begins! Hero adjustments for Iron Man, Groot, and Mantis. Bug fixes included.",
+        type: "PATCH NOTES"
+    },
+    {
+        version: "20250327_balance",
+        date: "March 27, 2025",
+        url: "./patches/20250327_balance.html",
+        image: "./patch_notes_images/balance_20250327.jpg",
+        title: "Hero Balance Adjustments",
+        description: "Detailed balance changes for Iron Man, Groot, and Mantis.",
+        type: "BALANCE CHANGES"
+    },
+    {
+        version: "20250314",
+        date: "March 14, 2025",
+        url: "./patches/20250314_patch.html",
+        image: "./patch_notes_images/patch_notes_20250314.jpg",
+        title: "New Map: Chronal Ruins & Hero Tweaks",
+        description: "Explore the new Chronal Ruins map! Minor tweaks to Black Panther, Storm, and Doctor Strange.",
+        type: "PATCH NOTES"
+    },
+    {
+        version: "20250314_balance",
+        date: "March 14, 2025",
+        url: "./patches/20250314_balance.html",
+        image: "./patch_notes_images/balance_20250314.jpg",
+        title: "Hero Balance Adjustments",
+        description: "Detailed balance changes for Black Panther, Storm, and Doctor Strange.",
+        type: "BALANCE CHANGES"
+    },
+    {
+        version: "20250307",
+        date: "March 7, 2025",
+        url: "./patches/20250307_patch.html",
+        image: "./patch_notes_images/patch_notes_20250307.jpg",
+        title: "Performance Improvements & Bug Fixes",
+        description: "Improved game performance and fixed bugs affecting gameplay and UI.",
+        type: "PATCH NOTES"
+    },
+    {
+        version: "20250221",
+        date: "February 20, 2025",
+        url: "./patches/20250221_patch.html",
+        image: "./patch_notes_images/patch_notes_20250221.jpg",
+        title: "Hero Balance Patch: Iron Man, Groot, Mantis",
+        description: "Balance changes for Iron Man, Groot, and Mantis. Quality of life improvements.",
+        type: "PATCH NOTES"
+    },
+    {
+        version: "20250221_balance",
+        date: "February 20, 2025",
+        url: "./patches/20250221_balance.html",
+        image: "./patch_notes_images/balance_20250221.jpg",
+        title: "Hero Balance Adjustments",
+        description: "Detailed balance changes for Iron Man, Groot, and Mantis.",
+        type: "BALANCE CHANGES"
+    },
+    {
+        version: "20250214",
+        date: "February 13, 2025",
+        url: "./patches/20250214_patch.html",
+        image: "./patch_notes_images/patch_notes_20250214.jpg",
+        title: "Valentine's Event & Hero Updates",
+        description: "Valentine's event live! Hero updates for Black Widow and Hawkeye. New cosmetics available.",
+        type: "PATCH NOTES"
+    },
+    {
+        version: "20250214_balance",
+        date: "February 13, 2025",
+        url: "./patches/20250214_balance.html",
+        image: "./patch_notes_images/balance_20250214.jpg",
+        title: "Hero Balance Adjustments",
+        description: "Detailed balance changes for Black Widow and Hawkeye.",
+        type: "BALANCE CHANGES"
+    },
+    {
+        version: "20250207",
+        date: "February 6, 2025",
+        url: "./patches/20250207_patch.html",
+        image: "./patch_notes_images/patch_notes_20250207.jpg",
+        title: "Bug Fixes & Minor Hero Changes",
+        description: "Bug fixes and minor changes to Squirrel Girl and Namor.",
+        type: "PATCH NOTES"
+    },
+    {
+        version: "20250207_balance",
+        date: "February 6, 2025",
+        url: "./patches/20250207_balance.html",
+        image: "./patch_notes_images/balance_20250207.jpg",
+        title: "Hero Balance Adjustments",
+        description: "Detailed balance changes for Squirrel Girl and Namor.",
+        type: "BALANCE CHANGES"
+    },
+    {
+        version: "20250122",
+        date: "January 22, 2025",
+        url: "./patches/20250122_patch.html",
+        image: "./patch_notes_images/patch_notes_20250122.jpg",
+        title: "Spring Festival Update",
+        description: "Celebrate the Spring Festival! New event rewards and hero skins.",
+        type: "PATCH NOTES"
+    },
+    {
+        version: "20250122_balance",
+        date: "January 22, 2025",
+        url: "./patches/20250122_balance.html",
+        image: "./patch_notes_images/balance_20250122.jpg",
+        title: "Hero Balance Adjustments",
+        description: "Detailed balance changes for Spider-Man and Doctor Strange.",
+        type: "BALANCE CHANGES"
+    },
+    {
+        version: "20250110",
+        date: "January 8, 2025",
+        url: "./patches/20250110_patch.html",
+        image: "./patch_notes_images/patch_notes_20250110.jpg",
+        title: "Empire of Eternal Night Update",
+        description: "New event: Empire of Eternal Night. Balance changes and bug fixes included.",
+        type: "PATCH NOTES"
+    },
+    {
+        version: "20250110_balance",
+        date: "January 8, 2025",
+        url: "./patches/20250110_balance.html",
+        image: "./patch_notes_images/balance_20250110.jpg",
+        title: "Hero Balance Adjustments",
+        description: "Detailed balance changes for Hela and Loki.",
+        type: "BALANCE CHANGES"
+    }
+];
+
+// Hero Card Interactions
+document.addEventListener('DOMContentLoaded', function() {
+  const heroCards = document.querySelectorAll('.hero-card');
+  
+  heroCards.forEach(card => {
+    card.addEventListener('click', function() {
+      const heroName = this.getAttribute('data-hero');
+      // Convert hero name to the format used in your character pages
+      const formattedHeroName = heroName.replace(/-/g, '_');
+      window.location.href = `./characterIndex.html#${formattedHeroName}`;
+    });
+    
+    // Add keyboard navigation
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        const heroName = this.getAttribute('data-hero');
+        const formattedHeroName = heroName.replace(/-/g, '_');
+        window.location.href = `./characterIndex.html#${formattedHeroName}`;
+      }
+    });
+    
+    // Make cards focusable
+    card.setAttribute('tabindex', '0');
+  });
+});
+
+// --- HERO VERTICAL CAROUSEL & SPOTLIGHT ---
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Helper: get all heroes as array with type
+  function getAllHeroes() {
+    const all = [];
+    for (const [id, hero] of Object.entries(strategists)) all.push({ ...hero, id });
+    for (const [id, hero] of Object.entries(duelists)) all.push({ ...hero, id });
+    for (const [id, hero] of Object.entries(vanguard)) all.push({ ...hero, id });
+    
+    // Sort heroes alphabetically by their Hero name
+    return all.sort((a, b) => a.Hero.localeCompare(b.Hero));
+  }
+
+  const heroes = getAllHeroes();
+  const heroOrder = heroes.map(h => h.id);
+  // Adam Warlock first
+  let selectedHeroId = 'AdamWarlock';
+
+  function getBigheadImg(hero) {
+    // Special case for Cloak & Dagger
+    if (hero.Hero === 'Cloak & Dagger') {
+      return './CharacterImages/cloak&dagger-headbig.png';
+    }
+    
+    // Try kebab-case for bighead PNGs
+    let base = hero.Hero || hero.id;
+    base = base.replace(/\s+/g, '-')
+               .replace(/\(|\)/g, '')
+               .replace(/\./g, '')
+               .replace(/'/g, '')
+               .replace(/_/g, '-')
+               .toLowerCase();
+    return `./CharacterImages/${base}-headbig.png`;
+  }
+  function getMainArt(hero) {
+    let base = hero.Image.replace('./CharacterImages/', '').replace('.png', '');
+    return `./CharacterImages/${base}_art.png`;
+  }
+  function getOverlayArt(hero) {
+    let base = hero.Image.replace('./CharacterImages/', '').replace('.png', '');
+    return `./CharacterImages/${base}_art_2.png`;
+  }
+  function getDetailsLink(hero) {
+    // Special cases for certain heroes
+    if (hero.id === 'JeffTheLandShark') return './Detail Heroes Abilities/jeff_the_land_shark.html';
+    if (hero.id === 'Spider-man') return './Detail Heroes Abilities/spider_man.html';
+    if (hero.id === 'Star-Lord') return './Detail Heroes Abilities/star_lord.html';
+    if (hero.id === 'ThePunisher') return './Detail Heroes Abilities/the_punisher.html';
+    if (hero.id === 'TheThing') return './Detail Heroes Abilities/the_thing.html';
+    // Convert PascalCase to snake_case for others
+    const snakeCaseId = hero.id
+      .replace(/([A-Z])/g, '_$1')  // Add underscore before capital letters
+      .toLowerCase()                // Convert to lowercase
+      .replace(/^_/, '')           // Remove leading underscore if any
+      .replace(/&/g, '_and_')      // Replace & with _and_
+      .replace(/the_/g, '')        // Remove "the_" prefix
+      .replace(/_+/g, '_');        // Replace multiple underscores with single underscore
+    return encodeURI(`./Detail Heroes Abilities/${snakeCaseId}.html`);
+  }
+
+  function renderCarousel(selectedId) {
+    const container = document.getElementById('hero-vertical-carousel');
+    container.innerHTML = '';
+    container.style.overflowY = 'auto';
+    container.style.scrollbarWidth = 'thin';
+    container.style.scrollbarColor = '#666 #222';
+    container.style.paddingRight = '8px';
+    
+    // Add custom scrollbar styles
+    const style = document.createElement('style');
+    style.textContent = `
+      #hero-vertical-carousel::-webkit-scrollbar {
+        width: 8px;
+      }
+      #hero-vertical-carousel::-webkit-scrollbar-track {
+        background: #222;
+        border-radius: 4px;
+      }
+      #hero-vertical-carousel::-webkit-scrollbar-thumb {
+        background-color: #666;
+        border-radius: 4px;
+      }
+      #hero-vertical-carousel::-webkit-scrollbar-thumb:hover {
+        background-color: #888;
+      }
+    `;
+    document.head.appendChild(style);
+
+    heroes.forEach(hero => {
+      // Skip these heroes in the carousel
+      if (hero.id === 'Magik(Ult)' || hero.id === 'BruceBanner' || hero.id === 'MonsterHulk') {
+        return;
+      }
+      
+      const icon = document.createElement('img');
+      icon.src = getBigheadImg(hero);
+      icon.alt = hero.Hero;
+      icon.className = 'hero-carousel-icon mb-3' + (hero.id === selectedId ? ' selected' : '');
+      icon.style.cursor = 'pointer';
+      icon.style.width = '72px';
+      icon.style.height = '72px';
+      icon.style.objectFit = 'cover';
+      icon.style.border = '2px solid #333';
+      icon.style.borderRadius = '8px';
+      icon.style.padding = '4px';
+      icon.style.backgroundColor = '#222';
+      icon.style.transition = 'all 0.2s ease';
+      icon.onmouseover = () => {
+        icon.style.borderColor = '#ffd700';
+        icon.style.transform = 'scale(1.05)';
+      };
+      icon.onmouseout = () => {
+        icon.style.borderColor = '#333';
+        icon.style.transform = 'scale(1)';
+      };
+      icon.onclick = () => {
+        selectedHeroId = hero.id;
+        renderCarousel(selectedHeroId);
+        renderSpotlight(selectedHeroId);
+      };
+      container.appendChild(icon);
+    });
+  }
+
+  function renderSpotlight(heroId) {
+    const hero = heroes.find(h => h.id === heroId);
+    if (!hero) return;
+    const mainArt = getMainArt(hero);
+    const overlayArt = getOverlayArt(hero);
+    const detailsLink = getDetailsLink(hero);
+    const spotlight = document.getElementById('hero-spotlight-card');
+    spotlight.innerHTML = `
+      <div class="hero-spotlight-card p-4 position-relative" style="background:#181818;border-radius:16px;box-shadow:0 4px 24px #0008;min-height:340px;overflow:hidden;">
+        <div style="position:relative;min-height:260px;display:flex;align-items:flex-end;">
+          <div style="position:relative;width:320px;height:320px;margin-left:-80px;margin-bottom:-40px;">
+            <img src="${mainArt}" alt="${hero.Hero}" style="height:320px;position:absolute;left:0;bottom:0;z-index:2;">
+            <img src="${overlayArt}" alt="${hero.Hero} Overlay" style="height:320px;position:absolute;left:40px;bottom:0;z-index:1;opacity:0.35;filter:blur(1px);">
+          </div>
+          <div style="flex:1;padding-left:80px;padding-right:40px;position:relative;z-index:3;">
+            <h2 class="marvel-font" style="color:#ffd700;margin-bottom:16px;font-size:2.5rem;">${hero.Hero}</h2>
+            <p style="color:#fff;max-width:600px;margin-bottom:24px;font-size:1.2rem;line-height:1.5;">${hero.Description}</p>
+            <a href="${detailsLink}" class="btn btn-primary mt-2" style="display:inline-block;padding:12px 24px;z-index:4;position:relative;font-size:1.1rem;">View Details</a>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Only run if the section exists
+  if (document.getElementById('hero-vertical-carousel-section')) {
+    // Remove any previous header if present
+    const section = document.getElementById('hero-vertical-carousel-section');
+    const oldHeader = section.querySelector('.section-header-container-dark');
+    if (oldHeader) oldHeader.remove();
+    // Create the matching header
+    const headerContainer = document.createElement('div');
+    headerContainer.className = 'section-header-container-dark';
+    const header = document.createElement('h2');
+    header.className = 'text-white marvel-font mb-4';
+    header.textContent = 'Learn About Your Favorite Heroes';
+    headerContainer.appendChild(header);
+    section.prepend(headerContainer);
+
+    renderCarousel(selectedHeroId);
+    renderSpotlight(selectedHeroId);
+  }
+});
   

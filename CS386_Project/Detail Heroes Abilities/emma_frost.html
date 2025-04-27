@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Marvel Rivals - Emma Frost</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../characterindex.css">
+    <style>
+        :root {
+            --primary-color: #FFB800;
+            --secondary-color: rgba(160, 22, 22, 0.927);
+            --dark-bg: rgba(0, 0, 0, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background: #1a1a1a;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .character-details-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .character-header {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            background: var(--dark-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-image {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .character-image:hover {
+            transform: scale(1.02);
+        }
+
+        .character-info {
+            flex: 1;
+        }
+
+        .character-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-role {
+            font-size: 1.8rem;
+            color: #888;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .character-description {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .details-section {
+            background: var(--dark-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .ability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .ability-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .ability-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ability-icon {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px;
+        }
+
+        .ability-title {
+            flex: 1;
+        }
+
+        .ability-key {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .ability-type {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-stats {
+            margin-top: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .stats-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .base-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+
+        .stat-label {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        .stat-value {
+            text-align: right;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .ability-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: #222;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background-color: #ffd700;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .character-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .character-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .ability-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="../mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="../CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="../characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
+                <li><a href="../tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+                <li><a href="../teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+                <li><a href="../news.html" class="nav-link px-2 text-white">News</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn sign-up-color">Sign-up</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-button" onclick="window.history.back()">← Back</button>
+    
+    <div class="character-details-container">
+        <div class="character-header">
+            <img class="character-image" src="../CharacterImages/emma-frost-headbig.png" alt="Emma Frost">
+            <div class="character-info">
+                <h1 class="character-name">Emma Frost</h1>
+                <div class="character-role">Vanguard</div>
+                <p class="character-description">The White Queen of the Hellfire Club, Emma Frost wields powerful telepathic abilities and can transform into her diamond form. Her mastery of both psychic and physical combat makes her a formidable opponent.</p>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Stats</h2>
+            <div class="stats-container">
+                <div class="base-stats">
+                    <div class="stat-row">
+                        <div class="stat-label">Health</div>
+                        <div class="stat-value">550</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Movement Speed</div>
+                        <div class="stat-value">6 m/s</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Attack Type</div>
+                        <div class="stat-value">Projectile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Abilities</h2>
+            <div class="ability-grid">
+                <!-- Telepathic Pulse -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Emma_Frost_Telepathic_Pulse_icon.jpg" alt="Telepathic Pulse">
+                        <div class="ability-title">
+                            <div class="ability-key">Left Click</div>
+                            <div class="ability-name">Telepathic Pulse</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Ammo</span>
+                            <span class="stat-value">70</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">0-70/s, 99-120/s, full energy-150/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Channeled</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Attack Range</span>
+                            <span class="stat-value">15m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Energy Gain</span>
+                            <span class="stat-value">Hero: 10/s, Sentience: 15/s, Summons: 5/s, Shield: 10/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Energy Falloff</span>
+                            <span class="stat-value">Begins at 3s, 30/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Ammo Consumption</span>
+                            <span class="stat-value">10/s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Fire a psionic beam to deal damage; the longer the beam hits, the higher the damage.</div>
+                </div>
+
+                <!-- Mind's Aegis -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Emma_Frost_Minds_Aegis_icon.jpg" alt="Mind's Aegis">
+                        <div class="ability-title">
+                            <div class="ability-key">Right Click</div>
+                            <div class="ability-name">Mind's Aegis</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Deployable Shield</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Recovery Speed</span>
+                            <span class="stat-value">70/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Reposition Cooldown</span>
+                            <span class="stat-value">3s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Shield Value</span>
+                            <span class="stat-value">500</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown After Destroyed</span>
+                            <span class="stat-value">4s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Delayed Recovery</span>
+                            <span class="stat-value">2s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Create a levitating barrier at the designated location.</div>
+                </div>
+
+                <!-- Diamond Form -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Emma_Frost_Diamond_Form_icon.jpg" alt="Diamond Form">
+                        <div class="ability-title">
+                            <div class="ability-key">SHIFT</div>
+                            <div class="ability-name">Diamond Form</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Switch Form</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">8s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Special Effect</span>
+                            <span class="stat-value">30% Damage Reduction</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Activate Diamond Form to transform your attack style while gaining Damage Reduction and becoming Unstoppable.</div>
+                </div>
+
+                <!-- Faceted Fury -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Emma_Frost_Faceted_Fury_icon.jpg" alt="Faceted Fury">
+                        <div class="ability-title">
+                            <div class="ability-key">Left Click</div>
+                            <div class="ability-name">Faceted Fury</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">First & second hit: 50, third hit: 70, fourth hit: 80</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Single-cast Spell Field</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Attack Range</span>
+                            <span class="stat-value">4m</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">In Diamond Form, deliver a crushing double-fisted strike to enemies.</div>
+                </div>
+
+                <!-- Crystal Kick -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Emma_Frost_Crystal_Kick_icon.jpg" alt="Crystal Kick">
+                        <div class="ability-title">
+                            <div class="ability-key">Right Click</div>
+                            <div class="ability-name">Crystal Kick</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">50 (100 when knocked into walls)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Single-cast Spell Field</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">2s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Hit Range</span>
+                            <span class="stat-value">5m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Special Effect</span>
+                            <span class="stat-value">Maximum knockback distance: 10m</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">In Diamond Form, unleash a flying kick forward and knock back enemies; extra damage is dealt if they're propelled into a wall.</div>
+                </div>
+
+                <!-- Carbon Crush -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Emma_Frost_Carbon_Crush_icon.jpg" alt="Carbon Crush">
+                        <div class="ability-title">
+                            <div class="ability-key">Right Click</div>
+                            <div class="ability-name">Carbon Crush</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">30</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Dash Based Control</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">5s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Special Effect</span>
+                            <span class="stat-value">Control effect duration: 1.6s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Distance</span>
+                            <span class="stat-value">7m</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">In Diamond Form, lunge forward to grab an enemy, then execute a back slam to inflict damage.</div>
+                </div>
+
+                <!-- Psychic Spear -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Emma_Frost_Psychic_Spear_icon.jpg" alt="Psychic Spear">
+                        <div class="ability-title">
+                            <div class="ability-key">E</div>
+                            <div class="ability-name">Psychic Spear</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">5 per hit, 25% max health on shatter</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Single-cast delayed projectile</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Special Effect</span>
+                            <span class="stat-value">Link breaks at 15m distance</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Distance</span>
+                            <span class="stat-value">24m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Projectile Speed</span>
+                            <span class="stat-value">80m/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Sentience Health</span>
+                            <span class="stat-value">25% of target's current health</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Seize control of an enemy's sentience—damage dealt to the sentience cascades to the physical form and can be pierced by Telepathic Pulse. When the sentience shatters, it unleashes extra damage on its owner.</div>
+                </div>
+
+                <!-- Psionic Seduction -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Emma_Frost_Psionic_Seduction_icon.jpg" alt="Psionic Seduction">
+                        <div class="ability-title">
+                            <div class="ability-key">Q</div>
+                            <div class="ability-name">Psionic Seduction</div>
+                            <div class="ability-type">Type: Ultimate</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Range</span>
+                            <span class="stat-value">Cone shape, 80° angle, 30m length</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">80/s, falloff at 10m (50% at 30m)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Large-ranged Persistent Spell Field</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">6s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Energy Cost</span>
+                            <span class="stat-value">3700</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Special Effect</span>
+                            <span class="stat-value">10 stacks/s, control at 15 stacks</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Project a forward psychic assault that stuns foes and prevents them from unleashing their Ultimate Abilities; if the effect lingers, it gradually commandeers their mind, forcing them to move toward Emma Frost.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Team-Ups</h2>
+            <div class="ability-card">
+                <div class="ability-header">
+                    <img class="ability-icon" src="../Detail Heroes Abilities/Emma_Frost_Mind_Link_icon.jpg" alt="Mind Link">
+                    <div class="ability-title">
+                        <div class="ability-name">Mind Link</div>
+                        <div class="ability-type">Type: Team-up Passive</div>
+                    </div>
+                </div>
+                <div class="ability-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">Team-Up Targets</span>
+                        <span class="stat-value">Magneto and Psylocke</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Team-Up Bonus</span>
+                        <span class="stat-value">+100 Max Health</span>
+                    </div>
+                </div>
+                <div class="ability-description">Emma Frost can form a mental link with Magneto and Psylocke, calling on her to create illusory projections. When together, Emma Frost will create a Mental Projection of Magneto and Psylocke, forming a Duplicate Illusion in the enemy's perspective that confuses foes by moving and casting abilities on its own.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

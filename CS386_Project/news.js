@@ -1,5 +1,13 @@
 const newsData = [
     {
+        version: "20250425",
+        date: "April 24, 2025",
+        url: "patches/20250425_patch.html",
+        image: "patch_notes_images/patch_notes_20250425.jpg",
+        title: "Giant-Size Brain Blast Update",
+        type: "PATCH NOTES"
+    },
+    {
         version: "20250415",
         date: "April 17, 2025",
         url: "patches/20250415_patch.html",

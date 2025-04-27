@@ -12,6 +12,271 @@
     <link rel="stylesheet" href="characterindex.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="heroes.js"></script>
+    <style>
+        /* Hero Popup Styles */
+        .hero-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .popup-content {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 2rem;
+            width: 80%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+
+        .popup-hero-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .popup-hero-image:hover {
+            transform: scale(1.05);
+        }
+
+        .popup-hero-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        .popup-hero-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: #FFB800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup-hero-role {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            color: #fff;
+            background-color: rgba(255, 184, 0, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .popup-hero-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .forms-section {
+            order: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .abilities-section {
+            order: 2;
+        }
+
+        .passives-section {
+            order: 3;
+        }
+
+        .teamups-section {
+            order: 4;
+        }
+
+        .abilities-section, .passives-section, .teamups-section, .forms-section {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .abilities-section h3, .passives-section h3, .teamups-section h3, .forms-section h3 {
+            color: #FFB800;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #FFB800;
+            padding-bottom: 0.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        #popup-hero-abilities {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        #popup-hero-abilities li, .passive-item, .teamup-item {
+            background: rgba(255, 184, 0, 0.1);
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            color: #fff;
+            transition: transform 0.2s ease;
+            border-left: 3px solid #FFB800;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        #popup-hero-abilities li:hover, .passive-item:hover, .teamup-item:hover {
+            transform: translateX(5px);
+            background: rgba(255, 184, 0, 0.2);
+        }
+
+        #popup-hero-abilities li:last-child, .passive-item:last-child, .teamup-item:last-child {
+            margin-bottom: 0;
+        }
+
+        #popup-hero-abilities li strong {
+            color: #FFB800;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-right: 0.5rem;
+        }
+
+        .passive-item, .teamup-item {
+            background: rgba(255, 184, 0, 0.1);
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.95rem;
+            border-left: 3px solid #FFB800;
+        }
+
+        .passive-item:last-child, .teamup-item:last-child {
+            margin-bottom: 0;
+        }
+
+        #popup-hero-passives, #popup-hero-teamups {
+            color: #fff;
+            line-height: 1.6;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .form-buttons button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: 2px solid transparent;
+        }
+
+        .form-buttons button:hover {
+            background-color: #FFB800;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 184, 0, 0.3);
+        }
+
+        .form-buttons button.active {
+            background-color: #FFB800;
+            border-color: #fff;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #FFB800;
+            transform: rotate(90deg);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            background-color: #333;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .stat-label {
+            color: #FFB800;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .popup-content {
+                grid-template-columns: 1fr;
+                width: 95%;
+                padding: 1rem;
+            }
+
+            .popup-hero-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -39,11 +304,16 @@
         </div>
     </div>
 
-    <div class="hero-container">
-        <div class="title-container">
-            <h1 class="hero-title">Heroes</h1>
+    <div class="hero-section bg-dark">
+        <div class="container py-5">
+            <div class="text-center">
+                <h1 class="marvel-font hero-title">HEROES</h1>
+                <p class="lead text-secondary mb-5">Browse all playable characters in Marvel Rivals</p>
+            </div>
+        </div>
         </div>
         
+    <div class="hero-container">
         <!-- Strategists Section -->
         <div class="role-section">
             <h2 class="role-title">Strategists</h2>
@@ -67,600 +337,61 @@
     <div id="hero-popup" class="hero-popup">
         <button class="close-btn" onclick="closePopup()">&times;</button>
         <div class="popup-content">
-            <img id="popup-hero-image" class="popup-hero-image" src="" alt="Hero Image">
-            <h2 id="popup-hero-name"></h2>
-            <div id="popup-hero-role"></div>
-            <p id="popup-hero-description"></p>
-            
-            <div class="abilities-section">
-                <h3>Abilities</h3>
-                <ul id="popup-hero-abilities"></ul>
+            <div>
+                <img id="popup-hero-image" class="popup-hero-image" src="" alt="Hero Image">
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Health</div>
+                        <div class="stat-value" id="popup-hero-health">250</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Movement Speed</div>
+                        <div class="stat-value" id="popup-hero-mobility">6 m/s</div>
+                    </div>
+                </div>
+                <button class="more-details-btn" onclick="openCharacterDetails()">More Details</button>
             </div>
-            
-            <div class="teamups-section">
-                <h3>Team-Ups & Passives</h3>
-                <div id="popup-hero-teamups"></div>
-            </div>
-            
-            <div id="popup-hero-forms" class="forms-section">
-                <h3>Forms</h3>
-                <div class="form-buttons"></div>
+            <div class="popup-hero-info">
+                <h2 id="popup-hero-name"></h2>
+                <div id="popup-hero-role"></div>
+                <p id="popup-hero-description"></p>
+                
+                <div id="popup-hero-forms" class="forms-section">
+                    <h3>Forms</h3>
+                    <div class="form-buttons"></div>
+                </div>
+
+                <div class="abilities-section">
+                    <h3>Abilities</h3>
+                    <ul id="popup-hero-abilities"></ul>
+                </div>
+                
+                <div class="passives-section">
+                    <h3>Passives</h3>
+                    <div id="popup-hero-passives"></div>
+                </div>
+                
+                <div class="teamups-section">
+                    <h3>Team-Ups</h3>
+                    <div id="popup-hero-teamups"></div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Hero data
-        const strategists = {
-            "AdamWarlock": {
-                Hero: "Adam Warlock",
-                Role: "Strategist",
-                Q: "Karmic Revival",
-                LClick: "Quantum Magic",
-                LShift: "Soul Bound",
-                E: "AVATAR LIFE STREAM",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Soul Perseverance",
-                Image: "./CharacterImages/adam_warlock.png",
-                Description: "The genetically-engineered Adam Warlock wields mighty Quantum Magic, allowing him to connect and heal souls with a gentle touch. When the time comes for his allies to unite, Warlock emerges as the unwavering epicenter of cosmic justice!"
-            },
-            "CloakDagger": {
-                Hero: "Cloak & Dagger",
-                Role: "Strategist",
-                Q: "Eternal Bond",
-                LClick: "Lightforce Dagger/ DARKFORCE CLOAK",
-                LShift: "Light/Shadow's Embrace",
-                E: "Veil of LightForce/Terror Cape",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "Dagger Stprm/Dark Teleportation",
-                TeamUpsPassives: "FROM SHADOW TO LIGHT",
-                Image: "./CharacterImages/cloak&dagger.png",
-                Description: "Tyrone Johnson and Tandy Bowen are nearly inseparable, like two sides of the same coin. Intertwined by forces of shadow and light, Cloak & Dagger fight as a united front, dealing havoc and healing allies across the arena."
-            },
-            "InvisibleWoman": {
-                Hero: "Invisible Woman",
-                Role: "Strategist",
-                Q: "Invisible Boundary",
-                LClick: "Orb Projection",
-                LShift: "Psionic Vortex",
-                E: "Force Physics ",
-                F: "",
-                V: "",
-                Space: "Veiled Step",
-                RClick: "Guardian Shield",
-                TeamUpsPassives: "COVERT ADVANCE/FANTASTI-FORCE",
-                Image: "./CharacterImages/invisible_woman.png",
-                Description: "The Invisible Woman is able to slip in and out of sight without a trace. No matter how intense the battle may be, Susan Richards always keeps her cool, conjuring up impenetrable force fields to protect herself and her team."
-            },
-            "JeffTheLandShark": {
-                Hero: "Jeff the Land Shark",
-                Role: "Strategist",
-                Q: "It's Jeff!",
-                LClick: "Joyful Splash",
-                LShift: "Hide and Seek",
-                E: "Healing Bubble",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "Aqua Burst",
-                TeamUpsPassives: "Frozen SpitBall/New Friends",
-                Image: "./CharacterImages/jeff.png",
-                Description: "Most landsharks are vicious creatures of the deep... but not Jeff! This adorable and mischievous little landshark brings splashes of joy and healing to every battle. But if the tide turns, Jeff can morph into a voracious beast, swallowing an army of foes in one giant gulp!"
-            },
-            "Loki": {
-                Hero: "Loki",
-                Role: "Strategist",
-                Q: "God of Mischief",
-                LClick: "Mystical Missile",
-                LShift: "Regeneration Domain",
-                E: "Doppelganger",
-                F: "Devious Exchange",
-                V: "Backstab",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Laufeyson Reborn",
-                Image: "./CharacterImages/loki.png",
-                Description: "What greater thrill is there for a God of Mischief than to outsmart his foes? The cunning trickster Loki uses his illusions and shapeshifting abilities to weave in and out of combat, toying with enemies at every turn."
-            },
-            "LunaSnow": {
-                Hero: "Luna Snow",
-                Role: "Strategist",
-                Q: "Fate of Both Worlds",
-                LClick: "Light & Dark Ice",
-                LShift: "Ice Arts",
-                E: "Share The Stage",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "Absolute Zero",
-                TeamUpsPassives: "Cryo Heart, Smooth Skate, Icy Disco, Frozen Chi",
-                Image: "./CharacterImages/luna_snow.png",
-                Description: "Equal parts pop star and Super Hero, Luna Snow puts on a dazzling show with both her light and dark ice powers. The arena is her stage, where Seol Hee and her team orchestrate spectacular displays that earn her an ever-increasing number of fans and wins."
-            },
-            "Mantis": {
-                Hero: "Mantis",
-                Role: "Strategist",
-                Q: "Soul Resurgence",
-                LClick: "Life Energy Blast",
-                LShift: "Spore Slumber",
-                E: "Allied Inspiration",
-                F: "Natural Anger",
-                V: "",
-                Space: "",
-                RClick: "Healing Flower",
-                TeamUpsPassives: "Nature's Favor/ Nature's Soul",
-                Image: "./CharacterImages/mantis.png",
-                Description: "Mantis uses her impressive mental abilities and her penchant for plant control to anchor any team she fights alongside. Her powers tap into a limitless flow of life energy, gently nourishing everything she touches."
-            },
-            "RocketRaccoon": {
-                Hero: "Rocket Raccoon",
-                Role: "Strategist",
-                Q: "C.Y.A.",
-                LClick: "Bombard Mode",
-                LShift: "Jetpack Dash",
-                E: "B.R.B.",
-                F: "",
-                V: "",
-                Space: "Wild Crawl/Flying Ace",
-                RClick: "Repair Mode",
-                TeamUpsPassives: "Old Friends/ Ammo Invention",
-                Image: "./CharacterImages/rocket_raccoon.png",
-                Description: "Rocket may not look like a tech genius or an expert tactician, but anyone who's ever made his hit list has quickly regretted underestimating him. This savvy space soldier is equally eager to boost his teammates and to collect bounties on his foes."
-            }
-        };
-
-        const duelists = {
-            "BlackPanther": {
-                Hero: "Black Panther",
-                Role: "Duelist",
-                Q: "Bast's Descent",
-                LClick: "Vibranium Claws",
-                LShift: "Spirit Rend",
-                E: "Spinning Kick",
-                F: "",
-                V: "",
-                Space: "Subtle Step",
-                RClick: "Spear Toss",
-                TeamUpsPassives: "Panther's Cunning/Wakandan Master",
-                Image: "./CharacterImages/black_panther.png",
-                Description: "T'Challa, King of Wakanda, wields the perfect blend of the cutting-edge Vibranium technology and ancestral power drawn from the Panther God, Bast. The Black Panther bides his time until elegantly infiltrating enemy lines and commencing his hunt."
-            },
-            "BlackWidow": {
-                Hero: "Black Widow",
-                Role: "Duelist",
-                Q: "Electro-Plasma Explosion",
-                LClick: "Widow's Bite Baton/Red Room Rifle",
-                LShift: "Fleet Foot",
-                E: "Edge Dancer",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "Straight Shooter",
-                TeamUpsPassives: "Supersensory Hunt",
-                Image: "./CharacterImages/black_widow.png",
-                Description: "Natasha Romanova is the world's most elite spy in any era. Her mastery of the sniper rifle eliminates targets from afar, while her shock batons neutralize close-range threats. Black Widow is locked, loaded, and ready to deliver a fatal bite!"
-            },
-            "Hawkeye": {
-                Hero: "Hawkeye",
-                Role: "Duelist",
-                Q: "Hunter's Sight",
-                LClick: "Piercing Arrow/Blast Arrow",
-                LShift: "Crescent Slash",
-                E: "Hypersonic Arrow",
-                F: "",
-                V: "Ronin Slash",
-                Space: "Skyward Leap",
-                RClick: "",
-                TeamUpsPassives: "Archer's Focus/Supersensory Hunt",
-                Image: "./CharacterImages/hawkeye.png",
-                Description: "Despite his lack of superpowers, Hawkeye's unparalleled skills as a marksman have earned him a spot alongside earth's mightiest heroes. With a cool head and steady hand, Clint Barton never misses a target… so enemies best stay out of his sights!"
-            },
-            "Hela": {
-                Hero: "Hela",
-                Role: "Duelist",
-                Q: "Goddes of Death",
-                LClick: "Nightsword",
-                LShift: "Astral Flock",
-                E: "Soul Drainer ",
-                F: "",
-                V: "",
-                Space: "Hel's Descent",
-                RClick: "Piercing Night",
-                TeamUpsPassives: "Nastrond Crowstorm/Queen of Hel",
-                Image: "./CharacterImages/hela.png",
-                Description: "As the Goddess of Death, Hela wields supreme control over the fallen souls residing in Hel. With a haunting whisper and a murder of crows, the queen of the underworld gracefully reaps the souls of her enemies without an ounce of mercy."
-            },
-            "HumanTorch": {
-                Hero: "Human Torch",
-                Role: "Duelist",
-                Q: "Supernova",
-                LClick: "Fire Cluster",
-                LShift: "Plasma Body",
-                E: "Pyro-Prison",
-                F: "Flaming Meteor",
-                V: "",
-                Space: "",
-                RClick: "Blazing Blast",
-                TeamUpsPassives: "Storm Siblings/Omega Fire",
-                Image: "./CharacterImages/human_torch.png",
-                Description: "The Fantastic Four's resident heartthrob, Johnny Storm, adds an intense flare to every battle he fights. Shrouded in roaring flames, the Human Torch always manages to look cool while turning up the heat!"
-            },
-            "IronFist": {
-                Hero: "Iron Fist",
-                Role: "Duelist",
-                Q: "Living Chi",
-                LClick: "Jeet Kune Do/Yat Jee Chung Kuen",
-                LShift: "K'un-Lun Kick",
-                E: "Harmony Recovery",
-                F: "",
-                V: "",
-                Space: "Crane Leap/Wall Runner",
-                RClick: "Dragon Defense",
-                TeamUpsPassives: "Chi Absorption/Dragon's Chill",
-                Image: "./CharacterImages/iron_fist.png",
-                Description: "Lin Lie is a master of Chinese martial arts who once wielded the shattered Sword of Fu Xi. After fusing its pieces with the mighty Chi of Shou-Lao, he is poised to strike his foes with the grace and force of a soaring dragon as the latest immortal Iron Fist"
-            },
-            "IronMan": {
-                Hero: "Iron Man",
-                Role: "Duelist",
-                Q: "Invincible Pulse Cannon",
-                LClick: "Repulsor Blast/Repulsor Blast (Armor Overdrive), Repulsor Blast (Gamma Overdrive)",
-                LShift: "Hyper Velocity/ Hyper-Velocity (Armor Over Drive)",
-                E: "Armor Overdrive",
-                F: "Micro-Missle Barrage/Micro-Missle Barrage (Overdriver)",
-                V: "",
-                Space: "",
-                RClick: "Unibeam/Unibeam (Armor Overdrive)/Unibeam (Gamma Overdrive)",
-                TeamUpsPassives: "Gamma Overdrive",
-                Image: "./CharacterImages/iron_man.png",
-                Description: "Armed with superior intellect and a nanotech battlesuit of his own design, Tony Stark stands alongside gods as the Invincible Iron Man. His state of the art armor turns any battlefield into his personal playground, allowing him to steal the spotlight he so desperately desires."
-            },
-            "Magik": {
-                Hero: "Magik",
-                Role: "Duelist",
-                Q: "Darkchild",
-                LClick: "Soulsword/EkdritchWhirl",
-                LShift: "Stepping Discs",
-                E: "Umbral Incursion",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "Magik Slash/Demon's Rage",
-                TeamUpsPassives: "Limbo's Might/Disc Master",
-                Image: "./CharacterImages/magik.png",
-                Description: "Trained in the dark arts and wielding her mighty Soulsword, Magik leaps through portals to navigate the arena with ease. Once Illyana transforms into the demonic Darkchild, all who dare stand against her will fall before her merciless blade."
-            }
-        };
-
-        const vanguards = {
-            "CaptainAmerica": {
-                Hero: "Captain America",
-                Role: "Vanguard",
-                Q: "Shield Throw",
-                LClick: "Shield Bash",
-                LShift: "Shield Block",
-                E: "Shield Charge",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "First Avenger",
-                Image: "./CharacterImages/captain_america.png",
-                Description: "The first Avenger, Captain America, leads the charge with his indestructible shield and unwavering courage. Steve Rogers' tactical genius and super-soldier abilities make him the perfect leader for any team."
-            },
-            "DoctorStrange": {
-                Hero: "Doctor Strange",
-                Role: "Vanguard",
-                Q: "Mystic Arts",
-                LClick: "Bolt of Balthakk",
-                LShift: "Shield of the Seraphim",
-                E: "Crimson Bands of Cyttorak",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Sorcerer Supreme",
-                Image: "./CharacterImages/doctor_strange.png",
-                Description: "The Sorcerer Supreme, Doctor Strange, wields the mystic arts to protect reality itself. With his vast knowledge of magic and artifacts, he can turn the tide of any battle."
-            },
-            "Groot": {
-                Hero: "Groot",
-                Role: "Vanguard",
-                Q: "I Am Groot",
-                LClick: "Branch Strike",
-                LShift: "Root Shield",
-                E: "Growth Spurt",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Guardian of the Galaxy",
-                Image: "./CharacterImages/groot.png",
-                Description: "The gentle giant Groot may only say three words, but his actions speak volumes. With his ability to grow and manipulate his wooden form, he's a formidable protector and ally."
-            },
-            "Hulk": {
-                Hero: "Hulk",
-                Role: "Vanguard",
-                Q: "Hulk Smash",
-                LClick: "Thunderclap",
-                LShift: "Gamma Leap",
-                E: "Worldbreaker",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Strongest One There Is",
-                Image: "./CharacterImages/hero_hulk.png",
-                Description: "The strongest one there is, Hulk smashes through any obstacle in his path. Bruce Banner's alter ego is a force of nature that few can stand against."
-            },
-            "Magneto": {
-                Hero: "Magneto",
-                Role: "Vanguard",
-                Q: "Magnetic Mastery",
-                LClick: "Metal Manipulation",
-                LShift: "Magnetic Shield",
-                E: "Magnetic Storm",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Master of Magnetism",
-                Image: "./CharacterImages/magneto.png",
-                Description: "The Master of Magnetism, Magneto, controls metal with his mind. His powers make him one of the most formidable mutants in existence."
-            },
-            "MisterFantastic": {
-                Hero: "Mister Fantastic",
-                Role: "Vanguard",
-                Q: "Elasticity",
-                LClick: "Stretch Punch",
-                LShift: "Rubber Shield",
-                E: "Fantastic Four",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Leader of the Fantastic Four",
-                Image: "./CharacterImages/mister_fantastic.png",
-                Description: "The elastic leader of the Fantastic Four, Mister Fantastic's stretching abilities and genius intellect make him a versatile and strategic hero."
-            },
-            "MoonKnight": {
-                Hero: "Moon Knight",
-                Role: "Vanguard",
-                Q: "Crescent Darts",
-                LClick: "Staff Strike",
-                LShift: "Moon Shield",
-                E: "Avatar of Khonshu",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Fist of Khonshu",
-                Image: "./CharacterImages/moon_knight.png",
-                Description: "The Fist of Khonshu, Moon Knight, fights under the light of the moon. His multiple personalities and combat skills make him an unpredictable and deadly opponent."
-            },
-            "Namor": {
-                Hero: "Namor",
-                Role: "Vanguard",
-                Q: "Atlantean Strength",
-                LClick: "Trident Strike",
-                LShift: "Water Shield",
-                E: "Tidal Wave",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "King of Atlantis",
-                Image: "./CharacterImages/namor.png",
-                Description: "The King of Atlantis, Namor, commands the seas and possesses superhuman strength. His royal heritage and combat prowess make him a formidable warrior."
-            },
-            "PeniParker": {
-                Hero: "Peni Parker",
-                Role: "Vanguard",
-                Q: "SP//dr Control",
-                LClick: "Mecha Strike",
-                LShift: "Mecha Shield",
-                E: "SP//dr Assault",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "SP//dr Pilot",
-                Image: "./CharacterImages/peni_parker.png",
-                Description: "Peni Parker pilots the SP//dr mech suit with incredible skill. Her connection with the suit and her tactical mind make her a valuable asset to any team."
-            },
-            "Psylocke": {
-                Hero: "Psylocke",
-                Role: "Vanguard",
-                Q: "Psychic Blade",
-                LClick: "Telepathic Strike",
-                LShift: "Psionic Shield",
-                E: "Shadow Teleport",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Telepathic Ninja",
-                Image: "./CharacterImages/psylocke.png",
-                Description: "The telepathic ninja Psylocke combines psychic powers with martial arts mastery. Her deadly precision and mental abilities make her a formidable opponent."
-            },
-            "ScarletWitch": {
-                Hero: "Scarlet Witch",
-                Role: "Vanguard",
-                Q: "Chaos Magic",
-                LClick: "Hex Bolt",
-                LShift: "Reality Warp",
-                E: "Hex Field",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Chaos Magic User",
-                Image: "./CharacterImages/scarlet_witch.png",
-                Description: "The wielder of Chaos Magic, Scarlet Witch, can alter reality itself. Her powers make her one of the most powerful beings in the universe."
-            },
-            "SpiderMan": {
-                Hero: "Spider-Man",
-                Role: "Vanguard",
-                Q: "Web Swing",
-                LClick: "Web Shot",
-                LShift: "Spider Sense",
-                E: "Web Bomb",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Friendly Neighborhood Spider-Man",
-                Image: "./CharacterImages/spider_man.png",
-                Description: "Your friendly neighborhood Spider-Man swings into action with his web-slinging abilities and spider-like reflexes. Peter Parker's quick wit and heroic spirit make him a beloved hero."
-            },
-            "SquirrelGirl": {
-                Hero: "Squirrel Girl",
-                Role: "Vanguard",
-                Q: "Squirrel Command",
-                LClick: "Squirrel Strike",
-                LShift: "Squirrel Shield",
-                E: "Squirrel Army",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Unbeatable Squirrel Girl",
-                Image: "./CharacterImages/squirrel_girl.png",
-                Description: "The unbeatable Squirrel Girl commands an army of squirrels and possesses superhuman abilities. Her positive attitude and unique powers make her a force to be reckoned with."
-            },
-            "StarLord": {
-                Hero: "Star-Lord",
-                Role: "Vanguard",
-                Q: "Element Gun",
-                LClick: "Blaster Shot",
-                LShift: "Jet Boots",
-                E: "Dance Off",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Legendary Outlaw",
-                Image: "./CharacterImages/star_lord.png",
-                Description: "The legendary outlaw Star-Lord leads the Guardians of the Galaxy with his Element Gun and quick wit. Peter Quill's leadership and combat skills make him a valuable asset."
-            },
-            "Storm": {
-                Hero: "Storm",
-                Role: "Vanguard",
-                Q: "Weather Control",
-                LClick: "Lightning Strike",
-                LShift: "Wind Shield",
-                E: "Hurricane",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Weather Goddess",
-                Image: "./CharacterImages/storm.png",
-                Description: "The weather goddess Storm controls the elements with her mutant powers. Ororo Munroe's command of weather makes her a powerful force of nature."
-            },
-            "ThePunisher": {
-                Hero: "The Punisher",
-                Role: "Vanguard",
-                Q: "War Machine",
-                LClick: "Gun Play",
-                LShift: "Combat Roll",
-                E: "One Man Army",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "One-Man War",
-                Image: "./CharacterImages/the_punisher.png",
-                Description: "The one-man war machine known as the Punisher fights crime with extreme prejudice. Frank Castle's military training and arsenal make him a deadly vigilante."
-            },
-            "TheThing": {
-                Hero: "The Thing",
-                Role: "Vanguard",
-                Q: "Rock Fist",
-                LClick: "Clobberin' Time",
-                LShift: "Rock Shield",
-                E: "Thing Smash",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Ever-Lovin' Blue-Eyed Thing",
-                Image: "./CharacterImages/the_thing.png",
-                Description: "The ever-lovin' blue-eyed Thing is the heart and soul of the Fantastic Four. Ben Grimm's rocky exterior hides a heart of gold and incredible strength."
-            },
-            "Thor": {
-                Hero: "Thor",
-                Role: "Vanguard",
-                Q: "Mjolnir Strike",
-                LClick: "Lightning Bolt",
-                LShift: "Godly Strength",
-                E: "Bifrost",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "God of Thunder",
-                Image: "./CharacterImages/thor.png",
-                Description: "The God of Thunder, Thor, wields Mjolnir and commands lightning. His godly strength and warrior spirit make him a formidable ally."
-            },
-            "Venom": {
-                Hero: "Venom",
-                Role: "Vanguard",
-                Q: "Symbiote Strike",
-                LClick: "Tendril Whip",
-                LShift: "Symbiote Shield",
-                E: "Venom Rage",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Lethal Protector",
-                Image: "./CharacterImages/venom.png",
-                Description: "The lethal protector Venom combines the strength of the symbiote with Eddie Brock's determination. Together, they form a powerful and terrifying force."
-            },
-            "WinterSoldier": {
-                Hero: "Winter Soldier",
-                Role: "Vanguard",
-                Q: "Winter Soldier",
-                LClick: "Metal Arm",
-                LShift: "Combat Training",
-                E: "Assassin's Strike",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Super Soldier",
-                Image: "./CharacterImages/winter_soldier.png",
-                Description: "The Winter Soldier, Bucky Barnes, is a super-soldier with a metal arm and deadly combat skills. His training and enhancements make him a formidable warrior."
-            },
-            "Wolverine": {
-                Hero: "Wolverine",
-                Role: "Vanguard",
-                Q: "Berserker Rage",
-                LClick: "Claw Slash",
-                LShift: "Healing Factor",
-                E: "Fastball Special",
-                F: "",
-                V: "",
-                Space: "",
-                RClick: "",
-                TeamUpsPassives: "Best There Is",
-                Image: "./CharacterImages/wolverine.png",
-                Description: "The best there is at what he does, Wolverine, is a mutant with retractable claws and a healing factor. Logan's combat skills and indomitable spirit make him a legendary warrior."
-            }
-        };
-
         // Function to create hero cards
         function createHeroCard(hero) {
             const card = document.createElement('div');
             card.className = 'hero-card m-2';
             card.style.cursor = 'pointer';
-            card.onclick = () => openImagePopup(hero);
+            
+            // Store the hero data in a data attribute
+            card.setAttribute('data-hero', JSON.stringify(hero));
+            card.onclick = () => {
+                const heroData = JSON.parse(card.getAttribute('data-hero'));
+                openImagePopup(heroData);
+            };
             
             const img = document.createElement('img');
             img.src = hero.Image;
@@ -703,53 +434,250 @@
             });
         }
 
+        // Function to format teamup text
+        function formatTeamupText(text) {
+            return text.replace(/([A-Z]):\s/g, '<strong>$1:</strong> ');
+        }
+
         // Function to open the hero popup
         function openImagePopup(hero) {
+            // Store the current hero for the More Details button
+            window.currentHero = hero;
+
             const popup = document.getElementById('hero-popup');
             const popupImage = document.getElementById('popup-hero-image');
             const popupName = document.getElementById('popup-hero-name');
-            const popupDescription = document.getElementById('popup-hero-description');
             const popupRole = document.getElementById('popup-hero-role');
+            const popupDescription = document.getElementById('popup-hero-description');
             const popupAbilities = document.getElementById('popup-hero-abilities');
-            const popupTeamUps = document.getElementById('popup-hero-teamups');
+            const popupPassives = document.getElementById('popup-hero-passives');
+            const popupTeamups = document.getElementById('popup-hero-teamups');
             const popupForms = document.getElementById('popup-hero-forms');
+            const formButtons = popupForms.querySelector('.form-buttons');
+            const popupHealth = document.getElementById('popup-hero-health');
+            const popupMobility = document.getElementById('popup-hero-mobility');
 
-            // Set popup content
-            popupImage.src = hero.Image;
-            popupName.textContent = hero.Hero;
-            popupDescription.textContent = hero.Description;
-            popupRole.textContent = hero.Role;
+            // Clear existing content
+            popupAbilities.innerHTML = '';
+            popupPassives.innerHTML = '';
+            popupTeamups.innerHTML = '';
+            formButtons.innerHTML = '';
 
-            // Populate abilities
-            const abilities = Object.values(hero).filter(value => typeof value === 'string' && value.startsWith('Ability'));
-            abilities.forEach(ability => {
-                const li = document.createElement('li');
-                li.textContent = ability;
-                popupAbilities.appendChild(li);
-            });
+            // Special handling for heroes with forms
+            if (hero.Forms) {
+                const firstFormName = Object.keys(hero.Forms)[0];
+                const firstFormData = hero.Forms[firstFormName];
+                
+                // Set image and basic info from first form
+                popupImage.src = firstFormData.Image;
+                popupName.textContent = hero.Hero;
+                popupRole.textContent = hero.Role;
+                popupDescription.textContent = firstFormData.Description;
+                
+                // Set stats from first form
+                popupHealth.textContent = firstFormData.Health || hero.Health || '250';
+                popupMobility.textContent = firstFormData.MovementSpeed || hero.MovementSpeed || '6 m/s';
 
-            // Populate team-ups and passives
-            const teamUps = Object.values(hero).filter(value => typeof value === 'string' && value.startsWith('TeamUpsPassives'));
-            teamUps.forEach(teamUp => {
-                const div = document.createElement('div');
-                div.textContent = teamUp;
-                popupTeamUps.appendChild(div);
-            });
+                // Populate abilities from first form
+                const abilities = [
+                    { key: 'Q', name: firstFormData.Q },
+                    { key: 'LClick', name: firstFormData.LClick },
+                    { key: 'LShift', name: firstFormData.LShift },
+                    { key: 'E', name: firstFormData.E },
+                    { key: 'F', name: firstFormData.F },
+                    { key: 'V', name: firstFormData.V },
+                    { key: 'Space', name: firstFormData.Space },
+                    { key: 'RClick', name: firstFormData.RClick }
+                ];
 
-            // Populate forms
-            const forms = Object.values(hero).filter(value => typeof value === 'string' && value.startsWith('Form'));
-            forms.forEach(form => {
-                const button = document.createElement('button');
-                button.className = 'form-button';
-                button.textContent = form;
-                button.onclick = () => {
-                    // Handle form selection
-                };
-                popupForms.appendChild(button);
-            });
+                abilities.forEach(ability => {
+                    if (ability.name) {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<strong>${ability.key}:</strong> ${ability.name}`;
+                        popupAbilities.appendChild(li);
+                    }
+                });
 
-            // Show popup
+                // Populate passives from first form
+                if (firstFormData.Passives && firstFormData.Passives !== '') {
+                    const passivesList = firstFormData.Passives.split('\n').filter(p => p.trim() !== '');
+                    passivesList.forEach(passive => {
+                        const div = document.createElement('div');
+                        div.className = 'passive-item';
+                        div.textContent = passive.trim();
+                        popupPassives.appendChild(div);
+                    });
+                } else {
+                    popupPassives.innerHTML = '<div class="passive-item">No passives available</div>';
+                }
+
+                // Populate team-ups from first form
+                if (firstFormData.TeamUps && firstFormData.TeamUps !== '') {
+                    const teamupsList = firstFormData.TeamUps.split('\n').filter(t => t.trim() !== '');
+                    teamupsList.forEach(teamup => {
+                        const div = document.createElement('div');
+                        div.className = 'teamup-item';
+                        div.innerHTML = formatTeamupText(teamup.trim());
+                        popupTeamups.appendChild(div);
+                    });
+                } else {
+                    popupTeamups.innerHTML = '<div class="teamup-item">No team-ups available</div>';
+                }
+
+                // Create form buttons
+                popupForms.style.display = 'block';
+                Object.entries(hero.Forms).forEach(([formName, formData]) => {
+                    const button = document.createElement('button');
+                    button.textContent = formName;
+                    button.onclick = () => {
+                        formButtons.querySelectorAll('button').forEach(btn => 
+                            btn.classList.remove('active')
+                        );
+                        button.classList.add('active');
+                        updatePopupContent(hero, formName, formData);
+                    };
+                    formButtons.appendChild(button);
+                });
+                formButtons.firstChild?.classList.add('active');
+            } else {
+                // Regular hero without forms
+                const heroNameForImage = hero.Hero.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                popupImage.src = `./CharacterImages/${heroNameForImage}-headbig.png`;
+                popupName.textContent = hero.Hero;
+                popupRole.textContent = hero.Role;
+                popupDescription.textContent = hero.Description;
+
+                // Set hero stats
+                popupHealth.textContent = hero.Health || '250';
+                popupMobility.textContent = hero.MovementSpeed || '6 m/s';
+
+                // Populate abilities
+                const abilities = [
+                    { key: 'Q', name: hero.Q },
+                    { key: 'LClick', name: hero.LClick },
+                    { key: 'LShift', name: hero.LShift },
+                    { key: 'E', name: hero.E },
+                    { key: 'F', name: hero.F },
+                    { key: 'V', name: hero.V },
+                    { key: 'Space', name: hero.Space },
+                    { key: 'RClick', name: hero.RClick }
+                ];
+
+                abilities.forEach(ability => {
+                    if (ability.name) {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<strong>${ability.key}:</strong> ${ability.name}`;
+                        popupAbilities.appendChild(li);
+                    }
+                });
+
+                // Populate passives
+                if (hero.Passives && hero.Passives !== '') {
+                    const passivesList = hero.Passives.split('\n').filter(p => p.trim() !== '');
+                    passivesList.forEach(passive => {
+                        const div = document.createElement('div');
+                        div.className = 'passive-item';
+                        div.textContent = passive.trim();
+                        popupPassives.appendChild(div);
+                    });
+                } else {
+                    popupPassives.innerHTML = '<div class="passive-item">No passives available</div>';
+                }
+
+                // Populate team-ups
+                if (hero.TeamUps && hero.TeamUps !== '') {
+                    const teamupsList = hero.TeamUps.split('\n').filter(t => t.trim() !== '');
+                    teamupsList.forEach(teamup => {
+                        const div = document.createElement('div');
+                        div.className = 'teamup-item';
+                        div.innerHTML = formatTeamupText(teamup.trim());
+                        popupTeamups.appendChild(div);
+                    });
+                } else {
+                    popupTeamups.innerHTML = '<div class="teamup-item">No team-ups available</div>';
+                }
+
+                // Hide forms section for regular heroes
+                popupForms.style.display = 'none';
+            }
+
             popup.style.display = 'flex';
+        }
+
+        // Function to update popup content for a specific form
+        function updatePopupContent(hero, formName, formData) {
+            const popupImage = document.getElementById('popup-hero-image');
+            const popupName = document.getElementById('popup-hero-name');
+            const popupDescription = document.getElementById('popup-hero-description');
+            const popupAbilities = document.getElementById('popup-hero-abilities');
+            const popupPassives = document.getElementById('popup-hero-passives');
+            const popupTeamups = document.getElementById('popup-hero-teamups');
+            const popupHealth = document.getElementById('popup-hero-health');
+            const popupMobility = document.getElementById('popup-hero-mobility');
+
+            // Update popup content
+            if (formData.Image) {
+                popupImage.src = formData.Image;
+            } else {
+                // Fallback image path construction
+                const heroNameForImage = hero.Hero.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                const formNameForImage = formName.toLowerCase().replace(/[^a-z0-9]/g, '-');
+                // Try both formats (with dash and with underscore)
+                popupImage.src = `./CharacterImages/${formNameForImage}-headbig.png`;
+                popupImage.onerror = () => {
+                    popupImage.src = `./CharacterImages/${formNameForImage.replace(/-/g, '_')}-headbig.png`;
+                };
+            }
+            
+            popupName.textContent = `${hero.Hero} (${formName})`;
+            popupDescription.textContent = formData.Description;
+
+            // Update health and movement speed from form data
+            popupHealth.textContent = formData.Health || hero.Health || '250';
+            popupMobility.textContent = formData.MovementSpeed || hero.MovementSpeed || '6 m/s';
+
+            // Clear and populate abilities
+            popupAbilities.innerHTML = '';
+            const abilities = [
+                { key: 'Q', name: formData.Q },
+                { key: 'LClick', name: formData.LClick },
+                { key: 'LShift', name: formData.LShift },
+                { key: 'E', name: formData.E },
+                { key: 'F', name: formData.F },
+                { key: 'V', name: formData.V },
+                { key: 'Space', name: formData.Space },
+                { key: 'RClick', name: formData.RClick }
+            ];
+
+            abilities.forEach(ability => {
+                if (ability.name) {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${ability.key}:</strong> ${ability.name}`;
+                    popupAbilities.appendChild(li);
+                }
+            });
+
+            // Update passives
+            popupPassives.innerHTML = '';
+            if (formData.Passives) {
+                const div = document.createElement('div');
+                div.className = 'passive-item';
+                div.textContent = formData.Passives;
+                popupPassives.appendChild(div);
+            } else {
+                popupPassives.innerHTML = '<div class="passive-item">No passives available</div>';
+            }
+
+            // Update team-ups
+            popupTeamups.innerHTML = '';
+            if (formData.TeamUps) {
+                const div = document.createElement('div');
+                div.className = 'teamup-item';
+                div.innerHTML = formatTeamupText(formData.TeamUps);
+                popupTeamups.appendChild(div);
+            } else {
+                popupTeamups.innerHTML = '<div class="teamup-item">No team-ups available</div>';
+            }
         }
 
         // Function to close the popup
@@ -758,7 +686,29 @@
             popup.style.display = 'none';
         }
 
-        // Call the function when the page loads
+        // Function to open character details page
+        function openCharacterDetails() {
+            const currentHero = window.currentHero;
+            console.log('Opening details for hero:', currentHero);
+            if (!currentHero) {
+                console.log('No current hero found');
+                return;
+            }
+
+            // Convert hero name to filename format (lowercase with underscores)
+            const fileName = currentHero.Hero.toLowerCase()
+                .replace(/[&]/g, 'and')  // Replace & with 'and'
+                .replace(/[^a-z0-9]/g, '_') // Replace any non-alphanumeric chars with underscore
+                .replace(/_+/g, '_')     // Replace multiple underscores with single underscore
+                .replace(/^_|_$/g, '')   // Remove leading/trailing underscores
+                + '.html';
+            
+            console.log('Navigating to:', `Detail Heroes Abilities/${fileName}`);
+            // Navigate to the individual hero details page
+            window.location.href = `Detail Heroes Abilities/${fileName}`;
+        }
+
+        // Initialize when the page loads
         document.addEventListener('DOMContentLoaded', populateHeroContainers);
     </script>
 </body>

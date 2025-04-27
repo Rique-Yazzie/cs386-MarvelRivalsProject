@@ -1,72 +1,88 @@
 // Hero data
 const strategists = {
-    "AdamWarlock": {
+    "Adam Warlock": {
         Hero: "Adam Warlock",
         Role: "Strategist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Q: "Karmic Revival",
         LClick: "Quantum Magic",
         LShift: "Soul Bound",
-        E: "AVATAR LIFE STREAM",
+        E: "Avatar Life Stream",
         F: "",
         V: "",
         Space: "",
-        RClick: "",
-        TeamUpsPassives: "Soul Perseverance",
+        RClick: "Cosmic Cluster",
+        Passives: "Regenerative Cocoon",
+        TeamUps: "Soul Perseverance (Passive)",
         Image: "./CharacterImages/adam_warlock.png",
         Description: "The genetically-engineered Adam Warlock wields mighty Quantum Magic, allowing him to connect and heal souls with a gentle touch. When the time comes for his allies to unite, Warlock emerges as the unwavering epicenter of cosmic justice!"
     },
-    "CloakDagger": {
+    "Cloak & Dagger": {
         Hero: "Cloak & Dagger",
         Role: "Strategist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Image: "./CharacterImages/cloak&dagger.png",
         Forms: {
             "Cloak": {
+                Health: "250",
+                MovementSpeed: "6 m/s",
                 Q: "Eternal Bond",
-                LClick: "DARKFORCE CLOAK",
-                LShift: "Shadow's Embrace",
+                LClick: "Darkforce Cloak",
+                LShift: "Light's Embrace",
                 E: "Terror Cape",
                 F: "",
                 V: "",
                 Space: "",
                 RClick: "Dark Teleportation",
-                TeamUpsPassives: "FROM SHADOW TO LIGHT",
-                Image: "./CharacterImages/cloak.png",
+                Passives: "",
+                TeamUps: "From Shadow to Light (Passive)",
+                Image: "./CharacterImages/cloak-headbig.png",
                 Description: "Tyrone Johnson wields the power of darkness, able to teleport through shadows and create portals to other dimensions. As Cloak, he serves as the perfect complement to Dagger's light-based abilities."
             },
             "Dagger": {
+                Health: "250",
+                MovementSpeed: "6 m/s",
                 Q: "Eternal Bond",
                 LClick: "Lightforce Dagger",
-                LShift: "Light's Embrace",
+                LShift: "Shadow's Embrace",
                 E: "Veil of LightForce",
                 F: "",
                 V: "",
                 Space: "",
                 RClick: "Dagger Storm",
-                TeamUpsPassives: "FROM SHADOW TO LIGHT",
-                Image: "./CharacterImages/dagger.png",
+                Passives: "",
+                TeamUps: "From Shadow to Light (Passive)",
+                Image: "./CharacterImages/dagger-headbig.png",
                 Description: "Tandy Bowen channels the power of light, creating daggers of pure energy and healing allies with her radiant touch. As Dagger, she brings hope and healing to the battlefield."
             }
         },
         Description: "Tyrone Johnson and Tandy Bowen are nearly inseparable, like two sides of the same coin. Intertwined by forces of shadow and light, Cloak & Dagger fight as a united front, dealing havoc and healing allies across the arena."
     },
-    "InvisibleWoman": {
+    "Invisible Woman": {
         Hero: "Invisible Woman",
         Role: "Strategist",
+        Health: "275",
+        MovementSpeed: "6 m/s",
         Q: "Invisible Boundary",
         LClick: "Orb Projection",
         LShift: "Psionic Vortex",
-        E: "Force Physics ",
+        E: "Force Physics",
         F: "",
         V: "",
         Space: "Veiled Step",
         RClick: "Guardian Shield",
-        TeamUpsPassives: "COVERT ADVANCE/FANTASTI-FORCE",
+        Passives: "Covert Advance",
+        TeamUps: "Fantasti-Force (Passive)",
         Image: "./CharacterImages/invisible_woman.png",
         Description: "The Invisible Woman is able to slip in and out of sight without a trace. No matter how intense the battle may be, Susan Richards always keeps her cool, conjuring up impenetrable force fields to protect herself and her team."
     },
-    "JeffTheLandShark": {
+    "Jeff The Land Shark": {
         Hero: "Jeff the Land Shark",
         Role: "Strategist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Q: "It's Jeff!",
         LClick: "Joyful Splash",
         LShift: "Hide and Seek",
@@ -75,13 +91,16 @@ const strategists = {
         V: "",
         Space: "",
         RClick: "Aqua Burst",
-        TeamUpsPassives: "Frozen SpitBall/New Friends",
+        Passives: "Oblivious Cutness",
+        TeamUps: "X: Frozen Spitball\nC: New Friends",
         Image: "./CharacterImages/jeff.png",
         Description: "Most landsharks are vicious creatures of the deep... but not Jeff! This adorable and mischievous little landshark brings splashes of joy and healing to every battle. But if the tide turns, Jeff can morph into a voracious beast, swallowing an army of foes in one giant gulp!"
     },
     "Loki": {
         Hero: "Loki",
         Role: "Strategist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Q: "God of Mischief",
         LClick: "Mystical Missile",
         LShift: "Regeneration Domain",
@@ -89,14 +108,17 @@ const strategists = {
         F: "Devious Exchange",
         V: "Backstab",
         Space: "",
-        RClick: "",
-        TeamUpsPassives: "Laufeyson Reborn",
+        RClick: "Deception",
+        Passives: "",
+        TeamUps: "Laufeyson Reborn (Passive)",
         Image: "./CharacterImages/loki.png",
         Description: "What greater thrill is there for a God of Mischief than to outsmart his foes? The cunning trickster Loki uses his illusions and shapeshifting abilities to weave in and out of combat, toying with enemies at every turn."
     },
-    "LunaSnow": {
+    "Luna Snow": {
         Hero: "Luna Snow",
         Role: "Strategist",
+        Health: "275",
+        MovementSpeed: "6 m/s",
         Q: "Fate of Both Worlds",
         LClick: "Light & Dark Ice",
         LShift: "Ice Arts",
@@ -105,13 +127,16 @@ const strategists = {
         V: "",
         Space: "",
         RClick: "Absolute Zero",
-        TeamUpsPassives: "Cryo Heart, Smooth Skate, Icy Disco, Frozen Chi",
+        Passives: "Cryo Heart\nSmooth Skate",
+        TeamUps: "Icy Disco (Passive)\nC: Frozen Chi",
         Image: "./CharacterImages/luna_snow.png",
         Description: "Equal parts pop star and Super Hero, Luna Snow puts on a dazzling show with both her light and dark ice powers. The arena is her stage, where Seol Hee and her team orchestrate spectacular displays that earn her an ever-increasing number of fans and wins."
     },
     "Mantis": {
         Hero: "Mantis",
         Role: "Strategist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Q: "Soul Resurgence",
         LClick: "Life Energy Blast",
         LShift: "Spore Slumber",
@@ -120,13 +145,16 @@ const strategists = {
         V: "",
         Space: "",
         RClick: "Healing Flower",
-        TeamUpsPassives: "Nature's Favor/ Nature's Soul",
+        Passives: "Nature's Favor",
+        TeamUps: "Nature's Soul (Passive)",
         Image: "./CharacterImages/mantis.png",
         Description: "Mantis uses her impressive mental abilities and her penchant for plant control to anchor any team she fights alongside. Her powers tap into a limitless flow of life energy, gently nourishing everything she touches."
     },
-    "RocketRaccoon": {
+    "Rocket Raccoon": {
         Hero: "Rocket Raccoon",
         Role: "Strategist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Q: "C.Y.A.",
         LClick: "Bombard Mode",
         LShift: "Jetpack Dash",
@@ -135,16 +163,19 @@ const strategists = {
         V: "",
         Space: "Wild Crawl/Flying Ace",
         RClick: "Repair Mode",
-        TeamUpsPassives: "Old Friends/ Ammo Invention",
+        Passives: "",
+        TeamUps: "C: Old Friends\nZ: Ammon Invention",
         Image: "./CharacterImages/rocket_raccoon.png",
         Description: "Rocket may not look like a tech genius or an expert tactician, but anyone who's ever made his hit list has quickly regretted underestimating him. This savvy space soldier is equally eager to boost his teammates and to collect bounties on his foes."
     }
 };
 
 const duelists = {
-    "BlackPanther": {
+    "Black Panther": {
         Hero: "Black Panther",
         Role: "Duelist",
+        Health: "300",
+        MovementSpeed: "7 m/s",
         Q: "Bast's Descent",
         LClick: "Vibranium Claws",
         LShift: "Spirit Rend",
@@ -153,13 +184,16 @@ const duelists = {
         V: "",
         Space: "Subtle Step",
         RClick: "Spear Toss",
-        TeamUpsPassives: "Panther's Cunning/Wakandan Master",
+        Passives: "Panther's Cunning",
+        TeamUps: "C: Wakandan Master",
         Image: "./CharacterImages/black_panther.png",
         Description: "T'Challa, King of Wakanda, wields the perfect blend of the cutting-edge Vibranium technology and ancestral power drawn from the Panther God, Bast. The Black Panther bides his time until elegantly infiltrating enemy lines and commencing his hunt."
     },
-    "BlackWidow": {
+    "Black Widow": {
         Hero: "Black Widow",
         Role: "Duelist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Q: "Electro-Plasma Explosion",
         LClick: "Widow's Bite Baton/Red Room Rifle",
         LShift: "Fleet Foot",
@@ -168,13 +202,16 @@ const duelists = {
         V: "",
         Space: "",
         RClick: "Straight Shooter",
-        TeamUpsPassives: "Supersensory Hunt",
+        Passives: "",
+        TeamUps: "C: Supersensory Hunt",
         Image: "./CharacterImages/black_widow.png",
         Description: "Natasha Romanova is the world's most elite spy in any era. Her mastery of the sniper rifle eliminates targets from afar, while her shock batons neutralize close-range threats. Black Widow is locked, loaded, and ready to deliver a fatal bite!"
     },
     "Hawkeye": {
         Hero: "Hawkeye",
         Role: "Duelist",
+        Health: "275",
+        MovementSpeed: "6 m/s",
         Q: "Hunter's Sight",
         LClick: "Piercing Arrow/Blast Arrow",
         LShift: "Crescent Slash",
@@ -183,28 +220,35 @@ const duelists = {
         V: "Ronin Slash",
         Space: "Skyward Leap",
         RClick: "",
-        TeamUpsPassives: "Archer's Focus/Supersensory Hunt",
+        Passives: "Archer's Focus",
+        TeamUps: "Supersensory Vision (Passive)",
         Image: "./CharacterImages/hawkeye.png",
         Description: "Despite his lack of superpowers, Hawkeye's unparalleled skills as a marksman have earned him a spot alongside earth's mightiest heroes. With a cool head and steady hand, Clint Barton never misses a target… so enemies best stay out of his sights!"
     },
     "Hela": {
         Hero: "Hela",
         Role: "Duelist",
-        Q: "Goddes of Death",
+        Health: "250",
+        MovementSpeed: "6 m/s",
+        Q: "Goddess of Death",
         LClick: "Nightsword",
         LShift: "Astral Flock",
-        E: "Soul Drainer ",
+        E: "Soul Drainer",
         F: "",
         V: "",
         Space: "Hel's Descent",
         RClick: "Piercing Night",
-        TeamUpsPassives: "Nastrond Crowstorm/Queen of Hel",
+        Passives: "Nastrond Crowstorm",
+        TeamUps: "Queen of Hel (Passive)",
         Image: "./CharacterImages/hela.png",
         Description: "As the Goddess of Death, Hela wields supreme control over the fallen souls residing in Hel. With a haunting whisper and a murder of crows, the queen of the underworld gracefully reaps the souls of her enemies without an ounce of mercy."
     },
-    "HumanTorch": {
+    "Human Torch": {
         Hero: "Human Torch",
         Role: "Duelist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
+        MovementMode: "Flight",
         Q: "Supernova",
         LClick: "Fire Cluster",
         LShift: "Plasma Body",
@@ -213,13 +257,16 @@ const duelists = {
         V: "",
         Space: "",
         RClick: "Blazing Blast",
-        TeamUpsPassives: "Storm Siblings/Omega Fire",
+        Passives: "",
+        TeamUps: "C: Storm Siblings\nX: Omega Fire",
         Image: "./CharacterImages/human_torch.png",
         Description: "The Fantastic Four's resident heartthrob, Johnny Storm, adds an intense flare to every battle he fights. Shrouded in roaring flames, the Human Torch always manages to look cool while turning up the heat!"
     },
-    "IronFist": {
+    "Iron Fist": {
         Hero: "Iron Fist",
         Role: "Duelist",
+        Health: "300",
+        MovementSpeed: "6 m/s",
         Q: "Living Chi",
         LClick: "Jeet Kune Do/Yat Jee Chung Kuen",
         LShift: "K'un-Lun Kick",
@@ -228,63 +275,84 @@ const duelists = {
         V: "",
         Space: "Crane Leap/Wall Runner",
         RClick: "Dragon Defense",
-        TeamUpsPassives: "Chi Absorption/Dragon's Chill",
+        Passives: "Chi Absorption",
+        TeamUps: "Dragon's Chill (Passive)",
         Image: "./CharacterImages/iron_fist.png",
         Description: "Lin Lie is a master of Chinese martial arts who once wielded the shattered Sword of Fu Xi. After fusing its pieces with the mighty Chi of Shou-Lao, he is poised to strike his foes with the grace and force of a soaring dragon as the latest immortal Iron Fist"
     },
-    "IronMan": {
+    "Iron Man": {
         Hero: "Iron Man",
         Role: "Duelist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
+        MovementMode: "Flight",
         Q: "Invincible Pulse Cannon",
         LClick: "Repulsor Blast/Repulsor Blast (Armor Overdrive), Repulsor Blast (Gamma Overdrive)",
         LShift: "Hyper Velocity/ Hyper-Velocity (Armor Over Drive)",
         E: "Armor Overdrive",
-        F: "Micro-Missle Barrage/Micro-Missle Barrage (Overdriver)",
+        F: "Micro-Missle Barrage/Micro-Missle Barrage (Armor Overdrive)",
         V: "",
         Space: "",
         RClick: "Unibeam/Unibeam (Armor Overdrive)/Unibeam (Gamma Overdrive)",
-        TeamUpsPassives: "Gamma Overdrive",
+        Passives: "",
+        TeamUps: "E: Gamma Overdrive",
         Image: "./CharacterImages/iron_man.png",
         Description: "Armed with superior intellect and a nanotech battlesuit of his own design, Tony Stark stands alongside gods as the Invincible Iron Man. His state of the art armor turns any battlefield into his personal playground, allowing him to steal the spotlight he so desperately desires."
     },
     "Magik": {
         Hero: "Magik",
         Role: "Duelist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
+        Q: "Darkchild",
+        LClick: "Soulsword/Eldritch Whirl",
+        LShift: "Stepping Disc",
+        E: "Umbral Incursion",
+        F: "",
+        V: "",
+        Space: "",
+        RClick: "Magik Slash/Demon's Rage",
+        Passives: "Limbo's Might",
+        TeamUps: "Disc Master (Passive)",
         Image: "./CharacterImages/magik.png",
-        Description: "Trained in the dark arts and wielding her mighty Soulsword, Magik leaps through portals to navigate the arena with ease. Once Illyana transforms into the demonic Darkchild, all who dare stand against her will fall before her merciless blade.",
+        Description: "Illyana Rasputin, also known as Magik, wields the Soulsword and commands the mystical realm of Limbo. Her mastery of dark magic and teleportation makes her a formidable opponent.",
         Forms: {
             "Magik": {
                 Q: "Darkchild",
-                LClick: "Soulsword/EkdritchWhirl",
-                LShift: "Stepping Discs",
+                LClick: "Soulsword/Eldritch Whirl",
+                LShift: "Stepping Disc",
                 E: "Umbral Incursion",
                 F: "",
                 V: "",
                 Space: "",
                 RClick: "Magik Slash/Demon's Rage",
-                TeamUpsPassives: "Limbo's Might/Disc Master",
+                Passives: "Limbo's Might",
+                TeamUps: "Disc Master (Passive)",
                 Image: "./CharacterImages/magik-headbig.png",
-                Description: "Trained in the dark arts and wielding her mighty Soulsword, Magik leaps through portals to navigate the arena with ease. Once Illyana transforms into the demonic Darkchild, all who dare stand against her will fall before her merciless blade."
+                Description: "Illyana Rasputin, also known as Magik, wields the Soulsword and commands the mystical realm of Limbo. Her mastery of dark magic and teleportation makes her a formidable opponent."
             },
             "MagikUlt": {
-                Q: "Darkchild",
-                LClick: "Soulsword/EkdritchWhirl",
-                LShift: "Stepping Discs",
+                Q: "",
+                LClick: "Soulsword",
+                LShift: "Stepping Disc",
                 E: "Umbral Incursion",
                 F: "",
                 V: "",
                 Space: "",
                 RClick: "Magik Slash/Demon's Rage",
-                TeamUpsPassives: "Limbo's Might/Disc Master",
-                Image: "./CharacterImages/magik_ult.png",
-                Description: "In her ultimate form, Magik's demonic powers reach their peak. The Darkchild's abilities are enhanced, making her an even more formidable force on the battlefield."
+                Passives: "Limbo's Might",
+                TeamUps: "Disc Master (Passive)",
+                Image: "./CharacterImages/magik-ult-headbig.png",
+                Description: "Magik's ultimate form unleashes the full power of Limbo and the Soulsword."
             }
         }
     },
-    "MisterFantastic": {
+    "Mister Fantastic": {
         Hero: "Mister Fantastic",
-        Role: "Vanguard",
-        Q: "Brainiac Bouce",
+        Role: "Duelist",
+        Health: "375",
+        MovementSpeed: "6 m/s",
+        Q: "Brainic Bounce",
         LClick: "Stretch Punch",
         LShift: "Reflexive Rubber",
         E: "Flexible Elongation",
@@ -292,28 +360,34 @@ const duelists = {
         V: "",
         Space: "",
         RClick: "Distended Grip",
-        TeamUpsPassives: "Elastic Strength/Wedded Harmony",
+        Passives: "Elastic Strength",
+        TeamUps: "C: Wedded Harmony",
         Image: "./CharacterImages/mister_fantastic.png",
-        Description: "Reed Richards believes that true strength comes from remaining flexible, both mentally and physically. Mister Fantastic's elastic body, which can twist and stretch into any form with ease, is almost as impressive as his brilliant mind."
+        Description: "Reed Richards, the leader of the Fantastic Four, possesses incredible elasticity and superhuman intelligence. His ability to stretch and contort his body makes him a versatile combatant."
     },
-    "MoonKnight": {
+    "Moon Knight": {
         Hero: "Moon Knight",
         Role: "Duelist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Q: "Hand of Khonshu",
         LClick: "Crescent Dart",
         LShift: "Night Glider",
-        E: "Ancient Ankh",
+        E: "Ancient Guard",
         F: "Moonlight Hook",
         V: "Triple Eclipse",
         Space: "Rising Leap",
         RClick: "Moon Blade",
-        TeamUpsPassives: "Full Moon",
+        Passives: "",
+        TeamUps: "C: Full Moon",
         Image: "./CharacterImages/moon_knight.png",
-        Description: "As the avatar of the Egyptian God of Vengeance, Marc Spector's body has been enhanced by Khonshu himself. Bathed in a luminous aura that pierces the darkness, Moon Knight glides through the night, ready to sear his enemies with his master's sacred Ankhs."
+        Description: "Moon Knight, the Fist of Khonshu, fights under the light of the moon. His multiple personalities and connection to the Egyptian moon god make him a unique and unpredictable hero."
     },
     "Namor": {
         Hero: "Namor",
-        Role: "Vanguard",
+        Role: "Duelist",
+        Health: "275",
+        MovementSpeed: "6 m/s",
         Q: "Horn of Proteus",
         LClick: "Trident of Neptune",
         LShift: "Blessing of the Deep",
@@ -322,13 +396,16 @@ const duelists = {
         V: "",
         Space: "",
         RClick: "Wrath of the Seven Seas",
-        TeamUpsPassives: "Frozen Spawn",
+        Passives: "",
+        TeamUps: "C: Gamma Monstro",
         Image: "./CharacterImages/namor.png",
-        Description: "The unrivaled King of the Seas, Namor surfs into battle on a mighty wave with an army of fierce aquatic creatures in his wake. When ancient horns of war blare, devastation soon follows as deadly waters engulf the arena."
+        Description: "Namor, the Sub-Mariner, is the ruler of Atlantis and possesses incredible strength and aquatic abilities. His dual nature as both hero and anti-hero makes him a complex figure."
     },
     "Psylocke": {
         Hero: "Psylocke",
         Role: "Duelist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Q: "Dance of the Butterfly",
         LClick: "Psionic Crossbow",
         LShift: "Psi-Blade Dash",
@@ -337,13 +414,16 @@ const duelists = {
         V: "",
         Space: "",
         RClick: "Wing Shurikens",
-        TeamUpsPassives: "Psionic Disc ",
+        Passives: "",
+        TeamUps: "C: Psychic Echoes",
         Image: "./CharacterImages/psylocke.png",
-        Description: "The psychic warrior known as Sai has the Mutant ability to conjure a variety of weapons with the power of her mind. Gracefully gliding across the battlefield, this trained ninja can shatter the enemy's defenses with a single thought."
+        Description: "Psylocke wields powerful psychic abilities and martial arts skills. Her psychic knife and telepathic powers make her a deadly opponent in combat."
     },
-    "ScarletWitch": {
+    "Scarlet Witch": {
         Hero: "Scarlet Witch",
         Role: "Duelist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Q: "Reality Erasure",
         LClick: "Chaos Control",
         LShift: "Mystic Projection",
@@ -352,13 +432,16 @@ const duelists = {
         V: "",
         Space: "Telekinesis",
         RClick: "Chthonian Burst",
-        TeamUpsPassives: "Chaotic Bond ",
+        Passives: "",
+        TeamUps: "RClick: Sorcery Surge",
         Image: "./CharacterImages/scarlet_witch.png",
-        Description: "Wanda Maximoff is adept at harnessing formidable chaos magic, casting hexes with the power to twist and reshape reality itself. Energy, space, and matter are mere playthings in the hands of Scarlet Witch!"
+        Description: "Wanda Maximoff, the Scarlet Witch, wields powerful chaos magic that can alter reality itself. Her abilities make her one of the most powerful beings in the universe."
     },
-    "Spider-man": {
-        Hero: "Spider-man",
+    "Spider-Man": {
+        Hero: "Spider-Man",
         Role: "Duelist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Q: "Spectacular Spin",
         LClick: "Spider-Power",
         LShift: "Web-Swing",
@@ -367,13 +450,16 @@ const duelists = {
         V: "",
         Space: "Thwip and Flip/Wall Crawl",
         RClick: "Web-Cluster",
-        TeamUpsPassives: "Spider-Sense/Suit Explusion/Extra Web-Fluid",
+        Passives: "Spider-Sense",
+        TeamUps: "Extra Web-Fluid (Passive)\nC: Suit Expulsion",
         Image: "./CharacterImages/spider_man.png",
-        Description: "Swinging around the arena on his signature weblines, your friendly neighborhood Spider-Man, AKA Peter Parker, catches his rivals by surprise with sneaky, sticky bursts of webbing and unexpected attacks from above. Look out… here comes the Spider-Man!"
+        Description: "Peter Parker, the friendly neighborhood Spider-Man, uses his spider-like abilities and quick wit to protect New York City. His agility and web-slinging make him a formidable hero."
     },
-    "SquirrelGirl": {
+    "Squirrel Girl": {
         Hero: "Squirrel Girl",
         Role: "Duelist",
+        Health: "275",
+        MovementSpeed: "6 m/s",
         Q: "Unbeatable Squirrel Tsunami",
         LClick: "Burst Acorn",
         LShift: "Tail Bounce",
@@ -382,14 +468,17 @@ const duelists = {
         V: "",
         Space: "",
         RClick: "Squirrel Blockade",
-        TeamUpsPassives: "Webbed Acorn",
+        Passives: "",
+        TeamUps: "C: Webbed Acorn",
         Image: "./CharacterImages/squirrel_girl.png",
-        Description: "Possessing only the powers of a common squirrel, somehow Doreen Green manages to defeat seemingly invincible enemies in the most unexpected ways. Any foe who counts her out is bound to fall at the hands of the Unbeatable Squirrel Girl!"
+        Description: "Doreen Green, also known as Squirrel Girl, has the proportional strength and abilities of a squirrel. Her ability to communicate with squirrels and her unbeatable record make her a unique hero."
     },
     "Star-Lord": {
         Hero: "Star-Lord",
         Role: "Duelist",
-        Q: "Galatic Legend",
+        Health: "250",
+        MovementSpeed: "6 m/s",
+        Q: "Galactic Legend",
         LClick: "Element Guns",
         LShift: "Rocket Propulsion",
         E: "Blaster Barrage",
@@ -397,43 +486,52 @@ const duelists = {
         V: "",
         Space: "",
         RClick: "Stellar Shift",
-        TeamUpsPassives: "Leader's Soul",
+        Passives: "",
+        TeamUps: "Leader's Soul (Passive)",
         Image: "./CharacterImages/star_lord.png",
-        Description: "Peter Quill lives to dazzle his foes on the battlefield with his signature swagger. As his element guns paint arcs of devastation, his acrobatic moves sail through the sky with unrivaled style. With performances this spectacular, it's no wonder that Star-Lord is so legendary!"
+        Description: "Peter Quill, the legendary Star-Lord, leads the Guardians of the Galaxy with his quick wit and impressive arsenal. His Element Gun and tactical skills make him a formidable leader."
     },
     "Storm": {
         Hero: "Storm",
         Role: "Duelist",
+        Health: "250",
+        MovementSpeed: "6 m/s",
         Q: "Omega Hurricane",
         LClick: "Wind Blade",
         LShift: "Weather Control",
-        E: "Goddes Boost",
+        E: "Goddess Boost",
         F: "",
         V: "",
         Space: "",
         RClick: "Bolt Rush",
-        TeamUpsPassives: "Charged Gale/Burning Hurricane",
+        Passives: "",
+        TeamUps: "X: Burning Hurricane",
         Image: "./CharacterImages/storm.png",
-        Description: "An Omega-level Mutant ability to manipulate weather patterns makes Ororo Munroe a force to be reckoned with. Rain or shine, thunder or lightning, nature itself bends to the command of the Goddess of the Storm!"
+        Description: "Ororo Munroe, also known as Storm, controls the weather with her mutant powers. Her ability to manipulate the elements makes her one of the most powerful mutants."
     },
-    "ThePunisher": {
+    "The Punisher": {
         Hero: "The Punisher",
         Role: "Duelist",
+        Health: "275",
+        MovementSpeed: "6 m/s",
         Q: "Final Judgement",
         LClick: "Adjudication/Deliverance",
         LShift: "Vantage Connection",
-        E: "Culling Turret",
+        E: "Culling Turrent",
         F: "",
         V: "",
         Space: "",
-        RClick: "Scourage Grenade",
-        TeamUpsPassives: "Warrior's Gaze/Inifite Punishment",
+        RClick: "Scourge Grenade",
+        Passives: "Warrior's Glaze",
+        TeamUps: "Infinite Punishment",
         Image: "./CharacterImages/the_punisher.png",
-        Description: "Expertly wielding a full arsenal of futuristic weapons, Frank Castle is a formidable one-man army. With a steadfast resolve to deliver justice to his enemies, The Punisher won't cease in his mission until every last round is fired!"
+        Description: "Frank Castle, the Punisher, wages a one-man war on crime using his military training and arsenal of weapons. His relentless pursuit of justice makes him a feared vigilante."
     },
-    "WinterSoldier": {
+    "Winter Soldier": {
         Hero: "Winter Soldier",
         Role: "Duelist",
+        Health: "275",
+        MovementSpeed: "6 m/s",
         Q: "Kraken Impact",
         LClick: "Roterstern",
         LShift: "Trooper's Fist",
@@ -442,13 +540,16 @@ const duelists = {
         V: "",
         Space: "",
         RClick: "Bionic Hook",
-        TeamUpsPassives: "Ceaseless Charge/Infinite Grit",
+        Passives: "Ceaseless Charge",
+        TeamUps: "C: Stellar Impact",
         Image: "./CharacterImages/winter_soldier.png",
-        Description: "Terrifying experiments turned him into a brainwashed assassin, but now James Buchanan Bucky Barnes is in control of his own fate once again. With his enhanced mechanical arm, the Winter Soldier is primed to deliver earth-shattering blows to any foe in his path!"
+        Description: "Bucky Barnes, the Winter Soldier, is a highly skilled assassin with a vibranium arm and military training. His combat skills and tactical mind make him a valuable asset to any team."
     },
     "Wolverine": {
         Hero: "Wolverine",
         Role: "Duelist",
+        Health: "350",
+        MovementSpeed: "7 m/s",
         Q: "Last Stand",
         LClick: "Savage Claw",
         LShift: "Feral Leap",
@@ -457,31 +558,73 @@ const duelists = {
         V: "",
         Space: "",
         RClick: "Vicious Rampage",
-        TeamUpsPassives: "Regenerative Healing Factor/Berserker Rage/Metal Cannonball",
+        Passives: "Regenerative Healing Factor\nBerserker Rage",
+        TeamUps: "C: Metal Cannonball",
         Image: "./CharacterImages/wolverine.png",
-        Description: "Thanks to his regenerative healing factor and berserker rage, the centuries-old Logan can fight through the worst pain to go claw-to-claw with any foe. The Wolverine stands ready to shred through all obstacles in his way with his Adamantium claws."
+        Description: "Wolverine, the best there is at what he does, possesses an adamantium skeleton and claws, along with a powerful healing factor. His combat skills and indomitable spirit make him a legendary X-Man."
     }
 };
 
 const vanguards = {
-    "DoctorStrange": {
-        Hero: "Doctor Strange",
+    "Captain America": {
+        Hero: "Captain America",
         Role: "Vanguard",
-        Q: "Eye Of Agamotto",
-        LClick: "Daggers Of Denak",
-        LShift: "Cloak Of Levitation",
-        E: "Maelstrom Of Madness",
-        F: "Pentagram Of Farallah",
+        Health: "650",
+        MovementSpeed: "6 m/s",
+        Q: "Freedom Charge",
+        LClick: "Sentinel Strike/Super-Soldier Slam",
+        LShift: "Leading Dash",
+        E: "Vibranium Energy Saw",
+        F: "Liberty Rush",
         V: "",
         Space: "",
-        RClick: "Shield Of The Seraphim",
-        TeamUpsPassives: "Price Of Magic/GAMMA MAELSTROM",
+        RClick: "Living Legend",
+        Passives: "",
+        TeamUps: "Captain's Spirit (Passive)",
+        Image: "./CharacterImages/captain_america.png",
+        Description: "Steve Rogers, the first Avenger, leads the charge with his indestructible vibranium shield. Captain America's tactical brilliance and unwavering spirit inspire his team to victory."
+    },
+    "Emma Frost": {
+        Hero: "Emma Frost",
+        Role: "Vanguard",
+        Health: "550",
+        MovementSpeed: "6 m/s",
+        Q: "Psionic Seduction",
+        LClick: "Telepathic Pulse/ Faceted Fury",
+        LShift: "Diamond Form",
+        E: "Psychic Spear",
+        F: "",
+        V: "",
+        Space: "",
+        RClick: "Crystal Kick/Carbon Crush",
+        Passives: "",
+        TeamUps: "Mind link (Passive)",
+        Image: "./CharacterImages/emma_frost.png",
+        Description: "For Emma Frost, war is the purest form of art. With her formidable telepathic abilities, she intricately weaves a deadly mental web that ensnares her foes, while her indestructible diamond form lets her lead her teammates fearlessly into the fray. Forever elegant and composed, Emma reigns as the one true queen of the battlefield!"
+    },
+    "Doctor Strange": {
+        Hero: "Doctor Strange",
+        Role: "Vanguard",
+        Health: "600",
+        MovementSpeed: "6 m/s",
+        Q: "Eye of Agamotto",
+        LClick: "Daggers of Denak",
+        LShift: "Cloak of Levitation",
+        E: "Maelstorm of Madness",
+        F: "Pentagram of Farallah",
+        V: "",
+        Space: "",
+        RClick: "Shield of the Seraphim",
+        Passives: "Price of Magic",
+        TeamUps: "Enchanted Enhancement (Passive)",
         Image: "./CharacterImages/doctor_strange.png",
-        Description: "As the Sorcerer Supreme, Doctor Stephen Strange gracefully wields ancient spells to turn the tide of even the most impossible battle. However, magic always comes at a cost, and each use of his arcane abilities gradually awakens the darkness within him."
+        Description: "Doctor Strange, the Sorcerer Supreme, wields the mystic arts to protect reality from supernatural threats. His mastery of magic makes him a formidable ally in any battle."
     },
     "Groot": {
         Hero: "Groot",
         Role: "Vanguard",
+        Health: "700",
+        MovementSpeed: "6 m/s",
         Q: "Strangling Prison",
         LClick: "Vine Strike",
         LShift: "Thornlash Wall",
@@ -490,17 +633,32 @@ const vanguards = {
         V: "Furious Flora",
         Space: "",
         RClick: "Spore Bomb",
-        TeamUpsPassives: "Flora Colossus, Friendly Shoulder",
+        Passives: "Flora Colossus",
+        TeamUps: "Friendly Shoulder (Passive)",
         Image: "./CharacterImages/groot.png",
-        Description: "A flora colossus from Planet X, the alien known as Groot exhibits enhanced vitality and the ability to manipulate all forms of vegetation. As sturdy as a towering tree, Groot forges his own way, serving as the team's silent but reliable pathfinder."
+        Description: "Groot, the Flora Colossus, uses his incredible strength and ability to grow and manipulate his body to protect his friends. His simple phrase 'I am Groot' carries deep meaning to those who understand him."
     },
-    "HeroHulk": {
+    "Hero Hulk": {
         Hero: "Hero Hulk",
         Role: "Vanguard",
+        Health: "650",
+        MovementSpeed: "6.5 m/s",
+        Q: "Hulk Smash!",
+        LClick: "Heavy Blow",
+        LShift: "Indestructible Guard",
+        E: "Radioactive Lockdown",
+        F: "",
+        V: "",
+        Space: "Incredible Leap",
+        RClick: "Gamma Burst",
+        Passives: "",
+        TeamUps: "Gamma Boost (Passive)\nC: Gamma Fastball",
         Image: "./CharacterImages/hero_hulk.png",
-        Description: "The heroic Hulk uses his incredible strength and durability to protect his allies. With his gamma-enhanced abilities, he can leap great distances and deliver devastating blows to his enemies.",
+        Description: "Bruce Banner's alter ego, the Hulk, brings incredible strength and durability to the battlefield. When the Hulk gets angry, his power knows no bounds.",
         Forms: {
-            "BruceBanner": {
+            "Bruce Banner": {
+                Health: "200",
+                MovementSpeed: "6 m/s",
                 Q: "Puny Banner",
                 LClick: "Gamma Ray Gun",
                 LShift: "Gamma Grenade",
@@ -509,11 +667,14 @@ const vanguards = {
                 V: "",
                 Space: "",
                 RClick: "",
-                TeamUpsPassives: "Gamma Boost",
-                Image: "./CharacterImages/bruce_banner.png",
-                Description: "Bruce Banner, the brilliant scientist, uses his intellect and gamma-based technology to support his team. Though physically weak, his scientific mind makes him a valuable asset on the battlefield."
+                Passives: "",
+                TeamUps: "Gamma Boost (Passive)",
+                Image: "./CharacterImages/bruce-banner-headbig.png",
+                Description: "Bruce Banner, the brilliant scientist, can transform into the Hulk when his emotions get the better of him."
             },
-            "HeroHulk": {
+            "Hero Hulk": {
+                Health: "650",
+                MovementSpeed: "6.5 m/s",
                 Q: "Hulk Smash!",
                 LClick: "Heavy Blow",
                 LShift: "Indestructible Guard",
@@ -522,11 +683,14 @@ const vanguards = {
                 V: "",
                 Space: "Incredible Leap",
                 RClick: "Gamma Burst",
-                TeamUpsPassives: "Gamma Boost/ Gamma Fast Ball",
-                Image: "./CharacterImages/hero_hulk2.png",
-                Description: "The heroic Hulk uses his incredible strength and durability to protect his allies. With his gamma-enhanced abilities, he can leap great distances and deliver devastating blows to his enemies."
+                Passives: "",
+                TeamUps: "Gamma Boost (Passive)\nC: Gamma Fastball",
+                Image: "./CharacterImages/hero-hulk-headbig.png",
+                Description: "Bruce Banner's alter ego, the Hulk, brings incredible strength and durability to the battlefield. When the Hulk gets angry, his power knows no bounds."
             },
-            "MonsterHulk": {
+            "Monster Hulk": {
+                Health: "1400",
+                MovementSpeed: "6.5 m/s",
                 Q: "World Breaker",
                 LClick: "Heavy Blow",
                 LShift: "",
@@ -535,45 +699,54 @@ const vanguards = {
                 V: "",
                 Space: "Incredible Leap",
                 RClick: "Gamma Burst",
-                TeamUpsPassives: "Gamma Boost/ Gamma Fast Ball",
-                Image: "./CharacterImages/monster_hulk.png",
-                Description: "In his most powerful form, the Monster Hulk becomes an unstoppable force of destruction. His rage knows no bounds, and his strength is unmatched on the battlefield."
+                Passives: "",
+                TeamUps: "Gamma Boost (Passive)\nC: Gamma Fastball",
+                Image: "./CharacterImages/monster-hulk-headbig.png",
+                Description: "The Monster Hulk is the most powerful and dangerous form of the Hulk, with incredible strength and durability."
             }
         }
     },
     "Magneto": {
         Hero: "Magneto",
         Role: "Vanguard",
-        Q: "Meteor M",
+        Health: "650",
+        MovementSpeed: "6 m/s",
+        Q: "Metero M",
         LClick: "Iron Volley",
         LShift: "Metallic Curtain",
         E: "Metal Bulwark",
-        F: "Iron Bulwark",
+        F: "iron Bulwark",
         V: "",
-        Space: "",
-        RClick: "Mag-cannon",
-        TeamUpsPassives: "Magnetic Descent/ METALLIC FUSION",
+        Space: "Magetic Descent",
+        RClick: "Mag-Cannon",
+        Passives: "",
+        TeamUps: "C: Magnetic Resonance",
         Image: "./CharacterImages/magneto.png",
-        Description: "The Master of Magnetism bends even the strongest metal to his whims, shielding his allies and striking at his foes. Whether he calls himself Max Eisenhardt, Erik Lehnsherr, or simply Magneto, the hardships this warrior has endured have made him as unbreakable as the steel he brandishes."
+        Description: "Magneto, the Master of Magnetism, wields incredible power over metal and magnetic fields. His leadership of mutantkind makes him both a powerful ally and a dangerous enemy."
     },
-    "PeniParker": {
+    "Peni Parker": {
         Hero: "Peni Parker",
         Role: "Vanguard",
-        Q: "Spider-sweeper",
-        LClick: "Cyber-web Cluster",
-        LShift: "Bionic Spider-nest",
-        E: "Arachno-mine",
-        F: "Cyber-bond",
+        Health: "750",
+        MovementSpeed: "6 m/s",
+        Q: "Spider-Sweeper",
+        LClick: "Cyber-Web Cluster",
+        LShift: "Bionic Spider-Nest",
+        E: "Arachno-Mine",
+        F: "Cyber-Bond",
         V: "",
         Space: "Wall Crawl",
-        RClick: "Cyber-web Snare",
-        TeamUpsPassives: "Armor Explosion",
+        RClick: "Cyber-Web Snare",
+        Passives: "",
+        TeamUps: "C: Armor Expulsion",
         Image: "./CharacterImages/peni_parker.png",
-        Description: "Peni Parker may be young, but she bravely stands on the frontlines to protect the Web of Life and Destiny. Together, this teen prodigy and her state-of-the-art mech, the sensational SP//dr, make for the most thrilling duo on the battlefield!"
+        Description: "Peni Parker pilots the SP//dr mech suit, combining her intelligence with advanced technology to fight crime. Her unique connection to the SP//dr makes her a formidable hero."
     },
-    "TheThing": {
+    "The Thing": {
         Hero: "The Thing",
         Role: "Vanguard",
+        Health: "700",
+        MovementSpeed: "6 m/s",
         Q: "Clobberin' Time",
         LClick: "Rocky Jab",
         LShift: "Yancy Street Charge",
@@ -582,29 +755,35 @@ const vanguards = {
         V: "",
         Space: "",
         RClick: "Stone Haymaker",
-        TeamUpsPassives: "Unyielding Will, Cooperative Comrades, Cosmic Fastball",
+        Passives: "Unyielding Will",
+        TeamUps: "Z: Cosmic Fastball\nC: Cooperative Comrades",
         Image: "./CharacterImages/the_thing.png",
-        Description: "Benjamin J. Grimm is unquestionably the rock star of any team he's on. Always at the forefront of the fight, the Thing shields his allies with his unbreakable form, selflessly fending off any harm that comes their way."
+        Description: "Ben Grimm, the Thing, is a founding member of the Fantastic Four with incredible strength and durability. His rocky exterior and tough personality make him a formidable hero."
     },
     "Thor": {
         Hero: "Thor",
         Role: "Vanguard",
-        Q: "God Of Thunder",
-        LClick: "Mjölnir Bash",
-        LShift: "Storm Surge",
+        Health: "600",
+        MovementSpeed: "6.5 m/s",
+        Q: "God of Thunder",
+        LClick: "Mjolnir Bash",
+        LShift: "Lightning Shield",
         E: "Lightning Realm",
         F: "Awakening Rune",
         V: "",
         Space: "",
         RClick: "Hammer Throw",
-        TeamUpsPassives: "Thorforce, Odinson Reborn, Thunderous Deity",
+        Passives: "Thorforce",
+        TeamUps: "Odinson Reborn (Passive)",
         Image: "./CharacterImages/thor.png",
-        Description: "The son of Odin taps into his divine power to call forth thunder and lightning, raining down relentless fury upon his enemies. With his mighty hammer Mjolnir in hand, Thor effortlessly asserts his dominance on the field of combat."
+        Description: "Thor, the God of Thunder, wields the mighty Mjolnir and commands the power of lightning. His godly strength and control over the weather make him one of the most powerful Avengers."
     },
     "Venom": {
         Hero: "Venom",
         Role: "Vanguard",
-        Q: "Feast Of The Abyss",
+        Health: "650",
+        MovementSpeed: "6 m/s",
+        Q: "Feast of the Abyss",
         LClick: "Dark Predation",
         LShift: "Venom Swing",
         E: "Symbiotic Resilience",
@@ -612,9 +791,10 @@ const vanguards = {
         V: "",
         Space: "Alien Biology",
         RClick: "Cellular Corrosion",
-        TeamUpsPassives: "TOUCH OF KLYNTAR",
+        Passives: "",
+        TeamUps: "Touch of Klyntar (Passive)",
         Image: "./CharacterImages/venom.png",
-        Description: "Using his symbiote-enhanced body as the perfect living weapon, Eddie Brock and his alien ally stand ever-ready to unleash vicious attacks upon anyone he deems an enemy. Those ensnared by Venom's tentacles have no choice but to surrender to this insatiable predator."
+        Description: "Venom, the alien symbiote bonded with Eddie Brock, possesses incredible strength and shape-shifting abilities. His unique connection to the symbiote makes him a powerful anti-hero."
     }
 };
 
@@ -666,8 +846,27 @@ function populateHeroContainers() {
     });
 }
 
+// Function to open character details page
+function openCharacterDetails() {
+    const currentHero = window.currentHero;
+    if (!currentHero) return;
+
+    // Get the current form if it exists
+    const currentForm = window.currentForm || '';
+
+    // Convert hero name to filename format
+    const fileName = currentHero.Hero.toLowerCase().replace(/[^a-z0-9]/g, '_') + '.html';
+    
+    // Navigate to the individual hero details page
+    window.location.href = `Detail Heroes Abilities/${fileName}`;
+}
+
 // Function to open the hero popup
 function openImagePopup(hero) {
+    // Store the current hero for the More Details button
+    window.currentHero = hero;
+    window.currentForm = '';
+
     const popup = document.getElementById('hero-popup');
     const popupImage = document.getElementById('popup-hero-image');
     const popupName = document.getElementById('popup-hero-name');
@@ -676,6 +875,8 @@ function openImagePopup(hero) {
     const popupAbilities = document.getElementById('popup-hero-abilities');
     const popupTeamups = document.getElementById('popup-hero-teamups');
     const popupForms = document.getElementById('popup-hero-forms');
+    const popupHealth = document.getElementById('popup-hero-health');
+    const popupMobility = document.getElementById('popup-hero-mobility');
 
     // Clear existing content
     popupForms.innerHTML = '';
@@ -708,7 +909,14 @@ function openImagePopup(hero) {
         popupName.textContent = hero.Hero;
         popupRole.textContent = hero.Role;
         popupDescription.textContent = hero.Description;
-        popupTeamups.textContent = hero.TeamUpsPassives;
+        popupTeamups.textContent = hero.TeamUps;
+
+        // Set health and movement speed
+        popupHealth.textContent = hero.Health || '250';
+        popupMobility.textContent = hero.MovementSpeed || '6 m/s';
+        if (hero.MovementMode) {
+            popupMobility.textContent += ` (${hero.MovementMode})`;
+        }
 
         // Populate abilities
         const abilities = [
@@ -743,13 +951,22 @@ function updatePopupContent(hero, formName, formData) {
     const popupDescription = document.getElementById('popup-hero-description');
     const popupAbilities = document.getElementById('popup-hero-abilities');
     const popupTeamups = document.getElementById('popup-hero-teamups');
+    const popupHealth = document.getElementById('popup-hero-health');
+    const popupMobility = document.getElementById('popup-hero-mobility');
 
     // Update popup content
     popupImage.src = formData.Image;
     popupName.textContent = `${hero.Hero} (${formName})`;
     popupRole.textContent = hero.Role;
     popupDescription.textContent = formData.Description;
-    popupTeamups.textContent = formData.TeamUpsPassives;
+    popupTeamups.textContent = formData.TeamUps;
+
+    // Set health and movement speed for the form
+    popupHealth.textContent = formData.Health || '250';
+    popupMobility.textContent = formData.MovementSpeed || '6 m/s';
+    if (formData.MovementMode) {
+        popupMobility.textContent += ` (${formData.MovementMode})`;
+    }
 
     // Clear and populate abilities
     popupAbilities.innerHTML = '';

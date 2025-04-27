@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Marvel Rivals - Black Widow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../characterindex.css">
+    <style>
+        :root {
+            --primary-color: #FFB800;
+            --secondary-color: rgba(160, 22, 22, 0.927);
+            --dark-bg: rgba(0, 0, 0, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background: #1a1a1a;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .character-details-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .character-header {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            background: var(--dark-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-image {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .character-image:hover {
+            transform: scale(1.02);
+        }
+
+        .character-info {
+            flex: 1;
+        }
+
+        .character-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-role {
+            font-size: 1.8rem;
+            color: #888;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .character-description {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .details-section {
+            background: var(--dark-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .ability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .ability-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .ability-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ability-icon {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px;
+        }
+
+        .ability-title {
+            flex: 1;
+        }
+
+        .ability-key {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .ability-type {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-stats {
+            margin-top: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .stats-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .base-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+
+        .stat-label {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        .stat-value {
+            text-align: right;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .ability-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: #222;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background-color: #ffd700;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .character-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .character-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .ability-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="../mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="../CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="../characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
+                <li><a href="../tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+                <li><a href="../teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+                <li><a href="../news.html" class="nav-link px-2 text-white">News</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn sign-up-color">Sign-up</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-button" onclick="window.history.back()">← Back</button>
+    
+    <div class="character-details-container">
+        <div class="character-header">
+            <img class="character-image" src="../CharacterImages/black-widow-headbig.png" alt="Black Widow">
+            <div class="character-info">
+                <h1 class="character-name">Black Widow</h1>
+                <div class="character-role">Duelist</div>
+                <p class="character-description">Natasha Romanova is the world's most elite spy in any era. Her mastery of the sniper rifle eliminates targets from afar, while her shock batons neutralize close-range threats. Black Widow is locked, loaded, and ready to deliver a fatal bite!</p>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Stats</h2>
+            <div class="stats-container">
+                <div class="base-stats">
+                    <div class="stat-row">
+                        <div class="stat-label">Health</div>
+                        <div class="stat-value">250</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Movement Speed</div>
+                        <div class="stat-value">6 m/s</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Attack Type</div>
+                        <div class="stat-value">Hitscan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Abilities</h2>
+            <div class="ability-grid">
+                <!-- Red Room Rifle -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Black_Widow_Red_Room_Rifle_icon.jpg" alt="Red Room Rifle">
+                        <div class="ability-title">
+                            <div class="ability-key">Left Click</div>
+                            <div class="ability-name">Red Room Rifle</div>
+                            <div class="ability-type">Type: Weapon</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">120 damage per round</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Fire Rate</span>
+                            <span class="stat-value">15</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Damage Falloff</span>
+                            <span class="stat-value">Begins at 10m, 50% at 20m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Critical Hit</span>
+                            <span class="stat-value">Yes</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Unleash a barrage of bullets with the Red Room Rifle.</div>
+                </div>
+
+                <!-- Straight Shooter -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Black_Widow_Straight_Shooter_icon.jpg" alt="Straight Shooter">
+                        <div class="ability-title">
+                            <div class="ability-key">Right Click</div>
+                            <div class="ability-name">Straight Shooter</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">120 damage per hit</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Fire Rate</span>
+                            <span class="stat-value">8</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Critical Hit</span>
+                            <span class="stat-value">Yes</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Aiming Time</span>
+                            <span class="stat-value">0.3s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Unleash the Spinning Kick to forcefully repel nearby foes. Afterward, target an enemy to deploy a grappling hook, drawing yourself towards them and launching them up upon impact.</div>
+                </div>
+
+                <!-- Fleet Foot -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Black_Widow_Fleet_Foot_icon.jpg" alt="Fleet Foot">
+                        <div class="ability-title">
+                            <div class="ability-key">SHIFT</div>
+                            <div class="ability-name">Fleet Foot</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Energy</span>
+                            <span class="stat-value">120</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Movement Boost</span>
+                            <span class="stat-value">33%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Energy Recovery</span>
+                            <span class="stat-value">30/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Power Jump Cost</span>
+                            <span class="stat-value">24 per leap</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Sprinting Cost</span>
+                            <span class="stat-value">12/s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Dash forward and enable a powerful jump.</div>
+                </div>
+
+                <!-- Edge Dancer -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Black_Widow_Edge_Dancer_icon.jpg" alt="Edge Dancer">
+                        <div class="ability-title">
+                            <div class="ability-key">E</div>
+                            <div class="ability-name">Edge Dancer</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">15s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Distance</span>
+                            <span class="stat-value">5m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Flying Kick Damage</span>
+                            <span class="stat-value">35</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Flying Kick Distance</span>
+                            <span class="stat-value">12m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Stun Duration</span>
+                            <span class="stat-value">1s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Casting Window</span>
+                            <span class="stat-value">5s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Unleash a spinning kick to Launch Up enemies. Landing the hit will allow her to zip to the target with a grappling hook for a second kick.</div>
+                </div>
+
+                <!-- Electro-plasma Explosion -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Black_Widow_Electro_Plasma_Explosion_icon.jpg" alt="Electro-plasma Explosion">
+                        <div class="ability-title">
+                            <div class="ability-key">Q</div>
+                            <div class="ability-name">Electro-plasma Explosion</div>
+                            <div class="ability-type">Type: Ultimate</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Energy Cost</span>
+                            <span class="stat-value">2800</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Plasma Range</span>
+                            <span class="stat-value">1.5m spherical radius</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Explosion Range</span>
+                            <span class="stat-value">5.6m - 8m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Plasma Duration</span>
+                            <span class="stat-value">10s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Explosion Damage</span>
+                            <span class="stat-value">120 - 170</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Projectile Speed</span>
+                            <span class="stat-value">100m/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Plasma Globules</span>
+                            <span class="stat-value">7 - 20</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Vulnerability Effect</span>
+                            <span class="stat-value">15% for 4s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Switch the Red Room Rifle to Destruction mode and unleash an electro-plasma blast, damaging enemies within range and inflicting them with Vulnerability. Additionally, leave a plasma pool on the ground to Slow nearby enemies.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Team-Ups</h2>
+            <div class="ability-card">
+                <div class="ability-header">
+                    <img class="ability-icon" src="../Detail Heroes Abilities/Black_Widow_Sync_icon.jpg" alt="Sync">
+                    <div class="ability-title">
+                        <div class="ability-name">Supersensory Hunt</div>
+                        <div class="ability-type">Type: Team-up Normal</div>
+                    </div>
+                </div>
+                <div class="ability-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">Team-Up Target</span>
+                        <span class="stat-value">Hawkeye</span>
+                    </div>
+                </div>
+                <div class="ability-description">When Hawkeye can use Hunter's Sight, he can synchronize with Black Widow. With the aid of Hunter's Sight, Black Widow also gains the ability to see enemy afterimages.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
