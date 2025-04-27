@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patch Notes - Marvel Rivals</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="css/overall.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="../mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="../CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="../characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
+                <li><a href="../tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+                <li><a href="../teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+                <li><a href="../news.html" class="nav-link px-2 text-white active">News</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search Patches..." aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn sign-up-color">Sign-up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <!-- Patch Header -->
+        <div class="patch-header">
+            <img src="../patch_notes_images/patch_notes_20241210.jpg" alt="Patch 20241210 Banner" class="img-fluid mb-4 patch-banner">
+            <h1 class="marvel-font">Marvel Rivals Version 20241210 Patch Notes</h1>
+            <p class="text-muted">December 10, 2024</p>
+        </div>
+
+        <!-- Patch Content -->
+        <div class="patch-content">
+            <div class="patch-intro mb-5">
+                <p>Greetings, Rivals! We're here to give you the scoop on Version 20241210's updates!</p>
+                <p>We noticed that some spots on the edge of the new map would cause characters to become stuck. We've had a look at the entire map and have done our best to fix this bug. However, further adjustments may still be needed to fully resolve the issue, so we ask for your understanding while we continue looking into it and working on a way to prevent this from happening again.</p>
+                <p>Without further ado, here are the details!</p>
+            </div>
+
+            <section class="mb-5">
+                <h2>All Platforms</h2>
+                
+                <div class="content-section">
+                    <h3>General</h3>
+                    <ul>
+                        <li>When playing highlights and recordings, crosshair deviation would be significant, and there was a possibility for lag. This issue has been resolved.</li>
+                        <li>Changing where Highlights were saved would cause the game to crash. This issue has been resolved.</li>
+                        <li>Players joining a Quick Match as a replacement may not be able to see heroes' equipped costumes. This issue has been resolved.</li>
+                        <li>Mission progress on the Season Event screen would not display correctly. This issue has been resolved.</li>
+                        <li>Fixed some textual errors. More fixes will be coming in a future update.</li>
+                        <li>After a crash, the game had a chance to freeze for a long period of time before closing. This issue has been resolved, and now the game will close after crashing.</li>
+                        <li>Fixed some relatively common crash issues.</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3>Maps & Game Modes</h3>
+                    <ul>
+                        <li>On certain maps (particularly Hydra Charteris Base: Hell's Heaven and Klyntar: Symbiotic Surface), special collisions on the edges would cause the player's character to become stuck or clip through and enter strange areas. These issues have been largely resolved, but as this affects multiple maps and areas, this bug may be present elsewhere. We will work to continue fixing such issues and develop a solution to thoroughly prevent them.</li>
+                        <li>In the foggy areas of Intergalactic Empire of Wakanda: Hall of Djalia and Intergalactic Empire of Wakanda: Birnin T'Challa:
+                            <ul>
+                                <li>Fog would disappear from Hela and Storm's perspectives when they activated their Ultimates. This issue has been resolved.</li>
+                                <li>After Jeff the Land Shark was revived while in the fog, his teammates and enemies would not be able to see the special effects of Joyful Splash. This issue has been resolved.</li>
+                            </ul>
+                        </li>
+                        <li>In Hydra Charteris Base: Hell's Heaven - Frozen Airfield:
+                            <ul>
+                                <li>In Competitive, if a player was KO'd while moving near a target area, it would cause the lightings to behave abnormally. This issue has been resolved.</li>
+                                <li>During matches, disconnecting and reconnecting could cause desynchronization of some doors (i.e., a door looked to be closed, but the player could walk through; a door looked to be open, but the player couldn't walk through). This issue has been resolved.</li>
+                            </ul>
+                        </li>
+                        <li>Hydra Charteris Base: Hell's Heaven - Eldritch Monument:
+                            <ul>
+                                <li>When the target area is ascending or descending, if Adam Warlock used his Ultimate, his teammates would potentially revive and be stuck beneath the terrain if they were right on the target area platform. This issue has been resolved.</li>
+                                <li>When the target area is ascending or descending, if Thor or Loki were revived by Hela's team-up ability, they would potentially revive and be stuck beneath the terrain if they were right on the target area platform. This issue has been resolved.</li>
+                                <li>When the target area is ascending or descending, if Jeff the Land Shark used his Ultimate to devour characters, they would potentially become stuck beneath the terrain if they were right on the target area platform. This issue has been resolved.</li>
+                                <li>When the target area is ascending or descending, if Winter Soldier hit an enemy with his Ultimate and they landed right on the target area platform, damage may be lost. This issue has been resolved.</li>
+                            </ul>
+                        </li>
+                        <li>When switching between rounds in Competitive, if the destination was not the last stage of a map, it would cause the vehicle's effective range to not display when it approached the destination, impacting determination of the effective occupation range. This issue has been resolved.</li>
+                        <li>Upon reaching the third round in Competitive Convoy or Convergence, heroes had a chance to carry over their Ultimate energy from the second round. This issue has been resolved, and heroes will no longer inherit their Ultimate energy.</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3>Heroes</h3>
+                    <ul>
+                        <li>When Wolverine had his Deadpool & Wolverine costume equipped, no ability voice lines other than the Undying Animal ability's line would play. This issue has been resolved.</li>
+                        <li>After Star-Lord's Guardians of the Galaxy Vol. 3's MVP animation played, sound effects would not be played in the results screen. This issue has been resolved.</li>
+                        <li>When Iron Fist used pings, the corresponding voice lines would not be triggered. This issue has been resolved.</li>
+                        <li>The description for ADS sensitivity in Black Widow's settings was incorrect. This issue has been resolved.</li>
+                        <li>In certain situations, Black Widow's Ultimate would not recover energy as intended. This issue has been resolved.</li>
+                        <li>In certain extreme situations, Captain America's Ultimate wouldn't end as intended. This issue has been resolved.</li>
+                        <li>When Doctor Strange's portals triggered terrain KOs, they would mistakenly restore Doctor Strange's Ultimate energy. For now, we have disabled the portals' terrain KO attribution to temporarily fix this issue (i.e., terrain KOs will not count toward Doctor Strange's own KOs). Rest assured, this bug will be resolved in a future update, at which time we will restore the portals' KO attribution.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2>PC</h2>
+                <div class="content-section">
+                    <ul>
+                        <li>Using FSR 3 frame generation technology to modify the resolution could cause memory leaks, resulting in blurry models. This issue has been resolved.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2>Console</h2>
+                <div class="content-section">
+                    <ul>
+                        <li>After equipping the PlayStation bundle's Scarlet Spider costume, restarting the game could cause the costume to not display as correctly equipped. This issue has been resolved.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="patch-footer">
+                <p>We'll be keeping an eye on the frequency of different bugs and fixing them as fast as we can. We also have another patch in the works—this time with new content! Be sure to follow our socials for all the latest news!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

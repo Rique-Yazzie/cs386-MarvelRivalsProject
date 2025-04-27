@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Marvel Rivals - Character Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../characterindex.css">
+    <style>
+        .character-details-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: white;
+        }
+
+        .character-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .character-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #FFB800;
+        }
+
+        .character-info {
+            flex: 1;
+        }
+
+        .character-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: #FFB800;
+            margin-bottom: 0.5rem;
+        }
+
+        .character-role {
+            font-size: 1.5rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .character-description {
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .details-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: #FFB800;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #FFB800;
+            padding-bottom: 0.5rem;
+        }
+
+        .ability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .ability-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid #FFB800;
+        }
+
+        .ability-key {
+            font-weight: bold;
+            color: #FFB800;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-name {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .ability-description {
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-label {
+            color: #FFB800;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #FFB800;
+            color: #222;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background-color: #ffd700;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.history.back()">← Back</button>
+    
+    <div class="character-details-container">
+        <div class="character-header">
+            <img id="detail-hero-image" class="character-image" src="" alt="Hero Image">
+            <div class="character-info">
+                <h1 id="detail-hero-name" class="character-name"></h1>
+                <div id="detail-hero-role" class="character-role"></div>
+                <p id="detail-hero-description" class="character-description"></p>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Health</div>
+                    <div id="detail-hero-health" class="stat-value"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Movement Speed</div>
+                    <div id="detail-hero-mobility" class="stat-value"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Abilities</h2>
+            <div id="detail-hero-abilities" class="ability-grid"></div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Passives</h2>
+            <div id="detail-hero-passives"></div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Team-Ups</h2>
+            <div id="detail-hero-teamups"></div>
+        </div>
+    </div>
+
+    <script src="../heroes.js"></script>
+    <script>
+        // Function to load character details from URL parameters
+        function loadCharacterDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const heroName = urlParams.get('hero');
+            const formName = urlParams.get('form');
+
+            // Get hero data from heroes.js
+            const hero = window.heroes[heroName];
+            if (!hero) return;
+
+            // Set basic information
+            document.getElementById('detail-hero-name').textContent = hero.Hero;
+            document.getElementById('detail-hero-role').textContent = hero.Role;
+            document.getElementById('detail-hero-description').textContent = hero.Description;
+            document.getElementById('detail-hero-image').src = hero.Image;
+
+            // Set stats
+            document.getElementById('detail-hero-health').textContent = hero.Health || '250';
+            document.getElementById('detail-hero-mobility').textContent = hero.MovementSpeed || '6 m/s';
+
+            // Populate abilities
+            const abilitiesContainer = document.getElementById('detail-hero-abilities');
+            abilitiesContainer.innerHTML = '';
+
+            const abilities = [
+                { key: 'Q', name: hero.Q },
+                { key: 'LClick', name: hero.LClick },
+                { key: 'LShift', name: hero.LShift },
+                { key: 'E', name: hero.E },
+                { key: 'F', name: hero.F },
+                { key: 'V', name: hero.V },
+                { key: 'Space', name: hero.Space },
+                { key: 'RClick', name: hero.RClick }
+            ];
+
+            abilities.forEach(ability => {
+                if (ability.name) {
+                    const card = document.createElement('div');
+                    card.className = 'ability-card';
+                    card.innerHTML = `
+                        <div class="ability-key">${ability.key}</div>
+                        <div class="ability-name">${ability.name}</div>
+                    `;
+                    abilitiesContainer.appendChild(card);
+                }
+            });
+
+            // Set passives
+            if (hero.Passives) {
+                document.getElementById('detail-hero-passives').innerHTML = hero.Passives;
+            }
+
+            // Set team-ups
+            if (hero.TeamUps) {
+                document.getElementById('detail-hero-teamups').innerHTML = hero.TeamUps;
+            }
+        }
+
+        // Load character details when page loads
+        window.addEventListener('load', loadCharacterDetails);
+    </script>
+</body>
+</html> 

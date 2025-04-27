@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Marvel Rivals - Captain America</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../characterindex.css">
+    <style>
+        :root {
+            --primary-color: #FFB800;
+            --secondary-color: rgba(160, 22, 22, 0.927);
+            --dark-bg: rgba(0, 0, 0, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background: #1a1a1a;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .character-details-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .character-header {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            background: var(--dark-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-image {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .character-image:hover {
+            transform: scale(1.02);
+        }
+
+        .character-info {
+            flex: 1;
+        }
+
+        .character-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-role {
+            font-size: 1.8rem;
+            color: #888;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .character-description {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .details-section {
+            background: var(--dark-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .ability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .ability-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .ability-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ability-icon {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px;
+        }
+
+        .ability-title {
+            flex: 1;
+        }
+
+        .ability-key {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .ability-type {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-stats {
+            margin-top: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .stats-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .base-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+
+        .stat-label {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        .stat-value {
+            text-align: right;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .ability-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: #222;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background-color: #ffd700;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .character-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .character-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .ability-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="../mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="../CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="../characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
+                <li><a href="../tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+                <li><a href="../teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+                <li><a href="../news.html" class="nav-link px-2 text-white">News</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn sign-up-color">Sign-up</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-button" onclick="window.history.back()">← Back</button>
+    
+    <div class="character-details-container">
+        <div class="character-header">
+            <img class="character-image" src="../CharacterImages/captain-america-headbig.png" alt="Captain America">
+            <div class="character-info">
+                <h1 class="character-name">Captain America</h1>
+                <div class="character-role">Vanguard</div>
+                <p class="character-description">Steve Rogers, the first Avenger, wields his iconic Vibranium shield with unmatched skill. A natural leader and tactical genius, Captain America excels at both protecting his allies and leading the charge into battle.</p>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Stats</h2>
+            <div class="stats-container">
+                <div class="base-stats">
+                    <div class="stat-row">
+                        <div class="stat-label">Health</div>
+                        <div class="stat-value">650</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Movement Speed</div>
+                        <div class="stat-value">6 m/s</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Attack Type</div>
+                        <div class="stat-value">Melee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Abilities</h2>
+            <div class="ability-grid">
+                <!-- Sentinel Strike -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Captain_America_Sentinel_Strike_icon.jpg" alt="Sentinel Strike">
+                        <div class="ability-title">
+                            <div class="ability-key">Left Click</div>
+                            <div class="ability-name">Sentinel Strike</div>
+                            <div class="ability-type">Type: Weapon</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Ammo</span>
+                            <span class="stat-value">Up to 4 throws</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">Melee: 40, Flying Shield: 45</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Melee Range</span>
+                            <span class="stat-value">4m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Critical Hit</span>
+                            <span class="stat-value">No</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Attack Interval</span>
+                            <span class="stat-value">Melee 1st: 0.4s, 2nd: 0.5s<br>Flying 1st: 0.5s, 2nd: 0.57s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Max Flying Distance</span>
+                            <span class="stat-value">25m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Shield Flying Speed</span>
+                            <span class="stat-value">60m/s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Get up close to strike enemies. Landing the second hit enables a shield throw that can ricochet four times.</div>
+                </div>
+
+                <!-- Living Legend -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Captain_America_Living_Legend_icon.jpg" alt="Living Legend">
+                        <div class="ability-title">
+                            <div class="ability-key">Right Click</div>
+                            <div class="ability-name">Living Legend</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Channeled</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">1s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Shield Value</span>
+                            <span class="stat-value">350</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Recovery Shield Value</span>
+                            <span class="stat-value">50/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Ricochet Damage Falloff</span>
+                            <span class="stat-value">50%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown After Destroyed</span>
+                            <span class="stat-value">5s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Delayed Recovery After Release</span>
+                            <span class="stat-value">2s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Raise the shield to deflect incoming Projectiles, sending them ricocheting in random directions.</div>
+                </div>
+
+                <!-- Leading Dash -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Captain_America_Leading_Dash_icon.jpg" alt="Leading Dash">
+                        <div class="ability-title">
+                            <div class="ability-key">SHIFT</div>
+                            <div class="ability-name">Leading Dash</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Channeled</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Movement Boost</span>
+                            <span class="stat-value">33.40%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Fearless Leap Height</span>
+                            <span class="stat-value">5m</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Boost speed and enable Fearless Leap to leap into the air.</div>
+                </div>
+
+                <!-- Super-soldier Slam -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Captain_America_Super_soldier_Slam_icon.jpg" alt="Super-soldier Slam">
+                        <div class="ability-title">
+                            <div class="ability-key">Left Click</div>
+                            <div class="ability-name">Super-soldier Slam</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">30</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Targeted</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">12s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Distance</span>
+                            <span class="stat-value">20m (horizontal)</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Slam down from the sky onto the targeted area, Launching Up enemies.</div>
+                </div>
+
+                <!-- Vibranium Energy Saw -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Captain_America_Vibranium_Energy_Saw_icon.jpg" alt="Vibranium Energy Saw">
+                        <div class="ability-title">
+                            <div class="ability-key">E</div>
+                            <div class="ability-name">Vibranium Energy Saw</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">Start at 70, -20% per ricochet</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Single-cast projectile</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">8s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Distance</span>
+                            <span class="stat-value">25m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Projectile Speed</span>
+                            <span class="stat-value">80 m/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Number of Ricochets</span>
+                            <span class="stat-value">3</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Hurl the energy-charged shield to strike enemies in a path.</div>
+                </div>
+
+                <!-- Freedom Charge -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Captain_America_Freedom_Charge_icon.jpg" alt="Freedom Charge">
+                        <div class="ability-title">
+                            <div class="ability-key">Q</div>
+                            <div class="ability-name">Freedom Charge</div>
+                            <div class="ability-type">Type: Ultimate</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Range</span>
+                            <span class="stat-value">4m radius field, 4m width path</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Activation</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Energy Cost</span>
+                            <span class="stat-value">2800</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Movement Boost</span>
+                            <span class="stat-value">30% (self and allies)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Spell Area Duration</span>
+                            <span class="stat-value">5s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Health Recovery</span>
+                            <span class="stat-value">Initial: 150 (self), 100 (allies)<br>Per second: 100 (self), 60 (allies)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Spell Field Duration</span>
+                            <span class="stat-value">10s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Shield held high, carve a path forward, granting both himself and allies along the path continuous Bonus Health and Movement Boosts. Using Living Legend and Leading Dash while this ability is active can Launch Up enemies.</div>
+                </div>
+
+                <!-- Liberty Rush -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Captain_America_Liberty_Rush_icon.jpg" alt="Liberty Rush">
+                        <div class="ability-title">
+                            <div class="ability-key">F</div>
+                            <div class="ability-name">Liberty Rush</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">30</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Casting</span>
+                            <span class="stat-value">Single-cast forward dash</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">10s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Dash Distance</span>
+                            <span class="stat-value">12m</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Raise the shield and charge forward.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Team-Ups</h2>
+            <div class="ability-card">
+                <div class="ability-header">
+                    <img class="ability-icon" src="../Detail Heroes Abilities/Captain_America_Captains_Spirit_icon.jpg" alt="Captain's Spirit">
+                    <div class="ability-title">
+                        <div class="ability-name">Captain's Spirit</div>
+                        <div class="ability-type">Type: Team-up Normal</div>
+                    </div>
+                </div>
+                <div class="ability-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">Key</span>
+                        <span class="stat-value">Passive</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Team-Up Bonus</span>
+                        <span class="stat-value">+100 Max Health, +5% damage boost</span>
+                    </div>
+                </div>
+                <div class="ability-description">Inspired by Captain America's resolve, Winter Soldier can leap to the aid of a designated ally, slamming the ground with his mechanical arm to deal damage to nearby foes. Additionally, Captain America and Winter Soldier can interact with each other once both parties confirm. The duo collides and unleashes a shockwave that deals damage and inflicts slow on enemies.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
