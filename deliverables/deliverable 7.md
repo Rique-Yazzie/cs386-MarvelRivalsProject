@@ -59,6 +59,17 @@ Test Coverage:
 - ![Screenshot 2025-04-26 153639](https://github.com/user-attachments/assets/f4e03f3a-c4ea-4e3f-98b1-89df5cfd487c)
 - ![Screenshot 2025-04-26 154131](https://github.com/user-attachments/assets/e20df5fa-3c8a-47f4-acc3-049e5e93d210)
 
+Additional testing
+
+Test Framework: Playwright using node.js
+
+Test Coverage:
+- Identifying selection of a hero
+- Confirming output
+
+- ![image](https://github.com/user-attachments/assets/e2ace52f-fa12-418e-a144-315191db14a8)
+- ![image](https://github.com/user-attachments/assets/62ee5c10-a6e0-48d4-afcd-3fbf6da20391)
+
 
 **Validation**
 
