@@ -41,7 +41,7 @@ Image for all tests is in one picture on the bottom of this section
 For updatePopupContent.test.js:
 
 - Example Test Case: This test case checks that the updatePopupContent.test.js function populates the popup content with needed data like image, name, role description, teamups, abilites, and health.
-- Github Automated test file: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Riques-Branch/tests/updatePopupContent.test.js
+- Github Automated test file: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/tests/updatePopupContent.test.js
 - Class file link: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/main/CS386_Project/heroes.js
 
 ![image](https://github.com/user-attachments/assets/eb2e995d-f002-4152-8065-dd79c008ddf9)
