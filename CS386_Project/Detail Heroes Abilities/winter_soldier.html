@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Marvel Rivals - Winter Soldier</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../characterindex.css">
+    <style>
+        :root {
+            --primary-color: #FFB800;
+            --secondary-color: rgba(160, 22, 22, 0.927);
+            --dark-bg: rgba(0, 0, 0, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background: #1a1a1a;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .character-details-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .character-header {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            background: var(--dark-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-image {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .character-image:hover {
+            transform: scale(1.02);
+        }
+
+        .character-info {
+            flex: 1;
+        }
+
+        .character-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-role {
+            font-size: 1.8rem;
+            color: #888;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .character-description {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .details-section {
+            background: var(--dark-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .ability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .ability-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .ability-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ability-icon {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px;
+        }
+
+        .ability-title {
+            flex: 1;
+        }
+
+        .ability-key {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .ability-type {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-stats {
+            margin-top: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .stats-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .base-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+
+        .stat-label {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        .stat-value {
+            text-align: right;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .ability-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: #222;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background-color: #ffd700;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .character-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .character-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .ability-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="../mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="../CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="../characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
+                <li><a href="../tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+                <li><a href="../teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+                <li><a href="../news.html" class="nav-link px-2 text-white">News</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn sign-up-color">Sign-up</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-button" onclick="window.history.back()">← Back</button>
+    
+    <div class="character-details-container">
+        <div class="character-header">
+            <img class="character-image" src="../CharacterImages/winter-soldier-headbig.png" alt="Winter Soldier">
+            <div class="character-info">
+                <h1 class="character-name">Winter Soldier</h1>
+                <div class="character-role">Duelist</div>
+                <p class="character-description">Bucky Barnes, the Winter Soldier, brings his deadly combination of military training and advanced bionic technology to the battlefield. His versatile arsenal of weapons and abilities makes him a formidable opponent in both ranged and close-quarters combat.</p>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Stats</h2>
+            <div class="stats-container">
+                <div class="base-stats">
+                    <div class="stat-row">
+                        <div class="stat-label">Health</div>
+                        <div class="stat-value">275</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Movement Speed</div>
+                        <div class="stat-value">6 m/s</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Attack Type</div>
+                        <div class="stat-value">Projectile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Abilities</h2>
+            <div class="ability-grid">
+                <!-- Roterstern -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Winter_Soldier_Roterstern_icon.jpg" alt="Roterstern">
+                        <div class="ability-title">
+                            <div class="ability-key">Left Click</div>
+                            <div class="ability-name">Roterstern</div>
+                            <div class="ability-type">Type: Weapon</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Ammo</span>
+                            <span class="stat-value">3</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Range</span>
+                            <span class="stat-value">5m radius, 90° cone</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Fire Rate</span>
+                            <span class="stat-value">2.5 rounds/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Projectile Speed</span>
+                            <span class="stat-value">180 m/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Projectile Damage</span>
+                            <span class="stat-value">75</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Spell Field Damage</span>
+                            <span class="stat-value">65</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Fire explosive rounds with his blaster, Roterstern, damaging the target hit and enemies behind them.</div>
+                </div>
+
+                <!-- Bionic Hook -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Winter_Soldier_Bionic_Hook_icon.jpg" alt="Bionic Hook">
+                        <div class="ability-title">
+                            <div class="ability-key">Right Click</div>
+                            <div class="ability-name">Bionic Hook</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Range</span>
+                            <span class="stat-value">4.5m radius, 80° cone</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">12s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Charge Time</span>
+                            <span class="stat-value">0.5s - 4s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Projectile Speed</span>
+                            <span class="stat-value">80 m/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Projectile Damage</span>
+                            <span class="stat-value">15</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Spell Field Damage</span>
+                            <span class="stat-value">20</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Charge up and launch a hook with his bionic arm, reeling in the first target hit and enemies lurking behind.</div>
+                </div>
+
+                <!-- Trooper's Fist -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Winter_Soldier_Troopers_Fist_icon.jpg" alt="Trooper's Fist">
+                        <div class="ability-title">
+                            <div class="ability-key">SHIFT</div>
+                            <div class="ability-name">Trooper's Fist</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Range</span>
+                            <span class="stat-value">4.5m × 4.5m × 2m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">12s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Seize Damage</span>
+                            <span class="stat-value">25</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Average Speed</span>
+                            <span class="stat-value">30 m/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Knockback Damage</span>
+                            <span class="stat-value">65</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Distance</span>
+                            <span class="stat-value">9m</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Dash forward, seizing enemies along the path, and Launch Up enemies in front at the end of the dash.</div>
+                </div>
+
+                <!-- Tainted Voltage -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Winter_Soldier_Tainted_Voltage_icon.jpg" alt="Tainted Voltage">
+                        <div class="ability-title">
+                            <div class="ability-key">E</div>
+                            <div class="ability-name">Tainted Voltage</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Damage</span>
+                            <span class="stat-value">55</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">6s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Slow Rate</span>
+                            <span class="stat-value">-35%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Slow Duration</span>
+                            <span class="stat-value">2s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Projectile Speed</span>
+                            <span class="stat-value">100 m/s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Charge up and launch a powerful electrical punch with the bionic arm in the target direction, dealing damage to enemies within range and Slowing them. This ability can Knock Down flying heroes.</div>
+                </div>
+
+                <!-- Kraken Impact -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Winter_Soldier_Kraken_Impact_icon.jpg" alt="Kraken Impact">
+                        <div class="ability-title">
+                            <div class="ability-key">Q</div>
+                            <div class="ability-name">Kraken Impact</div>
+                            <div class="ability-type">Type: Ultimate</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Range</span>
+                            <span class="stat-value">5m spherical radius</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Energy Cost</span>
+                            <span class="stat-value">3100</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Culling Duration</span>
+                            <span class="stat-value">5s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Culling Threshold</span>
+                            <span class="stat-value">15% Health</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Spell Field Damage</span>
+                            <span class="stat-value">80</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Leap high, then dash forward and slam down with the bionic arm, dealing damage to enemies in range, marking them for Culling. Marked enemies will perish instantly if their health falls below a certain threshold, recharging the bionic arm for another Kraken Impact within a short period.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Passives</h2>
+            <div class="ability-card">
+                <div class="ability-header">
+                    <img class="ability-icon" src="../Detail Heroes Abilities/Winter_Soldier_Ceaseless_Charge_icon.jpg" alt="Ceaseless Charge">
+                    <div class="ability-title">
+                        <div class="ability-name">Ceaseless Charge</div>
+                        <div class="ability-type">Type: Passive</div>
+                    </div>
+                </div>
+                <div class="ability-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">Bonus Health (Self)</span>
+                        <span class="stat-value">40 (Bionic Hook & Tainted Voltage), 50 (Trooper's Fist, Kraken Impact)</span>
+                    </div>
+                </div>
+                <div class="ability-description">Roterstern reloads automatically while the bionic arm is in action, granting the Winter Soldier Bonus Health.</div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Team-Ups</h2>
+            <div class="ability-card">
+                <div class="ability-header">
+                    <img class="ability-icon" src="../Detail Heroes Abilities/Winter_Soldier_Stellar_Impact_icon.jpg" alt="Stellar Impact">
+                    <div class="ability-title">
+                        <div class="ability-key">C</div>
+                        <div class="ability-name">Stellar Impact</div>
+                        <div class="ability-type">Type: Team-up Normal</div>
+                    </div>
+                </div>
+                <div class="ability-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">Range</span>
+                        <span class="stat-value">8m spherical radius</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Damage</span>
+                        <span class="stat-value">70</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Cooldown</span>
+                        <span class="stat-value">15s</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Clash Damage</span>
+                        <span class="stat-value">80</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Bonus Health (Self)</span>
+                        <span class="stat-value">30</span>
+                    </div>
+                </div>
+                <div class="ability-description">Inspired by Captain America's resolve, Winter Soldier can leap to the aid of a designated ally, slamming the ground with his mechanical arm to deal damage to nearby foes. Additionally, Captain America and Winter Soldier can interact with each other once both parties confirm. The duo collides and unleashes a shockwave that deals damage and inflicts slow on enemies.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
