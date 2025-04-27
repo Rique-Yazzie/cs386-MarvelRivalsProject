@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Marvel Rivals - Wolverine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../characterindex.css">
+    <style>
+        :root {
+            --primary-color: #FFB800;
+            --secondary-color: rgba(160, 22, 22, 0.927);
+            --dark-bg: rgba(0, 0, 0, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background: #1a1a1a;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .character-details-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .character-header {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            background: var(--dark-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-image {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .character-image:hover {
+            transform: scale(1.02);
+        }
+
+        .character-info {
+            flex: 1;
+        }
+
+        .character-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .character-role {
+            font-size: 1.8rem;
+            color: #888;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .character-description {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .details-section {
+            background: var(--dark-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .ability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .ability-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .ability-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ability-icon {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px;
+        }
+
+        .ability-title {
+            flex: 1;
+        }
+
+        .ability-key {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .ability-type {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .ability-stats {
+            margin-top: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .stats-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .base-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+
+        .stat-label {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        .stat-value {
+            text-align: right;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .ability-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: #222;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background-color: #ffd700;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .character-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .character-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .ability-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="../mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="../CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="../characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
+                <li><a href="../tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
+                <li><a href="../teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+                <li><a href="../news.html" class="nav-link px-2 text-white">News</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" id="search-input" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn sign-up-color">Sign-up</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-button" onclick="window.history.back()">← Back</button>
+    
+    <div class="character-details-container">
+        <div class="character-header">
+            <img class="character-image" src="../CharacterImages/wolverine-headbig.png" alt="Wolverine">
+            <div class="character-info">
+                <h1 class="character-name">Wolverine</h1>
+                <div class="character-role">Duelist</div>
+                <p class="character-description">Logan, the Wolverine, is a relentless warrior with an unbreakable will and an indestructible skeleton. His regenerative healing factor and adamantium claws make him a formidable force in close combat, while his berserker rage fuels his devastating attacks.</p>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Stats</h2>
+            <div class="stats-container">
+                <div class="base-stats">
+                    <div class="stat-row">
+                        <div class="stat-label">Health</div>
+                        <div class="stat-value">350</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Movement Speed</div>
+                        <div class="stat-value">7 m/s</div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-label">Attack Type</div>
+                        <div class="stat-value">Melee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Abilities</h2>
+            <div class="ability-grid">
+                <!-- Savage Claw -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Wolverine_Savage_Claw_icon.jpg" alt="Savage Claw">
+                        <div class="ability-title">
+                            <div class="ability-key">Left Click</div>
+                            <div class="ability-name">Savage Claw</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Base Damage</span>
+                            <span class="stat-value">15 per strike</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Attack Interval</span>
+                            <span class="stat-value">0.27s (first 3), 0.84s (4th)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Distance</span>
+                            <span class="stat-value">3.5m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Percentage Damage</span>
+                            <span class="stat-value">1.5% Max Health + 0.045% per Rage</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Slash with Adamantium claws for a Claw Strike. Unleashing Feral Leap will enhance it to Berserk Claw Strike for a brief period.</div>
+                </div>
+
+                <!-- Vicious Rampage -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Wolverine_Vicious_Rampage_icon.jpg" alt="Vicious Rampage">
+                        <div class="ability-title">
+                            <div class="ability-key">Right Click</div>
+                            <div class="ability-name">Vicious Rampage</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Range</span>
+                            <span class="stat-value">3m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">3s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Base Damage</span>
+                            <span class="stat-value">15 per strike</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Average Speed</span>
+                            <span class="stat-value">44 m/s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Maximum Distance</span>
+                            <span class="stat-value">7.5m</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Percentage Damage</span>
+                            <span class="stat-value">1.5% Max Health + 0.045% per Rage</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Dash forward and unleash a Claw Strike.</div>
+                </div>
+
+                <!-- Undying Animal -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Wolverine_Undying_Animal_icon.jpg" alt="Undying Animal">
+                        <div class="ability-title">
+                            <div class="ability-key">E</div>
+                            <div class="ability-name">Undying Animal</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">16s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Duration</span>
+                            <span class="stat-value">5s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Damage Boost</span>
+                            <span class="stat-value">40%</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Unleash a fierce howl to briefly reduce incoming damage.</div>
+                </div>
+
+                <!-- Feral Leap -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Wolverine_Feral_Leap_icon.jpg" alt="Feral Leap">
+                        <div class="ability-title">
+                            <div class="ability-key">SHIFT</div>
+                            <div class="ability-name">Feral Leap</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">12s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Smash Damage</span>
+                            <span class="stat-value">35</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Snatch Damage</span>
+                            <span class="stat-value">35</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Knockdown Duration</span>
+                            <span class="stat-value">0.75s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Berserk Claw Strike Duration</span>
+                            <span class="stat-value">4s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Leap like an animal to snatch the first enemy upon impact and Smash them to the ground. Unleashing this ability will enhance his normal attack to Berserk Claw Strike for a brief period.</div>
+                </div>
+
+                <!-- Last Stand -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Wolverine_Last_Stand_icon.jpg" alt="Last Stand">
+                        <div class="ability-title">
+                            <div class="ability-key">Q</div>
+                            <div class="ability-name">Last Stand</div>
+                            <div class="ability-type">Type: Ultimate</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Impact Range</span>
+                            <span class="stat-value">8m spherical radius</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Knockdown Time</span>
+                            <span class="stat-value">0.75s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Knockback Range</span>
+                            <span class="stat-value">8m spherical radius</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Knockback Damage</span>
+                            <span class="stat-value">50</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Impact Base Damage</span>
+                            <span class="stat-value">50</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Impact Percentage Damage</span>
+                            <span class="stat-value">10% Max Health + 0.3% per Rage</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Launch Up enemies ahead and spiral through the air, sweeping up enemies along the path and delivering a devastating impact at the landing point. Impact deals extra damage based on Rage accumulated.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Passives</h2>
+            <div class="ability-grid">
+                <!-- Regenerative Healing Factor -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Wolverine_Regenerative_Healing_Factor_icon.jpg" alt="Regenerative Healing Factor">
+                        <div class="ability-title">
+                            <div class="ability-name">Regenerative Healing Factor</div>
+                            <div class="ability-type">Type: Normal</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown</span>
+                            <span class="stat-value">90s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Bonus Health</span>
+                            <span class="stat-value">150 - 300 (Damage increases with Rage)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Bonus Health Duration</span>
+                            <span class="stat-value">3s</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Bonus Health/Healing Conversion</span>
+                            <span class="stat-value">1</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cooldown Reduction Per KO Engaged</span>
+                            <span class="stat-value">10s</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Begin to heal and rise with a hefty Bonus Health, shaking off all debuffs. After a brief moment, any remaining Bonus Health morphs into a one-off heal, zeroing out his Rage. Assists in KOs reduce this cooldown.</div>
+                </div>
+
+                <!-- Berserker Rage -->
+                <div class="ability-card">
+                    <div class="ability-header">
+                        <img class="ability-icon" src="../Detail Heroes Abilities/Wolverine_Berserker_Rage_icon.jpg" alt="Berserker Rage">
+                        <div class="ability-title">
+                            <div class="ability-name">Berserker Rage</div>
+                            <div class="ability-type">Type: Passive</div>
+                        </div>
+                    </div>
+                    <div class="ability-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Max Rage</span>
+                            <span class="stat-value">100</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Rage Per Hit Taken</span>
+                            <span class="stat-value">5</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Rage Per Savage Claw Hit</span>
+                            <span class="stat-value">10</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Rage Gain From Taking Hits</span>
+                            <span class="stat-value">2 per second</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Rage Per Feral Leap Snatch</span>
+                            <span class="stat-value">10</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Rage Per Vicious Rampage Hit</span>
+                            <span class="stat-value">15</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Rage Per Last Stand Knockback</span>
+                            <span class="stat-value">25</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Rage Per Berserk Claw Strike Hit</span>
+                            <span class="stat-value">5</span>
+                        </div>
+                    </div>
+                    <div class="ability-description">Rage builds when Wolverine attacks or takes hits, boosting the damage of his Claw Strikes and the Bonus Health from his regenerative healing factor.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h2 class="section-title">Team-Ups</h2>
+            <div class="ability-card">
+                <div class="ability-header">
+                    <img class="ability-icon" src="../Detail Heroes Abilities/Wolverine_Metal_Cannonball_icon.jpg" alt="Metal Cannonball">
+                    <div class="ability-title">
+                        <div class="ability-key">C</div>
+                        <div class="ability-name">Metal Cannonball</div>
+                        <div class="ability-type">Type: Team-up Normal</div>
+                    </div>
+                </div>
+                <div class="ability-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">Maximum Waving Duration</span>
+                        <span class="stat-value">5s</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Cooldown</span>
+                        <span class="stat-value">3s (not hurled), 15s (after hurling)</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Team-up Target</span>
+                        <span class="stat-value">Hulk</span>
+                    </div>
+                </div>
+                <div class="ability-description">Wolverine and Hulk can interact with each other. Once both parties confirm, Hulk can lift Wolverine and press the key to hurl him forward.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
