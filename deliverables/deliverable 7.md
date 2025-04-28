@@ -17,6 +17,9 @@ Test Coverage:
 - Checks popup content accuracy
 - Tests navigation to details page
 
+- Github automated test file: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Melvin's-Branch/tests/test_hero_details.py
+- Class file link: https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/blob/Melvin's-Branch/CS386_Project/characterIndex.html
+
 - ![Screenshot 2025-04-26 153639](https://github.com/user-attachments/assets/f4e03f3a-c4ea-4e3f-98b1-89df5cfd487c)
 - ![Screenshot 2025-04-26 154131](https://github.com/user-attachments/assets/e20df5fa-3c8a-47f4-acc3-049e5e93d210)
 
