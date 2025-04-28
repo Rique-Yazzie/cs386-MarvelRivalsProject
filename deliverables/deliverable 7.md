@@ -73,6 +73,7 @@ Test Coverage:
 - ![image](https://github.com/user-attachments/assets/e2ace52f-fa12-418e-a144-315191db14a8)
 - ![image](https://github.com/user-attachments/assets/62ee5c10-a6e0-48d4-afcd-3fbf6da20391)
 
+-Testing located here: (https://github.com/Rique-Yazzie/cs386-MarvelRivalsProject/tree/main/tests)
 
 **Validation**
 
