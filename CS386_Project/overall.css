@@ -1,0 +1,592 @@
+/* Hero Popup Styles */
+.hero-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.popup-content {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 80%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.popup-hero-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.popup-hero-image:hover {
+    transform: scale(1.05);
+}
+
+.popup-hero-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.popup-hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: #FFB800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.popup-hero-role {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: #fff;
+    background-color: rgba(255, 184, 0, 0.2);
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.popup-hero-description {
+    color: #ccc;
+    line-height: 1.6;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.forms-section {
+    order: 1;
+    margin-bottom: 1.5rem;
+}
+
+.abilities-section {
+    order: 2;
+}
+
+.passives-section {
+    order: 3;
+}
+
+.teamups-section {
+    order: 4;
+}
+
+.abilities-section, .passives-section, .teamups-section, .forms-section {
+    background: #2a2a2a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.abilities-section h3, .passives-section h3, .teamups-section h3, .forms-section h3 {
+    color: #FFB800;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #FFB800;
+    padding-bottom: 0.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#popup-hero-abilities {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+}
+
+#popup-hero-abilities li, .passive-item, .teamup-item {
+    background: rgba(255, 184, 0, 0.1);
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    color: #fff;
+    transition: transform 0.2s ease;
+    border-left: 3px solid #FFB800;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+#popup-hero-abilities li:hover, .passive-item:hover, .teamup-item:hover {
+    transform: translateX(5px);
+    background: rgba(255, 184, 0, 0.2);
+}
+
+#popup-hero-abilities li:last-child, .passive-item:last-child, .teamup-item:last-child {
+    margin-bottom: 0;
+}
+
+#popup-hero-abilities li strong {
+    color: #FFB800;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-right: 0.5rem;
+}
+
+.passive-item, .teamup-item {
+    background: rgba(255, 184, 0, 0.1);
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.95rem;
+    border-left: 3px solid #FFB800;
+}
+
+.passive-item:last-child, .teamup-item:last-child {
+    margin-bottom: 0;
+}
+
+#popup-hero-passives, #popup-hero-teamups {
+    color: #fff;
+    line-height: 1.6;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-buttons button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    border: 2px solid transparent;
+}
+
+.form-buttons button:hover {
+    background-color: #FFB800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 184, 0, 0.3);
+}
+
+.form-buttons button.active {
+    background-color: #FFB800;
+    border-color: #fff;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #FFB800;
+    transform: rotate(90deg);
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stat-item {
+    background-color: #333;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.stat-label {
+    color: #FFB800;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .popup-content {
+        grid-template-columns: 1fr;
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .popup-hero-image {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Character Index Specific Styles */
+.hero-container {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #FFB800;
+    text-align: center;
+    margin: 2rem auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #FFB800, transparent);
+}
+
+.title-container {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-top: 2rem;
+}
+
+/* Role Section Styles */
+.role-section {
+    margin-bottom: 3rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.role-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #FFB800;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid #FFB800;
+    padding-bottom: 10px;
+}
+
+/* Hero Card Styles */
+.hero-card {
+    transition: all 0.3s ease;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 184, 0, 0.1);
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    width: 220px; /* Reduced from 250px */
+}
+
+.hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 48%, rgba(255, 184, 0, 0.1) 48%, rgba(255, 184, 0, 0.1) 52%, transparent 52%);
+    pointer-events: none;
+}
+
+.hero-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 184, 0, 0.3);
+}
+
+.hero-name {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-card p {
+    color: #FFB800;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+}
+
+.hero-card:hover p {
+    color: #FFF;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/* Container Layout */
+.hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+    }
+    
+    .hero-card {
+        width: 180px; /* Reduced from 200px */
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .role-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-card {
+        width: 140px; /* Reduced from 150px */
+    }
+}
+
+/* Card Styles */
+.card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    background-color: rgba(160, 22, 22, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+.popup-hero-image {
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px auto;
+    display: block;
+}
+
+#popup-hero-name {
+    margin: 10px 0;
+    color: #FFB800;
+    font-size: 24px;
+}
+
+#popup-hero-role {
+    margin: 5px 0;
+    color: #888;
+    font-size: 18px;
+}
+
+#popup-hero-description {
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.forms-section {
+    margin: 0;
+    padding: 10px 0;
+    order: 1; /* Place after description but before abilities */
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 0 0 15px 0;
+}
+
+.form-button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #FFB800;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    min-width: 100px;
+}
+
+.form-button:hover, .form-button.active {
+    background-color: #FFB800;
+    color: #222;
+}
+
+.abilities-section {
+    order: 2; /* Place after forms section */
+    text-align: left;
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.abilities-section h3 {
+    color: #FFB800;
+    margin-bottom: 15px;
+}
+
+#popup-hero-abilities {
+    list-style: none;
+    padding: 0;
+}
+
+#popup-hero-abilities li {
+    margin: 10px 0;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+#popup-hero-teamups {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.teamups-section {
+    order: 3; /* Place after abilities section */
+    margin-top: 15px;
+}
+
+
+
+
+
+.more-details-btn {
+    width: 100%;
+    background-color: #FFB800;
+    color: #222;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.more-details-btn:hover {
+    background-color: #ffd700;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero-section {
+    background: #000 !important;
+    padding: 60px 0 30px 0;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.hero-section::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 3px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent 0%, #FFB800 50%, transparent 100%);
+    border-radius: 2px;
+    margin-top: 1.5rem;
+}
+
+.hero-section .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: #FFB800;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(255,184,0,0.5);
+    margin-bottom: 1rem;
+    border: none;
+}
+
+.hero-section .lead {
+    color: #ccc;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.hero-title::after {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .hero-section .hero-title {
+        font-size: 2.5rem;
+    }
+} 
+
