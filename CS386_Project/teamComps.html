@@ -3,11 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Build Marvel Rivals team compositions with synergy recommendations and learn how to counter specific heroes.">
+    <meta name="keywords" content="Marvel Rivals, team comps, hero synergies, hero counters, game guide, team builder">
+    <meta property="og:title" content="Team Comps - Marvel Rivals Hero Synergy & Counter Builder">
+    <meta property="og:description" content="Explore Marvel Rivals hero team compositions and counterpicks for strategic gameplay.">
+    <meta property="og:image" content="/images/preview.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/team-comps">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Team Comps - Marvel Rivals Hero Synergy & Counter Builder">
+    <meta name="twitter:description" content="Build teams and learn hero counters in Marvel Rivals.">
+    <meta name="twitter:image" content="/images/preview.jpg">
+    <title>Team Comps - Marvel Rivals Hero Synergy & Counter Builder</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <title>Team Comps</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            font-family: 'Bebas Neue', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .header {
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        .header p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .role-section {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 1000px;
+        }
+        .role-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            justify-content: center;
+        }
+        .hero {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            background-color: #333;
+            overflow: hidden;
+        }
+        .hero:focus {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+        .hero img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 8px 8px 0 0;
+        }
+        .hero span {
+            font-size: 12px;
+            color: white;
+            text-align: center;
+            width: 100%;
+            padding: 5px 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .hero:hover {
+            transform: scale(1.1);
+        }
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .side-sections {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        .counterpick-section, .banned-heroes-selection {
+            background-color: #333;
+            border-radius: 5px;
+            padding: 10px;
+            width: 200px;
+            text-align: left;
+        }
+        #counterpick-list, #banned-heroes-list {
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: #222;
+            border-radius: 3px;
+            padding: 5px;
+        }
+        .counter-hero, .ban-hero {
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+            font-size: 14px;
+            text-align: left;
+        }
+        .counter-hero:hover, .ban-hero:hover {
+            background-color: #555;
+        }
+        .counter-hero.selected, .ban-hero.banned {
+            background-color: #007bff;
+            color: white;
+        }
+        .ban-hero.disabled {
+            color: #777;
+            cursor: not-allowed;
+        }
+        #counter-hero-image, .counter-pick-hero {
+            margin-top: 10px;
+            text-align: center;
+        }
+        #counter-hero-image img, .counter-pick-hero img {
+            width: 100px;
+            height: 75px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 5px;
+        }
+        .counter-pick-hero span {
+            display: block;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        #counter-picks h3 {
+            font-size: 16px;
+            margin: 10px 0 5px;
+            text-align: center;
+        }
+        #reset-btn {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #reset-btn:focus {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+        .hero.placeholder {
+            background-color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            flex-direction: column;
+        }
+        #team-synergy {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .synergy-hero {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 8px;
+            background-color: #333;
+            overflow: hidden;
+        }
+        .synergy-hero img {
+            width: 100%;
+            height: 75%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 6px 6px 0 0;
+        }
+        .synergy-hero span {
+            font-size: 12px;
+            color: white;
+            text-align: center;
+            width: 100%;
+            padding: 4px 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -31,16 +248,731 @@
         </div>
     </div>
 
-    <!-- Main Content for Team Comps (iframe approach) -->
+    <!-- Main Content from prototype2.html -->
     <div class="container mt-4">
-        <h1 class="mb-4">Team Comps</h1>
+        <!-- Header with title and description -->
+        <header class="header">
+            <h1>Marvel Rivals Team aire: & Counter Builder</h1>
+            <p>Choose a hero, ban up to four heroes, and learn how to counter specific enemies for optimized gameplay.</p>
+        </header>
+        
+        <!-- Vanguard selection grid -->
+        <section class="role-section" role="region" aria-labelledby="vanguard-title">
+            <h2 class="role-title" id="vanguard-title">Vanguards</h2>
+            <div class="hero-grid" id="vanguard-grid"></div>
+        </section>
+        
+        <!-- Strategist selection grid -->
+        <section class="role-section" role="region" aria-labelledby="strategist-title">
+            <h2 class="role-title" id="strategist-title">Strategists</h2>
+            <div class="hero-grid" id="strategist-grid"></div>
+        </section>
+        
+        <!-- Duelist selection grid -->
+        <section class="role-section" role="region" aria-labelledby="duelist-title">
+            <h2 class="role-title" id="duelist-title">Duelists</h2>
+            <div class="hero-grid" id="duelist-grid"></div>
+        </section>
 
-        <div class="row">
-            <div class="col-12">
-                <iframe src="teamCompTool.html" style="width: 100%; height: 800px; border: none;"></iframe>
+        <!-- Results section with counterpick, banned heroes, selected hero, and team comp -->
+        <section id="results" class="results" role="region" aria-live="polite">
+            <div class="side-sections">
+                <!-- Counterpick section for selecting a hero to counter -->
+                <div class="counterpick-section">
+                    <h2>Counterpick:</h2>
+                    <div id="counterpick-list" aria-label="Select a hero to counter"></div>
+                    <div id="counter-hero-image"></div>
+                    <div id="counter-picks"></div>
+                </div>
+                <!-- Banned heroes selection -->
+                <div class="banned-heroes-selection">
+                    <h2>Banned Heroes:</h2>
+                    <div id="banned-heroes-list" aria-label="Select heroes to ban"></div>
+                </div>
             </div>
-        </div>
+            <h2>Selected Hero:</h2>
+            <div id="selected-hero"></div>
+            <h2>Recommended Team Comps:</h2>
+            <div id="team-synergy"></div>
+            <button id="reset-btn" aria-label="Reset hero selection">Reset Selection</button>
+        </section>
     </div>
-    
+
+    <script>
+        // Hero data with names and image paths
+        const heroes = {
+            "Captain America": { name: "Captain America", image: "./CharacterImages/captain_america.png" },
+            "Doctor Strange": { name: "Doctor Strange", image: "./CharacterImages/doctor_strange.png" },
+            "Groot": { name: "Groot", image: "./CharacterImages/groot.png" },
+            "Hulk": { name: "Hulk", image: "./CharacterImages/hero_hulk.png" },
+            "Magneto": { name: "Magneto", image: "./CharacterImages/magneto.png" },
+            "Peni Parker": { name: "Peni Parker", image: "./CharacterImages/peni_parker.png" },
+            "The Thing": { name: "The Thing", image: "./CharacterImages/the_thing.png" },
+            "Thor": { name: "Thor", image: "./CharacterImages/thor.png" },
+            "Venom": { name: "Venom", image: "./CharacterImages/venom.png" },
+            "Adam Warlock": { name: "Adam Warlock", image: "./CharacterImages/adam_warlock.png" },
+            "Cloak & Dagger": { name: "Cloak & Dagger", image: "./CharacterImages/cloak&dagger.png" },
+            "Invisible Woman": { name: "Invisible Woman", image: "./CharacterImages/invisible_woman.png" },
+            "Jeff The Land Shark": { name: "Jeff The Land Shark", image: "./CharacterImages/jeff.png" },
+            "Loki": { name: "Loki", image: "./CharacterImages/loki.png" },
+            "Luna Snow": { name: "Luna Snow", image: "./CharacterImages/luna_snow.png" },
+            "Mantis": { name: "Mantis", image: "./CharacterImages/mantis.png" },
+            "Rocket Raccoon": { name: "Rocket Raccoon", image: "./CharacterImages/rocket_raccoon.png" },
+            "Black Panther": { name: "Black Panther", image: "./CharacterImages/black_panther.png" },
+            "Black Widow": { name: "Black Widow", image: "./CharacterImages/black_widow.png" },
+            "Hawkeye": { name: "Hawkeye", image: "./CharacterImages/hawkeye.png" },
+            "Hela": { name: "Hela", image: "./CharacterImages/hela.png" },
+            "Human Torch": { name: "Human Torch", image: "./CharacterImages/human_torch.png" },
+            "Iron Fist": { name: "Iron Fist", image: "./CharacterImages/iron_fist.png" },
+            "Iron Man": { name: "Iron Man", image: "./CharacterImages/iron_man.png" },
+            "Magik": { name: "Magik", image: "./CharacterImages/magik.png" },
+            "Mister Fantastic": { name: "Mister Fantastic", image: "./CharacterImages/mister_fantastic.png" },
+            "Moon Knight": { name: "Moon Knight", image: "./CharacterImages/moon_knight.png" },
+            "Namor": { name: "Namor", image: "./CharacterImages/namor.png" },
+            "Psylocke": { name: "Psylocke", image: "./CharacterImages/psylocke.png" },
+            "Scarlet Witch": { name: "Scarlet Witch", image: "./CharacterImages/scarlet_witch.png" },
+            "Spider-Man": { name: "Spider-Man", image: "./CharacterImages/spider_man.png" },
+            "Squirrel Girl": { name: "Squirrel Girl", image: "./CharacterImages/squirrel_girl.png" },
+            "Star-Lord": { name: "Star-Lord", image: "./CharacterImages/star_lord.png" },
+            "Storm": { name: "Storm", image: "./CharacterImages/storm.png" },
+            "The Punisher": { name: "The Punisher", image: "./CharacterImages/the_punisher.png" },
+            "Winter Soldier": { name: "Winter Soldier", image: "./CharacterImages/winter_soldier.png" },
+            "Wolverine": { name: "Wolverine", image: "./CharacterImages/wolverine.png" },
+            "Emma Frost": { name: "Emma Frost", image: "./CharacterImages/emma_frost.png" }
+        };
+
+        // Role definitions for Vanguards, Strategists, and Duelists
+        const vanguards = ["Captain America", "Doctor Strange", "Groot", "Hulk", "Magneto", "Peni Parker", "The Thing", "Thor", "Venom", "Emma Frost"];
+        const strategists = ["Adam Warlock", "Cloak & Dagger", "Invisible Woman", "Jeff The Land Shark", "Loki", "Luna Snow", "Mantis", "Rocket Raccoon"];
+        const duelists = ["Black Panther", "Black Widow", "Hawkeye", "Hela", "Human Torch", "Iron Fist", "Iron Man", "Magik", "Mister Fantastic", "Moon Knight", "Namor", "Psylocke", "Scarlet Witch", "Spider-Man", "Squirrel Girl", "Star-Lord", "Storm", "The Punisher", "Winter Soldier", "Wolverine"];
+
+        // Tier list based on hero performance (S = strongest, F = weakest)
+        const tierList = {
+            S: ["Emma Frost", "Rocket Raccoon", "Mantis", "Thor", "Venom", "Human Torch"],
+            A: ["Magneto", "The Thing", "Loki", "Groot", "Star-Lord", "Magik", "Black Panther", "Iron Fist", "Wolverine", "Hulk", "Peni Parker", "Mister Fantastic", "Scarlet Witch", "Cloak & Dagger"],
+            B: ["Spider-Man", "Captain America", "Storm", "Doctor Strange", "Invisible Woman", "Luna Snow", "Winter Soldier", "Hela", "Namor"],
+            C: ["The Punisher", "Psylocke", "Hawkeye", "Jeff The Land Shark", "Iron Man"],
+            D: ["Moon Knight"],
+            F: ["Squirrel Girl", "Black Widow"]
+        };
+
+        // Team-Up data specifying synergies, root (powers the Team-Up), and leaf (benefits) heroes
+        const teamUps = [
+            {
+                name: "Ragnarök Rebirth",
+                heroes: [
+                    { name: "Thor", role: "leaf" },
+                    { name: "Hela", role: "root" },
+                    { name: "Loki", role: "leaf" }
+                ],
+                effect: "Hela enhances Thor and Loki's abilities."
+            },
+            {
+                name: "Arcane Order",
+                heroes: [
+                    { name: "Doctor Strange", role: "root" },
+                    { name: "Scarlet Witch", role: "leaf" }
+                ],
+                effect: "Doctor Strange boosts Scarlet Witch's magic."
+            },
+            {
+                name: "Stars Aligned",
+                heroes: [
+                    { name: "Captain America", role: "root" },
+                    { name: "Winter Soldier", role: "leaf" }
+                ],
+                effect: "Captain America enhances Winter Soldier's combat."
+            },
+            {
+                name: "Planet X Pals",
+                heroes: [
+                    { name: "Groot", role: "root" },
+                    { name: "Rocket Raccoon", role: "leaf" },
+                    { name: "Jeff The Land Shark", role: "leaf" }
+                ],
+                effect: "Groot supports Rocket and Jeff's synergy."
+            },
+            {
+                name: "Symbiote Bond",
+                heroes: [
+                    { name: "Peni Parker", role: "leaf" },
+                    { name: "Venom", role: "root" },
+                    { name: "Spider-Man", role: "leaf" }
+                ],
+                effect: "Venom enhances Peni and Spider-Man's abilities."
+            },
+            {
+                name: "Gamma Charge",
+                heroes: [
+                    { name: "Hulk", role: "root" },
+                    { name: "Iron Man", role: "leaf" },
+                    { name: "Namor", role: "leaf" }
+                ],
+                effect: "Hulk boosts Iron Man and Namor's power."
+            },
+            {
+                name: "Ammo Overload",
+                heroes: [
+                    { name: "The Punisher", role: "leaf" },
+                    { name: "Rocket Raccoon", role: "root" }
+                ],
+                effect: "Rocket enhances Punisher's firepower."
+            },
+            {
+                name: "Dimensional Shortcut",
+                heroes: [
+                    { name: "Magik", role: "root" },
+                    { name: "Black Panther", role: "leaf" }
+                ],
+                effect: "Magik aids Black Panther's mobility."
+            },
+            {
+                name: "Lunar Force",
+                heroes: [
+                    { name: "Cloak & Dagger", role: "root" },
+                    { name: "Moon Knight", role: "leaf" }
+                ],
+                effect: "Cloak & Dagger boost Moon Knight's abilities."
+            },
+            {
+                name: "Guardian Revival",
+                heroes: [
+                    { name: "Adam Warlock", role: "root" },
+                    { name: "Star-Lord", role: "leaf" },
+                    { name: "Mantis", role: "leaf" }
+                ],
+                effect: "Adam Warlock revives Star-Lord and Mantis."
+            },
+            {
+                name: "Chilling Charisma",
+                heroes: [
+                    { name: "Luna Snow", role: "root" },
+                    { name: "Jeff The Land Shark", role: "leaf" }
+                ],
+                effect: "Luna Snow enhances Jeff's support."
+            },
+            {
+                name: "Allied Agents",
+                heroes: [
+                    { name: "Hawkeye", role: "root" },
+                    { name: "Black Widow", role: "leaf" }
+                ],
+                effect: "Hawkeye boosts Black Widow's precision."
+            },
+            {
+                name: "Gamma Fastball",
+                heroes: [
+                    { name: "The Thing", role: "root" },
+                    { name: "Hulk", role: "root" },
+                    { name: "Wolverine", role: "leaf" }
+                ],
+                effect: "Thing and Hulk enhance Wolverine's aggression."
+            },
+            {
+                name: "Esu Alumnus",
+                heroes: [
+                    { name: "Squirrel Girl", role: "leaf" },
+                    { name: "Spider-Man", role: "root" }
+                ],
+                effect: "Spider-Man supports Squirrel Girl's antics."
+            },
+            {
+                name: "Atlas Bond",
+                heroes: [
+                    { name: "Iron Fist", role: "leaf" },
+                    { name: "Luna Snow", role: "root" }
+                ],
+                effect: "Luna Snow boosts Iron Fist's combat."
+            },
+            {
+                name: "Storming Ignition",
+                heroes: [
+                    { name: "Human Torch", role: "leaf" },
+                    { name: "Storm", role: "root" }
+                ],
+                effect: "Storm enhances Human Torch's fire abilities."
+            },
+            {
+                name: "Fantastic Four",
+                heroes: [
+                    { name: "The Thing", role: "leaf" },
+                    { name: "Mister Fantastic", role: "leaf" },
+                    { name: "Invisible Woman", role: "leaf" },
+                    { name: "Human Torch", role: "root" }
+                ],
+                effect: "Human Torch boosts Fantastic Four synergy."
+            },
+            {
+                name: "Mental Projection",
+                heroes: [
+                    { name: "Emma Frost", role: "root" },
+                    { name: "Psylocke", role: "leaf" },
+                    { name: "Magneto", role: "leaf" }
+                ],
+                effect: "Emma Frost enhances Psylocke and Magneto's powers."
+            }
+        ];
+
+        // Each hero maps to 1-3 heroes that counter them
+        const heroCounters = {
+			"Adam Warlock": ["Iron Fist", "Venom", "Invisible Woman"],
+			"Black Panther": ["Mantis", "Namor", "Mister Fantastic"],
+			"Black Widow": ["Spider-Man", "Iron Fist", "Groot"],
+			"Captain America": ["Namor", "Iron Fist", "Scarlet Witch"],
+			"Cloak & Dagger": ["Venom", "Wolverine", "Iron Fist"],
+			"Doctor Strange": ["Wolverine", "Emma Frost", "Groot"],
+			"Emma Frost": ["Rocket Raccoon", "Hela", "Magneto"],
+			"Groot": ["Human Torch", "Star-Lord", "Iron Fist"],
+			"Hawkeye": ["Wolverine", "Hulk", "Invisible Woman"],
+			"Hela": ["Star-Lord", "Iron Fist", "Hela"],
+			"Hulk": ["Rocket Raccoon", "Storm", "Luna Snow"],
+			"Human Torch": ["Hela", "Winter Soldier", "Magneto"],
+			"Invisible Woman": ["Black Panther", "Wolverine", "Winter Soldier"],
+			"Iron Fist": ["Namor", "Mantis", "Mister Fantastic"],
+			"Iron Man": ["Hela", "The Thing", "Magneto"],
+			"Jeff The Land Shark": ["Venom", "Wolverine", "Iron Fist"],
+			"Loki": ["Venom", "Black Panther", "Mantis"],
+			"Luna Snow": ["Iron Fist", "Wolverine", "Mantis"],
+			"Magik": ["Rocket Raccoon", "Hela", "Storm"],
+			"Magneto": ["Venom", "Human Torch", "Iron Fist"],
+			"Mantis": ["Venom", "Wolverine", "Black Panther"],
+			"Mister Fantastic": ["Venom", "Star-Lord", "Hela"],
+			"Moon Knight": ["Spider-Man", "Venom", "The Thing"],
+			"Namor": ["Rocket Raccoon", "Storm", "Magneto"],
+			"Peni Parker": ["Human Torch", "Star-Lord", "Iron Fist"],
+			"Psylocke": ["The Thing", "Hela", "Groot"],
+			"Punisher": ["Doctor Strange", "Jeff The Land Shark", "Moon Knight"],
+			"Rocket Raccoon": ["Venom", "Iron Fist", "Wolverine"],
+			"Scarlet Witch": ["Venom", "Iron Fist", "Wolverine"],
+			"Spider-Man": ["Namor", "Mister Fantastic", "Scarlet Witch"],
+			"Squirrel Girl": ["Storm", "Star-Lord", "Magneto"],
+			"Star-Lord": ["Hela", "Winter Soldier", "Mantis"],
+			"Storm": ["Hela", "Magneto", "Venom"],
+			"The Thing": ["Groot", "Punisher", "Peni Parker"],
+			"Thor": ["Rocket Raccoon", "Hela", "Luna Snow"],
+			"Venom": ["Wolverine", "Iron Fist", "Namor"],
+			"Winter Soldier": ["Venom", "Iron Fist", "Spider-Man"],
+			"Wolverine": ["Captain America", "Mantis", "Namor"]
+		};
+
+        // Creates a grid of clickable hero portraits for a given role
+        function createHeroGrid(role, containerId) {
+            const container = document.getElementById(containerId);
+            role.forEach(heroName => {
+                const hero = heroes[heroName];
+                if (!hero) return;
+
+                const heroDiv = document.createElement("div");
+                heroDiv.classList.add("hero");
+                heroDiv.setAttribute("role", "button");
+                heroDiv.setAttribute("aria-label", `Select ${hero.name}`);
+                heroDiv.setAttribute("tabindex", "0");
+
+                // Create hero image
+                const img = document.createElement("img");
+                img.src = hero.image;
+                img.alt = `${hero.name} portrait`;
+                img.onerror = () => {
+                    heroDiv.classList.add("placeholder");
+                    heroDiv.innerText = hero.name + " (Image Missing)";
+                    img.style.display = "none";
+                };
+
+                // Create hero name label
+                const nameSpan = document.createElement("span");
+                nameSpan.innerText = hero.name;
+
+                heroDiv.appendChild(img);
+                heroDiv.appendChild(nameSpan);
+
+                // Handle click and keyboard selection
+                heroDiv.onclick = () => selectHero(hero.name);
+                heroDiv.onkeydown = (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        selectHero(hero.name);
+                    }
+                };
+
+                container.appendChild(heroDiv);
+            });
+        }
+
+        // Generates a balanced team composition based on the selected hero and bans
+        function generateTeamComp(selectedHero, bannedHeroes = []) {
+            // Validate selected hero
+            const selectedHeroData = heroes[selectedHero];
+            if (!selectedHeroData) return [];
+
+            // Determine the tier of the selected hero
+            const selectedTier = Object.keys(tierList).find(tier => tierList[tier].includes(selectedHero)) || 'F';
+            const isLowTier = ['C', 'D', 'F'].includes(selectedTier);
+
+            // Filter available heroes (C tier or above, not banned, not selected)
+            const availableHeroes = [];
+            for (const tier of ['S', 'A', 'B', 'C']) {
+                tierList[tier].forEach(hero => {
+                    if (hero !== selectedHero && !bannedHeroes.includes(hero)) {
+                        availableHeroes.push({ name: hero, tier });
+                    }
+                });
+            }
+
+            // Include D/F tier heroes for Team-Ups if selected hero is C tier or below
+            if (isLowTier) {
+                for (const tier of ['D', 'F']) {
+                    tierList[tier].forEach(hero => {
+                        if (hero !== selectedHero && !bannedHeroes.includes(hero)) {
+                            availableHeroes.push({ name: hero, tier });
+                        }
+                    });
+                }
+            }
+
+            // Find Team-Ups involving the selected hero
+            const relevantTeamUps = teamUps.filter(teamUp =>
+                teamUp.heroes.some(h => h.name === selectedHero)
+            );
+
+            // Initialize team composition
+            const team = [];
+            const rolesNeeded = { vanguards: 2, strategists: 2, duelists: 2 };
+            const selectedRole = vanguards.includes(selectedHero) ? 'vanguards' :
+                                strategists.includes(selectedHero) ? 'strategists' : 'duelists';
+            rolesNeeded[selectedRole]--; // Account for selected hero
+            team.push({ name: selectedHero, tier: selectedTier, role: selectedRole });
+
+            // Add Team-Up partners if required (mandatory for C tier or below)
+            if (isLowTier && relevantTeamUps.length > 0) {
+                const teamUp = relevantTeamUps[0]; // Use first Team-Up for simplicity
+                const partners = teamUp.heroes.filter(h => h.name !== selectedHero);
+                for (const partner of partners) {
+                    if (availableHeroes.some(h => h.name === partner.name)) {
+                        const partnerRole = vanguards.includes(partner.name) ? 'vanguards' :
+                                          strategists.includes(partner.name) ? 'strategists' : 'duelists';
+                        if (rolesNeeded[partnerRole] > 0) {
+                            team.push({
+                                name: partner.name,
+                                tier: Object.keys(tierList).find(t => tierList[t].includes(partner.name)) || 'F',
+                                role: partnerRole,
+                                teamUp: teamUp.name
+                            });
+                            rolesNeeded[partnerRole]--;
+                            availableHeroes.splice(availableHeroes.findIndex(h => h.name === partner.name), 1);
+                        }
+                    }
+                }
+            } else {
+                // Optionally add Team-Up partners for S/A/B tiers if they fit roles
+                for (const teamUp of relevantTeamUps) {
+                    const partners = teamUp.heroes.filter(h => h.name !== selectedHero);
+                    for (const partner of partners) {
+                        if (availableHeroes.some(h => h.name === partner.name)) {
+                            const partnerRole = vanguards.includes(partner.name) ? 'vanguards' :
+                                              strategists.includes(partner.name) ? 'strategists' : 'duelists';
+                            if (rolesNeeded[partnerRole] > 0 && ['S', 'A', 'B'].includes(Object.keys(tierList).find(t => tierList[t].includes(partner.name)))) {
+                                team.push({
+                                    name: partner.name,
+                                    tier: Object.keys(tierList).find(t => tierList[t].includes(partner.name)) || 'F',
+                                    role: partnerRole,
+                                    teamUp: teamUp.name
+                                });
+                                rolesNeeded[partnerRole]--;
+                                availableHeroes.splice(availableHeroes.findIndex(h => h.name === partner.name), 1);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Fill remaining slots to ensure at least one of each role
+            const rolesToFill = ['vanguards', 'strategists', 'duelists'].filter(role => rolesNeeded[role] > 0);
+            for (const role of rolesToFill) {
+                const roleHeroes = availableHeroes.filter(h =>
+                    (role === 'vanguards' && vanguards.includes(h.name)) ||
+                    (role === 'strategists' && strategists.includes(h.name)) ||
+                    (role === 'duelists' && duelists.includes(h.name))
+                );
+                // Sort by tier (S > A > B > C)
+                roleHeroes.sort((a, b) => {
+                    const tierOrder = ['S', 'A', 'B', 'C', 'D', 'F'];
+                    return tierOrder.indexOf(a.tier) - tierOrder.indexOf(b.tier);
+                });
+                for (let i = 0; i < rolesNeeded[role] && roleHeroes.length > 0; i++) {
+                    const hero = roleHeroes.shift();
+                    team.push({ name: hero.name, tier: hero.tier, role });
+                    availableHeroes.splice(availableHeroes.findIndex(h => h.name === hero.name), 1);
+                }
+            }
+
+            // Fill any remaining slots with highest-tier heroes
+            while (team.length < 6 && availableHeroes.length > 0) {
+                availableHeroes.sort((a, b) => {
+                    const tierOrder = ['S', 'A', 'B', 'C', 'D', 'F'];
+                    return tierOrder.indexOf(a.tier) - tierOrder.indexOf(b.tier);
+                });
+                const hero = availableHeroes.shift();
+                const role = vanguards.includes(hero.name) ? 'vanguards' :
+                            strategists.includes(hero.name) ? 'strategists' : 'duelists';
+                team.push({ name: hero.name, tier: hero.tier, role });
+            }
+
+            return team.slice(0, 6); // Ensure max 6 heroes
+        }
+
+        // Handles hero selection and updates the UI
+        function selectHero(heroName) {
+            const bannedHeroes = JSON.parse(localStorage.getItem("bannedHeroes") || "[]");
+            document.getElementById("selected-hero").innerText = heroName;
+            // Update banned heroes list to disable selected hero
+            updateBannedHeroesList(heroName, bannedHeroes);
+            const team = generateTeamComp(heroName, bannedHeroes);
+            updateTeamSynergy(team);
+            localStorage.setItem("selectedHero", heroName);
+        }
+
+        // Updates the team synergy display with the recommended team
+        function updateTeamSynergy(team) {
+            const synergyDiv = document.getElementById("team-synergy");
+            synergyDiv.innerHTML = "";
+            if (team.length === 0) {
+                synergyDiv.innerText = "No team synergy available";
+                return;
+            }
+            team.forEach(member => {
+                const hero = heroes[member.name];
+                if (!hero) return;
+                const synergyHeroDiv = document.createElement("div");
+                synergyHeroDiv.classList.add("synergy-hero");
+                const img = document.createElement("img");
+                img.src = hero.image;
+                img.alt = `${hero.name} portrait`;
+                img.onerror = () => {
+                    synergyHeroDiv.classList.add("placeholder");
+                    synergyHeroDiv.innerText = hero.name + " (Image Missing)";
+                    img.style.display = "none";
+                };
+                const nameSpan = document.createElement("span");
+                nameSpan.innerText = `${hero.name} (${member.tier} Tier, ${member.role}${member.teamUp ? `, ${member.teamUp}` : ''})`;
+                synergyHeroDiv.appendChild(img);
+                synergyHeroDiv.appendChild(nameSpan);
+                synergyDiv.appendChild(synergyHeroDiv);
+            });
+        }
+
+        // Initializes the counterpick list UI
+        function initCounterpickUI() {
+            const counterpickList = document.getElementById("counterpick-list");
+
+            // Create a list item for each hero
+            Object.keys(heroes).sort().forEach(heroName => {
+                const heroItem = document.createElement("div");
+                heroItem.classList.add("counter-hero");
+                heroItem.setAttribute("data-hero", heroName);
+                heroItem.setAttribute("role", "button");
+                heroItem.setAttribute("aria-label", `Select ${heroName} to counter`);
+                heroItem.setAttribute("tabindex", "0");
+                heroItem.innerText = heroName;
+
+                // Handle click to select counter hero
+                heroItem.onclick = () => selectCounterHero(heroName, heroItem);
+
+                // Handle keyboard interaction
+                heroItem.onkeydown = (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        selectCounterHero(heroName, heroItem);
+                    }
+                };
+
+                counterpickList.appendChild(heroItem);
+            });
+
+            // Set default selection to Adam Warlock
+            const defaultHero = "Adam Warlock";
+            const defaultItem = counterpickList.querySelector(`[data-hero="${defaultHero}"]`);
+            if (defaultItem) {
+                selectCounterHero(defaultHero, defaultItem);
+            }
+        }
+
+        // Handles selection of a hero to counter
+        function selectCounterHero(heroName, heroItem) {
+            // Update UI to highlight selected hero
+            const counterpickList = document.getElementById("counterpick-list");
+            Array.from(counterpickList.children).forEach(item => {
+                item.classList.toggle("selected", item === heroItem);
+            });
+
+            // Display selected hero's image
+            const heroImageDiv = document.getElementById("counter-hero-image");
+            heroImageDiv.innerHTML = "";
+            const hero = heroes[heroName];
+            if (hero) {
+                const img = document.createElement("img");
+                img.src = hero.image;
+                img.alt = `${hero.name} portrait`;
+                img.onerror = () => {
+                    heroImageDiv.innerText = hero.name + " (Image Missing)";
+                    img.style.display = "none";
+                };
+                heroImageDiv.appendChild(img);
+            }
+
+            // Display counter heroes with "Best counters" label
+            const counterPicksDiv = document.getElementById("counter-picks");
+            counterPicksDiv.innerHTML = "";
+            const counters = heroCounters[heroName] || [];
+
+            // Add "Best counters" label if there are counters
+            if (counters.length > 0) {
+                const label = document.createElement("h3");
+                label.innerText = "Best counters";
+                counterPicksDiv.appendChild(label);
+            }
+
+            // Render counter heroes
+            counters.forEach(counterName => {
+                const counterHero = heroes[counterName];
+                if (!counterHero) return;
+                const counterDiv = document.createElement("div");
+                counterDiv.classList.add("counter-pick-hero");
+                const img = document.createElement("img");
+                img.src = counterHero.image;
+                img.alt = `${counterHero.name} portrait`;
+                img.onerror = () => {
+                    counterDiv.innerText = counterHero.name + " (Image Missing)";
+                    img.style.display = "none";
+                };
+                const nameSpan = document.createElement("span");
+                nameSpan.innerText = counterHero.name;
+                counterDiv.appendChild(img);
+                counterDiv.appendChild(nameSpan);
+                counterPicksDiv.appendChild(counterDiv);
+            });
+
+            // Save selection to localStorage
+            localStorage.setItem("counterHero", heroName);
+        }
+
+        // Initializes the banned heroes list UI
+        function initBannedHeroesUI() {
+            const bannedHeroesList = document.getElementById("banned-heroes-list");
+
+            // Create a list item for each hero
+            Object.keys(heroes).sort().forEach(heroName => {
+                const heroItem = document.createElement("div");
+                heroItem.classList.add("ban-hero");
+                heroItem.setAttribute("data-hero", heroName);
+                heroItem.setAttribute("role", "button");
+                heroItem.setAttribute("aria-label", `Ban or unban ${heroName}`);
+                heroItem.setAttribute("tabindex", "0");
+                heroItem.innerText = heroName;
+
+                // Handle click to toggle ban
+                heroItem.onclick = () => toggleBan(heroName, heroItem);
+
+                // Handle keyboard interaction
+                heroItem.onkeydown = (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        toggleBan(heroName, heroItem);
+                    }
+                };
+
+                bannedHeroesList.appendChild(heroItem);
+            });
+        }
+
+        // Toggles a hero's ban status and updates the team
+        function toggleBan(heroName, heroItem) {
+            const selectedHero = localStorage.getItem("selectedHero");
+            const bannedHeroes = JSON.parse(localStorage.getItem("bannedHeroes") || "[]");
+
+            // Prevent banning the selected hero
+            if (heroName === selectedHero) {
+                alert("Cannot ban the selected hero!");
+                return;
+            }
+
+            // Check if hero is already banned
+            const isBanned = bannedHeroes.includes(heroName);
+            if (isBanned) {
+                // Remove ban
+                bannedHeroes.splice(bannedHeroes.indexOf(heroName), 1);
+                heroItem.classList.remove("banned");
+            } else {
+                // Add ban if under limit
+                if (bannedHeroes.length >= 4) {
+                    alert("Maximum of 4 banned heroes reached!");
+                    return;
+                }
+                bannedHeroes.push(heroName);
+                heroItem.classList.add("banned");
+            }
+
+            // Update storage and team
+            localStorage.setItem("bannedHeroes", JSON.stringify(bannedHeroes));
+            if (selectedHero) {
+                selectHero(selectedHero); // Recompute team
+            }
+        }
+
+        // Updates the banned heroes list to reflect current bans and disable selected hero
+        function updateBannedHeroesList(selectedHero, bannedHeroes) {
+            const bannedHeroesList = document.getElementById("banned-heroes-list");
+            Array.from(bannedHeroesList.children).forEach(item => {
+                const heroName = item.getAttribute("data-hero");
+                item.classList.toggle("banned", bannedHeroes.includes(heroName));
+                item.classList.toggle("disabled", heroName === selectedHero);
+                item.setAttribute("aria-disabled", heroName === selectedHero ? "true" : "false");
+            });
+        }
+
+        // Resets the UI and clears saved data
+        document.getElementById("reset-btn").addEventListener("click", () => {
+            document.getElementById("selected-hero").innerText = "";
+            document.getElementById("team-synergy").innerHTML = "";
+            localStorage.removeItem("selectedHero");
+            localStorage.removeItem("bannedHeroes");
+            // Reset banned heroes list
+            updateBannedHeroesList(null, []);
+            // Reset counterpick to Adam Warlock
+            const counterpickList = document.getElementById("counterpick-list");
+            const defaultItem = counterpickList.querySelector(`[data-hero="Adam Warlock"]`);
+            if (defaultItem) {
+                selectCounterHero("Adam Warlock", defaultItem);
+            }
+        });
+
+        // Loads saved hero, bans, and counterpick on page load
+        function loadSavedState() {
+            const savedHero = localStorage.getItem("selectedHero");
+            const savedBans = JSON.parse(localStorage.getItem("bannedHeroes") || "[]");
+            const savedCounterHero = localStorage.getItem("counterHero") || "Adam Warlock";
+            if (savedHero && heroes[savedHero]) {
+                selectHero(savedHero);
+            } else {
+                // Initialize banned heroes list with no selected hero
+                updateBannedHeroesList(null, savedBans);
+            }
+            // Initialize counterpick selection
+            const counterpickList = document.getElementById("counterpick-list");
+            const counterItem = counterpickList.querySelector(`[data-hero="${savedCounterHero}"]`);
+            if (counterItem && heroes[savedCounterHero]) {
+                selectCounterHero(savedCounterHero, counterItem);
+            } else {
+                selectCounterHero("Adam Warlock", counterpickList.querySelector(`[data-hero="Adam Warlock"]`));
+            }
+        }
+
+        // Initialize grids and UI
+        createHeroGrid(vanguards, "vanguard-grid");
+        createHeroGrid(strategists, "strategist-grid");
+        createHeroGrid(duelists, "duelist-grid");
+        initBannedHeroesUI();
+        initCounterpickUI();
+        loadSavedState();
+    </script>
 </body>
 </html>
