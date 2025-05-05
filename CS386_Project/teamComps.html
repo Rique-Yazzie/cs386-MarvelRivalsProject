@@ -15,214 +15,539 @@
     <meta name="twitter:description" content="Build teams and learn hero counters in Marvel Rivals.">
     <meta name="twitter:image" content="/images/preview.jpg">
     <title>Team Comps - Marvel Rivals Hero Synergy & Counter Builder</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body {
-            background-color: #1a1a1a;
-            font-family: 'Bebas Neue', sans-serif;
-            color: white;
-            margin: 0;
-            padding: 20px;
+        :root {
+            --marvel-yellow: #FFB800;
+            --marvel-black: #1A1A1A;
+            --marvel-gray: #333333;
         }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            color: white;
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+                        #000000;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
         }
-        .header {
-            margin-bottom: 20px;
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--marvel-yellow) 50%, 
+                transparent 100%);
         }
-        .header h1 {
-            font-size: 48px;
-            margin: 0;
+
+        .hero-section h1 {
+            color: var(--marvel-yellow);
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255,184,0,0.5);
+            margin-bottom: 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
         }
-        .header p {
-            font-size: 18px;
-            margin: 5px 0;
+
+        .hero-subtitle {
+            color: #ffffff;
+            font-size: 1.2rem;
+            opacity: 0.8;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
         }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+
         .role-section {
-            margin-top: 20px;
-            width: 80%;
-            max-width: 1000px;
+            margin-bottom: 3rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 184, 0, 0.1);
+            transition: all 0.3s ease;
         }
+
+        .role-section:hover {
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 184, 0, 0.2);
+        }
+
         .role-title {
-            font-size: 24px;
-            margin-bottom: 10px;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            letter-spacing: 2px;
+            color: #FFB800;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid #FFB800;
+            padding-bottom: 12px;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
         }
+
+        .role-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFB800, transparent);
+        }
+
         .hero-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            padding: 20px;
             justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+
         .hero {
-            width: 120px;
-            height: 120px;
+            width: 160px;
+            height: 160px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
-            transition: transform 0.3s;
-            background-color: #333;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 184, 0, 0.1);
             overflow: hidden;
+            margin: 0 auto;
+            position: relative;
         }
-        .hero:focus {
-            outline: 2px solid #fff;
-            outline-offset: 2px;
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.7));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
+
+        .hero:hover {
+            transform: translateY(-8px) scale(1.03);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 184, 0, 0.3);
+            border-color: rgba(255, 184, 0, 0.4);
+        }
+
+        .hero:hover::after {
+            opacity: 1;
+        }
+
         .hero img {
             width: 100%;
             height: 80%;
             object-fit: cover;
             object-position: top;
-            border-radius: 8px 8px 0 0;
+            border-radius: 12px 12px 0 0;
+            transition: transform 0.3s ease;
         }
+
+        .hero:hover img {
+            transform: scale(1.05);
+        }
+
         .hero span {
-            font-size: 12px;
+            font-size: 14px;
             color: white;
             text-align: center;
             width: 100%;
-            padding: 5px 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            padding: 8px 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
-        .hero:hover {
-            transform: scale(1.1);
+
+        .hero:hover span {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: var(--marvel-yellow);
         }
+
         .results {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #444;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 1200px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 184, 0, 0.1);
+            transition: all 0.3s ease;
         }
+
+        .results:hover {
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 184, 0, 0.2);
+        }
+
+        .results h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+            color: #FFB800;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid #FFB800;
+            padding-bottom: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        #selected-hero {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: #FFB800;
+            margin: 0.5rem 0 1.5rem 0;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(255,184,0,0.3);
+        }
+
+        #team-synergy {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 1rem auto;
+            padding: 1rem;
+        }
+
+        .synergy-hero {
+            width: 180px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 184, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px;
+        }
+
+        .synergy-hero:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 184, 0, 0.3);
+        }
+
+        .synergy-hero img {
+            width: 100%;
+            height: 65%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .synergy-hero span {
+            font-size: 13px;
+            color: var(--marvel-yellow);
+            text-align: center;
+            width: 100%;
+            padding: 8px 4px;
+            background-color: rgba(0, 0, 0, 0.8);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-height: 35%;
+        }
+
+        .synergy-hero span strong {
+            color: var(--marvel-yellow);
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .synergy-hero span span {
+            background: none;
+            padding: 2px 0;
+            font-size: 12px;
+            color: var(--marvel-yellow);
+        }
+
+        .synergy-hero span span:last-child {
+            color: var(--marvel-yellow);
+            font-size: 11px;
+            font-style: italic;
+        }
+
         .side-sections {
             display: flex;
             justify-content: center;
             gap: 20px;
             width: 100%;
-            max-width: 600px;
-            margin-bottom: 20px;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
         }
+
         .counterpick-section, .banned-heroes-selection {
-            background-color: #333;
-            border-radius: 5px;
-            padding: 10px;
-            width: 200px;
-            text-align: left;
+            background-color: rgba(34, 34, 34, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            width: 300px;
+            text-align: center;
+            border: 1px solid rgba(255, 184, 0, 0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         }
+
+        .counterpick-section:hover, .banned-heroes-selection:hover {
+            background-color: rgba(34, 34, 34, 0.9);
+            border-color: rgba(255, 184, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .counterpick-section h2, .banned-heroes-selection h2 {
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
         #counterpick-list, #banned-heroes-list {
             max-height: 200px;
             overflow-y: auto;
-            background-color: #222;
-            border-radius: 3px;
+            background-color: var(--marvel-black);
+            border-radius: 5px;
             padding: 5px;
+            border: 1px solid var(--marvel-gray);
+            text-align: center;
         }
+
         .counter-hero, .ban-hero {
-            padding: 8px;
+            padding: 10px;
             cursor: pointer;
-            border-radius: 3px;
-            transition: background-color 0.2s;
+            border-radius: 8px;
+            transition: all 0.3s ease;
             font-size: 14px;
-            text-align: left;
-        }
-        .counter-hero:hover, .ban-hero:hover {
-            background-color: #555;
-        }
-        .counter-hero.selected, .ban-hero.banned {
-            background-color: #007bff;
+            text-align: center;
             color: white;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            margin: 4px 0;
+            border: 1px solid transparent;
         }
+
+        .counter-hero:hover, .ban-hero:hover {
+            background-color: rgba(255, 184, 0, 0.1);
+            border-color: rgba(255, 184, 0, 0.2);
+            transform: translateX(4px);
+        }
+
+        .counter-hero.selected, .ban-hero.banned {
+            background-color: rgba(160, 22, 22, 0.8);
+            color: white;
+            border-color: rgba(255, 184, 0, 0.3);
+            box-shadow: 0 2px 8px rgba(160, 22, 22, 0.4);
+        }
+
         .ban-hero.disabled {
             color: #777;
             cursor: not-allowed;
         }
+
         #counter-hero-image, .counter-pick-hero {
             margin-top: 10px;
             text-align: center;
         }
+
         #counter-hero-image img, .counter-pick-hero img {
-            width: 100px;
-            height: 75px;
+            width: 140px;
+            height: 140px;
             object-fit: cover;
             object-position: top;
-            border-radius: 5px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 184, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        #counter-hero-image img:hover, .counter-pick-hero img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 184, 0, 0.4);
+        }
+
+        .counter-pick-hero {
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .counter-pick-hero:hover {
+            background: rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
         .counter-pick-hero span {
             display: block;
-            font-size: 12px;
-            margin-top: 5px;
-        }
-        #counter-picks h3 {
-            font-size: 16px;
-            margin: 10px 0 5px;
-            text-align: center;
-        }
-        #reset-btn {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: red;
+            font-size: 14px;
+            margin-top: 8px;
             color: white;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #counter-hero-image {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        #counter-hero-image:hover {
+            background: rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        #counter-picks h3 {
+            font-size: 18px;
+            margin: 15px 0 10px;
+            text-align: center;
+            color: var(--marvel-yellow);
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        #reset-btn {
+            margin-top: 2rem;
+            padding: 14px 28px;
+            background-color: #FFB800;
+            color: #000;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 12px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            letter-spacing: 1.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
         }
-        #reset-btn:focus {
-            outline: 2px solid #fff;
-            outline-offset: 2px;
+
+        #reset-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
         }
+
+        #reset-btn:hover {
+            background-color: #ffd700;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 184, 0, 0.4);
+        }
+
+        #reset-btn:hover::before {
+            left: 100%;
+        }
+
+        #reset-btn:active {
+            transform: translateY(-1px);
+        }
+
         .hero.placeholder {
-            background-color: #555;
+            background-color: #333;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #ccc;
             flex-direction: column;
         }
-        #team-synergy {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-        .synergy-hero {
-            width: 100px;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            border-radius: 8px;
-            background-color: #333;
-            overflow: hidden;
-        }
-        .synergy-hero img {
-            width: 100%;
-            height: 75%;
-            object-fit: cover;
-            object-position: top;
-            border-radius: 6px 6px 0 0;
-        }
-        .synergy-hero span {
-            font-size: 12px;
-            color: white;
+
+        .header {
             text-align: center;
-            width: 100%;
-            padding: 4px 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            color: var(--marvel-yellow);
+            margin: 0 0 1rem 0;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255,184,0,0.3);
+        }
+
+        .header p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin: 0;
+            text-align: center;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -230,12 +555,12 @@
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="./mainPage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <img src="./marvel_rivals_logo.png" alt="Logo" height="32">
+                <img src="./CharacterImages/marvel_rivals_logo.png" alt="Logo" height="32">
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="./characterIndex.html" class="nav-link px-2 text-white">Heroes</a></li>
                 <li><a href="./tierList.html" class="nav-link px-2 text-white">Tier Lists</a></li>
-                <li><a href="./teamComps.html" class="nav-link px-2 text-white">Team Comp</a></li>
+                <li><a href="./teamComps.html" class="nav-link px-2 text-white active">Team Comp</a></li>
                 <li><a href="./news.html" class="nav-link px-2 text-white">News</a></li>
             </ul>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -248,11 +573,21 @@
         </div>
     </div>
 
-    <!-- Main Content from prototype2.html -->
+    <!-- Hero Section -->
+    <div class="hero-section bg-dark">
+        <div class="container py-5">
+            <div class="text-center">
+                <h1 class="marvel-font">TEAM COMPOSITIONS</h1>
+                <p class="lead text-secondary mb-5">Build optimal team compositions and learn hero synergies in Marvel Rivals</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
     <div class="container mt-4">
         <!-- Header with title and description -->
         <header class="header">
-            <h1>Marvel Rivals Team aire: & Counter Builder</h1>
+            <h1>Marvel Rivals Team Builder & Counter Builder</h1>
             <p>Choose a hero, ban up to four heroes, and learn how to counter specific enemies for optimized gameplay.</p>
         </header>
         
@@ -753,7 +1088,12 @@
                     img.style.display = "none";
                 };
                 const nameSpan = document.createElement("span");
-                nameSpan.innerText = `${hero.name} (${member.tier} Tier, ${member.role}${member.teamUp ? `, ${member.teamUp}` : ''})`;
+                nameSpan.innerHTML = `
+                    <strong>${hero.name}</strong>
+                    <span>${member.tier} Tier</span>
+                    <span>${member.role}</span>
+                    ${member.teamUp ? `<span>${member.teamUp}</span>` : ''}
+                `;
                 synergyHeroDiv.appendChild(img);
                 synergyHeroDiv.appendChild(nameSpan);
                 synergyDiv.appendChild(synergyHeroDiv);
